@@ -1,0 +1,38 @@
+.wrapper{
+    padding: 5%;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+aside{
+    background-color:  aquamarine;
+    float: right;
+    width: 30%;
+}
+
+aside header{
+    height: 12px;
+    background-color: aqua;
+}
+
+aside section{
+    padding: 4%;
+    padding-top: 1%;
+}
+
+/* Experience list*/
+
+.experience-list{
+        border: 1px solid red;
+        float: left;
+        width: 60%;
+
+}
+
+section .exp-item{
+    border: 1px solid gray;
+}
+
+section .exp-item.i1{
+    background-color: gold;
+}

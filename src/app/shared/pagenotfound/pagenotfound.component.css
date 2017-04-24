@@ -1,0 +1,25 @@
+.container{
+  padding-top: 20%;
+}
+
+.box-404-content {
+  width: 40%;
+  color: gray;
+  height: 300px;
+  margin: 0 auto;
+  /*background-color: white;*/
+  /*box-shadow: 3px 3px 10px 1px gray;*/
+  /*border-radius: 3px;*/
+  text-align: center;
+
+}
+
+.box-404-content a{
+  text-decoration: none;
+  
+}
+
+.box-404-content a:hover{
+  text-decoration: none;
+  color: gray;
+}
