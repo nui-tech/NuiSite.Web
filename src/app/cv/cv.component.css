@@ -1,38 +1,185 @@
-.wrapper{
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400');
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:200');
+.cv-container {
+    min-height: 100%;
+}
+
+.wrapper {
     padding: 5%;
-    padding-top: 0;
+    padding-top: 2%;
     padding-bottom: 0;
+    max-width: 1300px;
+    margin: 0 auto;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 100%;
 }
 
-aside{
-    background-color:  aquamarine;
+.myname {
+    font-weight: 300;
+    font-size: 220%;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+
+/* Aside ==============================*/
+
+aside {
+    background-color: #66a5ad;
     float: right;
-    width: 30%;
+    width: 35%;
+    max-width: 400px;
+    color: white;
 }
 
-aside header{
+aside header {
     height: 12px;
-    background-color: aqua;
+    background-color: #07575b;
 }
 
-aside section{
+aside section {
     padding: 4%;
-    padding-top: 1%;
+    padding-top: 2.5%;
 }
 
-/* Experience list*/
-
-.experience-list{
-        border: 1px solid red;
-        float: left;
-        width: 60%;
-
+aside a {
+    text-decoration: none;
+    color: white;
 }
 
-section .exp-item{
-    border: 1px solid gray;
+
+/* Article ==============================*/
+
+article {
+    margin-top: 2%;
 }
 
-section .exp-item.i1{
-    background-color: gold;
+.cv {
+    font-weight: bolder;
+}
+
+article a {
+    text-decoration: none;
+    color: #07575b;
+}
+
+article a:hover {
+    color: #66a5ad;
+}
+
+
+/* Experience list =====================*/
+
+.experience-list {
+    float: left;
+    width: 60%;
+    margin-top: 3%;
+    ;
+}
+
+.experience-list h5 {
+    font-style: italic;
+    font-size: 80%;
+    margin-top: -6px;
+}
+
+section .exp-item {
+    border-bottom: 1px solid gray;
+    margin-top: 2.5%;
+    margin-left: 4%;
+}
+
+section .exp-item h3 {
+    color: #07575b;
+}
+
+.date {
+    float: right;
+    font-size: 80%;
+    margin-top: -7px;
+}
+
+
+/* Skills ======================= */
+
+.skills {
+    float: left;
+    width: 60%;
+    margin-top: 3%;
+    display: block;
+}
+
+.skill-set {
+    font-size: small;
+    margin-bottom: 16px;
+    overflow: auto;
+}
+
+.skill-set ul {
+    float: left;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.skill-set ul li:before {
+    content: "-";
+    color: grey;
+    margin: 0 16px;
+}
+
+.horizontal-list {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: small;
+  font-style: italic; }
+  .horizontal-list li:last-child:after, .horizontal-list li:nth-child(1):after {
+    content: '';
+    margin: 0; }
+  .horizontal-list li:nth-child(1):after {
+    margin-left: 4px; }
+  .horizontal-list li:after {
+    content: "-";
+    color: grey;
+    margin: 0 2px; 
+    }
+
+
+.ref{
+    float: left;
+    margin-top: 3%;
+}
+
+.ref section{
+    margin-left: 4%;
+}
+
+
+
+
+
+/* Screen break point */
+
+@media (max-width: 767px) {
+    .wrapper {
+        padding: 7%;
+        padding-top: 4%;
+    }
+    aside {
+        float: none;
+        width: 100%;
+        max-width: 100%;
+        margin-top: 6%;
+    }
+    .experience-list {
+        width: 100%;
+    }
+    section .exp-item {
+        margin-top: 4%;
+    }
+    article {
+        margin-top: 6%;
+    }
 }
