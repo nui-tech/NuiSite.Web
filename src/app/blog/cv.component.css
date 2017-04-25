@@ -4,14 +4,9 @@
     min-height: 100%;
 }
 
-#navbar{
-    margin-top: 10px;
-    margin-right: 10px;
-}
-
 .wrapper {
     padding: 5%;
-    padding-top: 20px;
+    padding-top: 2%;
     padding-bottom: 0;
     max-width: 1200px;
     margin: 0 auto;
@@ -188,11 +183,4 @@ section .exp-item h3 {
     article {
         margin-top: 6%;
     }
-
-
-
-    h3{
-        font-size: 150%;
-    }
-
 }
