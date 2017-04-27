@@ -2,6 +2,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+//3rd party
+import { MaterialModule } from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+
 // Custom Modules
 import { AppRoutingModule } from './app-routing.module'
 import { CvModule } from './cv/cv.module';
@@ -23,8 +28,13 @@ import { PagenotfoundComponent } from 'app/shared/pagenotfound/pagenotfound.comp
 
     //Custom modules
     CvModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MaterialModule,
+    BrowserAnimationsModule
 
+  ],
+  entryComponents:[
+        
   ],
   providers: [
   ],

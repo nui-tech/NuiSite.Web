@@ -18,3 +18,12 @@
     font-family: 'Open Sans', sans-serif;
     font-size: 100%;
 }
+
+.post-pic{
+    text-align: center;
+    
+}
+
+.post-pic img{
+    box-shadow: 2px 3px 15px 2px gray;
+}

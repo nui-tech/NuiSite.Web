@@ -6,20 +6,75 @@
         </li>
     </ul>
 
-<div class="wrapper">
 
 
 
+    <div class="wrapper">
+        <button data-toggle="modal" data-target="#exampleModalLong" md-raised-button>New Post</button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">New Post</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+                    </div>
+                    <!--Model inner Start here-->
+                    <div class="modal-body">
+                        <md-input-container>
+                            <input mdInput placeholder="Title">
+                        </md-input-container>
+                        <br>
+                        <md-input-container>
+                            <input mdInput placeholder="Date">
+                        </md-input-container>
+
+                        <!--End model inner-->
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="post-container" *ngFor="let post of posts">
+
+
+            <section class="post-title">
+                <h3>{{post.title}}</h3>
+                <div class="date">{{post.date}}</div>
+                <div>
+                    By: {{post.author}}
+                </div>
+            </section>
+
+            <section class="post-pic">
+                <img [src]="post.picurl" alt="" width="50%">
+            </section>
+            <!--<img src="../../assets/img/phone.jpg" alt="">-->
+            <section class="post-content">
+                {{post.content}}
+            </section>
+
+            <section class="post-social">
+                        <button data-toggle="modal" data-target="#exampleModalLong" md-raised-button>Share</button>
+
+            </section>
+
+
+            <!--<h1>Blog is comming soon...</h1>-->
+
+        </div>
 
 
 
-<h1>Blog is comming soon...</h1>
-
-</div>
-
-
-
-
+    </div>
 
 
 </div>
