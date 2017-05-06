@@ -13,13 +13,15 @@ import { CvModule } from './cv/cv.module';
 //Custom Components
 import { AppComponent } from './app.component';
 import { PagenotfoundComponent } from 'app/shared/pagenotfound/pagenotfound.component';
+import { LoginComponent } from './login/login.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    PagenotfoundComponent
+    PagenotfoundComponent,
+    LoginComponent
   ],
   imports: [
     //Ng modules 

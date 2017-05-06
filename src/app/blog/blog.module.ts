@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { SharedModule } from '../shared/shared.module';
 import { BlogRoutingModule } from './blog-routing.module';
 import { BlogComponent  } from './blog.component';
+import { PostComponent } from './post/post.component';
 
 
 
@@ -19,6 +20,6 @@ import { BlogComponent  } from './blog.component';
    
   ],
   //exports:[BlogModule],
-  declarations: [BlogComponent]
+  declarations: [BlogComponent, PostComponent]
 })
 export class BlogModule { }

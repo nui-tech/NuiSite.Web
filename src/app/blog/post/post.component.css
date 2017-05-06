@@ -1,0 +1,12 @@
+.post-container{
+    border: 1px solid;
+}
+
+.post-pic{
+    text-align: center;
+    
+}
+
+.post-pic img{
+    box-shadow: 2px 3px 15px 2px gray;
+}

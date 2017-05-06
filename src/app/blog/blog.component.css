@@ -4,11 +4,6 @@
     min-height: 100%;
 }
 
-#navbar{
-    margin-top: 10px;
-    margin-right: 10px;
-}
-
 .wrapper {
     padding: 5%;
     padding-top: 20px;
@@ -17,13 +12,6 @@
     margin: 0 auto;
     font-family: 'Open Sans', sans-serif;
     font-size: 100%;
+    border: 1px solid;
 }
 
-.post-pic{
-    text-align: center;
-    
-}
-
-.post-pic img{
-    box-shadow: 2px 3px 15px 2px gray;
-}

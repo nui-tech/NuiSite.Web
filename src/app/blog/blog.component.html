@@ -1,14 +1,45 @@
-<div class="page-container">
-
-    <ul id="navbar" class="nav nav-inline pull-right">
-        <li class="nav-item">
-            <a class="nav-link btn btn-outline-success" [routerLink]="['/cv']">CV</a>
-        </li>
-    </ul>
+<div class="container">
 
 
 
+    <!-- Nav bar-->
+    <nav class="navbar navbar-toggleable-sm sticky-top navbar-light" style="background-color:white;">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
+            aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+         </button>
 
+        <a class="navbar-brand" href="#">
+            <img src="/assets/img/n-icon.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+           Nui</a>
+
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+            <ul class="navbar-nav mr-auto">
+                <!--<li class="nav-item">
+                    <a href="#" class="nav-link">Link</a>
+                </li>-->
+                <!--<li class="nav-item">
+                    <a class="nav-link btn btn-outline-success" [routerLink]="['/cv']">CV</a>
+                </li>-->
+
+            </ul>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/cv']">CV</a>
+                </li>
+            </ul>
+
+            <form class="form-inline">
+                <input class="form-control mr-sm-2" type="text" placeholder="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+
+
+        </div>
+    </nav>
+    <!--End nav bar-->
+
+    <!-- *** Add new post Popup modal *** -->
     <div class="wrapper">
         <button data-toggle="modal" data-target="#exampleModalLong" md-raised-button>New Post</button>
 
@@ -25,12 +56,14 @@
                     <!--Model inner Start here-->
                     <div class="modal-body">
                         <md-input-container>
-                            <input mdInput placeholder="Title">
+                            <input [value]="ptTitle" mdInput placeholder="Title">
                         </md-input-container>
                         <br>
                         <md-input-container>
-                            <input mdInput placeholder="Date">
+                            <input [value]="ptDate | date" mdInput placeholder="Date">
                         </md-input-container>
+
+                        <textarea [value]="ptContent" rows="7" cols="50" placeholder="your content..."></textarea>
 
                         <!--End model inner-->
                     </div>
@@ -42,35 +75,8 @@
             </div>
         </div>
 
+        <blog-post></blog-post>
 
-        <div class="post-container" *ngFor="let post of posts">
-
-
-            <section class="post-title">
-                <h3>{{post.title}}</h3>
-                <div class="date">{{post.date}}</div>
-                <div>
-                    By: {{post.author}}
-                </div>
-            </section>
-
-            <section class="post-pic">
-                <img [src]="post.picurl" alt="" width="50%">
-            </section>
-            <!--<img src="../../assets/img/phone.jpg" alt="">-->
-            <section class="post-content">
-                {{post.content}}
-            </section>
-
-            <section class="post-social">
-                        <button data-toggle="modal" data-target="#exampleModalLong" md-raised-button>Share</button>
-
-            </section>
-
-
-            <!--<h1>Blog is comming soon...</h1>-->
-
-        </div>
 
 
 

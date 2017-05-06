@@ -11,18 +11,12 @@ import {MdDialog, MdDialogRef} from '@angular/material';
 })
 export class BlogComponent implements OnInit {
   selectedOption: string;
+  ptTitle = 'test';
+  ptDate = Date.now();
+  ptContent = 'this is content from server';
   
   test = "test";
-  posts = [
-    {
-      title:"Hiking on Arthur's pass",
-      date:"Jan, 12, 2017",
-      author:"Nui Rattapon",
-      picurl:"../../assets/img/phone.jpg",
-      content:"Full-stack web developer work in Agile & Scrum software environment, build emergency contact platform . Main technologies involve : C# Asp.Net MVC, AngularJS",
-      social:""
-    }
-  ];
+
 
   constructor(public dialog: MdDialog) { }
 
