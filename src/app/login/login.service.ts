@@ -9,46 +9,58 @@ import * as firebase from 'firebase/app';
 
 @Injectable()
 export class LoginService {
-user: Observable<firebase.User>;
+    user: Observable<firebase.User>;
 
 
     constructor(public afAuth: AngularFireAuth) {
         this.user = this.afAuth.authState;
-        console.log(this.user);
+        //console.log(this.user);
     }
 
-    loginByGoogle(){
-          this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider())
-          .then((success)=> {
-              console.log(success);
-              alert("Welcome "+this.afAuth.auth.currentUser.displayName);
-          })
-          .catch((err) => {
-              alert("Loing failed due to "+err.message);
-          });
-          
+
+    loginByGoogle() {
+        this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider())
+            .then((success) => {
+                console.log(success);
+                alert("Welcome " + this.afAuth.auth.currentUser.displayName);
+            })
+            .catch((err) => {
+                alert("Loing failed due to " + err.message);
+            });
+
     }
 
-    loginByFb(){
+    loginByFb() {
         this.afAuth.auth.signInWithPopup(new firebase.auth.FacebookAuthProvider())
-        .then((success)=> {
-              console.log(success);
-              alert("Welcome "+this.afAuth.auth.currentUser.displayName);
-          })
-          .catch((err) => {
-              alert("Loing failed due to "+err.message);
-          });
+            .then((success) => {
+                console.log(success);
+                alert("Welcome " + this.afAuth.auth.currentUser.displayName);
+                
+            })
+            .catch((err) => {
+                alert("Loing failed due to " + err.message);
+            });
     }
 
-    loginByEmail(_email: string, _pass: string){
-        this.afAuth.auth.signInWithEmailAndPassword(_email,_pass);
+    loginByEmail(_email: string, _pass: string) {
+        this.afAuth.auth.signInWithEmailAndPassword(_email, _pass)
+            .then((success) => {
+                console.log(success);
+                this.user = this.afAuth.authState;
+                alert("Welcome " + this.afAuth.auth.currentUser.email);
+            })
+            .catch((err) => {
+                alert("Loing failed due to " + err.message);
+            });
+
+            
     }
 
-    logout(){
+    logout() {
         this.afAuth.auth.signOut()
-        .then((mes)=> {
-            alert("You are loged out! See you next time.")
-        });
+            .then((mes) => {
+                alert("You are loged out! See you next time.")
+            });
     }
 
 }

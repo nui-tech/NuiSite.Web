@@ -23,12 +23,14 @@
 
             <!--Right nav-->
             <ul class="navbar-nav pull-right">
-
+                <!--<li class="nav-item">
+                    <a class="nav-link"> test </a>
+                </li>-->
                 <li class="nav-item">
                     <a class="nav-link" [routerLink]="['/cv']">CV</a>
                 </li>
                 <li class="nav-item">
-                    <a *ngIf="(afAuth.authState | async)" class="nav-link btn btn-outline-danger" (click)="loginService.logout()">Logout</a>
+                    <a *ngIf="(afAuth.authState | async)" class="nav-link" (click)="loginService.logout()">Logout</a>
                 </li>
                 <li *ngIf="!(afAuth.authState | async)" class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Login <span class="caret"></span></a>
@@ -42,18 +44,23 @@
                                         <button (click)="loginService.loginByGoogle()" class="btn btn-gg"><i class="fa fa-google"></i> </button>
                                     </div>
                                     or
-                                    <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
-                                        <div class="form-group">
+
+
+
+                                    <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav" novalidate (ngSubmit)="loginByEmail()"
+                                        [formGroup]="loginForm">
+
+                                        <div class="form-group" [ngClass]="{'has-error': (loginForm.get('email').touched || loginForm.get('email').dirty) && !loginForm.get('email').valid}">
                                             <label class="sr-only" for="exampleInputEmail2">Email address</label>
-                                            <input type="email" class="form-control" id="InputEmail" placeholder="Email address" required>
+                                            <input formControlName="email" type="email" class="form-control" id="emailId" placeholder="Email address">
                                         </div>
                                         <div class="form-group">
                                             <label class="sr-only" for="exampleInputPassword2">Password</label>
-                                            <input type="password" class="form-control" id="InputPassword" placeholder="Password" required>
+                                            <input formControlName="password" type="password" class="form-control" id="passwordId" placeholder="Password">
                                             <div class="help-block text-right"><a href="">Forget the password ?</a></div>
                                         </div>
                                         <div class="form-group">
-                                            <button (click)="loginByEmail(email,password)" type="submit" class="btn btn-primary btn-block">Sign in</button>
+                                            <button [disabled]="!loginForm.valid" type="submit" class="btn btn-primary btn-block">Sign in</button>
                                         </div>
                                         <div class="checkbox">
                                             <label>
@@ -61,6 +68,10 @@
 											 </label>
                                         </div>
                                     </form>
+
+
+
+
                                 </div>
                                 <div class="bottom text-center">
                                     New here ? <a href="#"><b>Sign Up</b></a>
@@ -85,6 +96,8 @@
         <div *ngIf="(afAuth.authState | async)" id="newpost">
             <button class="btn btn-success btn-circle" data-toggle="modal" data-target="#exampleModalLong">new<br/>post</button>
         </div>
+
+
         <!-- Modal -->
         <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -92,8 +105,8 @@
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLongTitle">New Post</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+                            <span aria-hidden="true">&times;</span>
+                        </button>
                     </div>
                     <!--Model inner Start here-->
                     <div class="modal-body">
@@ -112,28 +125,35 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                        <button (click)="addPost()" type="button" class="btn btn-primary">Post</button>
+                        <button type="button" class="btn btn-primary">Post</button>
                     </div>
                 </div>
             </div>
         </div>
 
-
+        <!--<br>Dirty: {{ loginForm.dirty }}
+        <br>Touched: {{ loginForm.touched }}
+        <br>Valid: {{ loginForm.valid }}
+        <br>Value: {{ loginForm.value | json }}-->
 
 
         <div class="alert alert-info alert-dismissible fade show" role="alert">
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
             </button>
-            <strong>Update! &nbsp;&nbsp; 7.May.17 &nbsp; 4:30pm</strong>&nbsp; Blog is on building progress, Login and Add post features are comming. So excited... :D<br/>
+            <strong>Update! &nbsp;&nbsp; 7.May.17 &nbsp; 4:30pm</strong>&nbsp; Blog is on building progress, Login and Add
+            post features are comming. So excited... :D<br/>
         </div>
-           <div class="alert alert-info alert-dismissible fade show" role="alert">
+        <div class="alert alert-info alert-dismissible fade show" role="alert">
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
             </button>
-                        <strong>Update! &nbsp;&nbsp; 7.may.17 &nbsp; 7:03pm</strong>&nbsp; Now you can login with Facebook and Google
+            <strong>Update! &nbsp;&nbsp; 7.may.17 &nbsp; 7:03pm</strong>&nbsp; Now you can login with Facebook and Google
             account, woo hoo!! :D<br/>
         </div>
+
+
+
         <blog-post></blog-post>
 
 
