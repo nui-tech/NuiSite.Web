@@ -1,25 +1,31 @@
-        <div class="post-container" *ngFor="let post of posts">
+<div class="post-container" *ngFor="let post of posts | async">
 
-            
-            <section class="post-title">
-                <h3>{{post.title}}</h3>
-                <div class="date">{{post.createddate}}</div>
-                <div>
-                    By: {{post.author}}
-                </div>
-            </section>
 
-            <section class="post-pic">
-                <img [src]="post.picurl" alt="" width="50%">
-            </section>
-            <!--<img src="../../assets/img/phone.jpg" alt="">-->
-            <section class="post-content">
-                {{post.content}}
-            </section>
-
-            <section class="post-social">
-                        <button data-toggle="modal" data-target="#exampleModalLong" md-raised-button>Share</button>
-
-            </section>
-
+    <section class="post-title">
+        <h3>{{post.title}}</h3>
+        <div class="date">{{post.createddate}}</div>
+        <div class="author">
+            By: {{post.author}}
         </div>
+    </section>
+
+    <section class="post-pic">
+        <img [src]="post.picurl" alt="" width="50%">
+    </section>
+    <!--<img src="../../assets/img/phone.jpg" alt="">-->
+    <section class="post-content">
+        <p>{{post.content}}</p>
+    </section>
+
+    <section class="post-social" style="margin-top:2%;">
+        <!--<button data-toggle="modal" data-target="#exampleModalLong" md-raised-button>Share</button>-->
+        <label>
+            Share
+            <span> <i class="fa fa-facebook-f" aria-hidden="true"></i></span>
+            <span> <i class="fa fa-twitter" aria-hidden="true"></i></span>  
+            <span> <i class="fa fa-google-plus-circle" aria-hidden="true"></i></span>  
+            <span> <i class="fa fa-github" aria-hidden="true"></i></span>                  
+        </label>
+    </section>
+
+</div>

@@ -1,48 +1,90 @@
 <div class="container">
 
 
-
     <!-- Nav bar-->
     <nav class="navbar navbar-toggleable-sm sticky-top navbar-light" style="background-color:white;">
+
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
             aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
          </button>
 
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" [routerLink]="['/blog']">
             <img src="/assets/img/n-icon.svg" width="30" height="30" class="d-inline-block align-top" alt="">
            Nui</a>
 
         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+
+            <!--Left nav-->
             <ul class="navbar-nav mr-auto">
-                <!--<li class="nav-item">
-                    <a href="#" class="nav-link">Link</a>
-                </li>-->
-                <!--<li class="nav-item">
-                    <a class="nav-link btn btn-outline-success" [routerLink]="['/cv']">CV</a>
-                </li>-->
 
             </ul>
-            <ul class="navbar-nav">
+
+
+            <!--Right nav-->
+            <ul class="navbar-nav pull-right">
+
                 <li class="nav-item">
                     <a class="nav-link" [routerLink]="['/cv']">CV</a>
                 </li>
+                <li class="nav-item">
+                    <a *ngIf="(afAuth.authState | async)" class="nav-link btn btn-outline-danger" (click)="loginService.logout()">Logout</a>
+                </li>
+                <li *ngIf="!(afAuth.authState | async)" class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Login <span class="caret"></span></a>
+                    <ul id="login-dp" class="dropdown-menu dropdown-menu-right">
+                        <li>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    Login via
+                                    <div class="social-buttons">
+                                        <button (click)="loginService.loginByFb()" class="btn btn-fb"><i class="fa fa-facebook"></i> </button>
+                                        <button (click)="loginService.loginByGoogle()" class="btn btn-gg"><i class="fa fa-google"></i> </button>
+                                    </div>
+                                    or
+                                    <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
+                                        <div class="form-group">
+                                            <label class="sr-only" for="exampleInputEmail2">Email address</label>
+                                            <input type="email" class="form-control" id="InputEmail" placeholder="Email address" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="sr-only" for="exampleInputPassword2">Password</label>
+                                            <input type="password" class="form-control" id="InputPassword" placeholder="Password" required>
+                                            <div class="help-block text-right"><a href="">Forget the password ?</a></div>
+                                        </div>
+                                        <div class="form-group">
+                                            <button (click)="loginByEmail(email,password)" type="submit" class="btn btn-primary btn-block">Sign in</button>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label>
+											 <input type="checkbox"> keep me logged-in
+											 </label>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="bottom text-center">
+                                    New here ? <a href="#"><b>Sign Up</b></a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+
+
             </ul>
-
-            <form class="form-inline">
-                <input class="form-control mr-sm-2" type="text" placeholder="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form>
-
 
         </div>
     </nav>
     <!--End nav bar-->
 
+
     <!-- *** Add new post Popup modal *** -->
     <div class="wrapper">
-        <button data-toggle="modal" data-target="#exampleModalLong" md-raised-button>New Post</button>
 
+
+        <div *ngIf="(afAuth.authState | async)" id="newpost">
+            <button class="btn btn-success btn-circle" data-toggle="modal" data-target="#exampleModalLong">new<br/>post</button>
+        </div>
         <!-- Modal -->
         <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -56,25 +98,42 @@
                     <!--Model inner Start here-->
                     <div class="modal-body">
                         <md-input-container>
-                            <input [value]="ptTitle" mdInput placeholder="Title">
+                            <input mdInput placeholder="Title">
                         </md-input-container>
                         <br>
                         <md-input-container>
-                            <input [value]="ptDate | date" mdInput placeholder="Date">
+                            <input mdInput placeholder="Date">
                         </md-input-container>
 
-                        <textarea [value]="ptContent" rows="7" cols="50" placeholder="your content..."></textarea>
+                        <textarea rows="7" cols="50" placeholder="your content..."></textarea>
+
 
                         <!--End model inner-->
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                        <button (click)="addPost()" type="button" class="btn btn-primary">Post</button>
                     </div>
                 </div>
             </div>
         </div>
 
+
+
+
+        <div class="alert alert-info alert-dismissible fade show" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+            <strong>Update! &nbsp;&nbsp; 7.May.17 &nbsp; 4:30pm</strong>&nbsp; Blog is on building progress, Login and Add post features are comming. So excited... :D<br/>
+        </div>
+           <div class="alert alert-info alert-dismissible fade show" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+                        <strong>Update! &nbsp;&nbsp; 7.may.17 &nbsp; 7:03pm</strong>&nbsp; Now you can login with Facebook and Google
+            account, woo hoo!! :D<br/>
+        </div>
         <blog-post></blog-post>
 
 
