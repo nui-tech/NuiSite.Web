@@ -2,11 +2,12 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 
-
+//3rd party
+import { NgPipesModule } from 'ngx-pipes';
 
 import { SharedModule } from '../shared/shared.module';
 import { BlogRoutingModule } from './blog-routing.module';
-import { BlogComponent  } from './blog.component';
+import { BlogComponent } from './blog.component';
 import { PostComponent } from './post/post.component';
 
 import { BlogService } from './blog.service';
@@ -17,13 +18,14 @@ import { BlogService } from './blog.service';
     SharedModule,
     BlogRoutingModule,
     CommonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgPipesModule
 
   ],
-  entryComponents:[
-   
+  entryComponents: [
+
   ],
-  providers:[BlogService],
+  providers: [BlogService],
   //exports:[BlogModule],
   declarations: [BlogComponent, PostComponent]
 })

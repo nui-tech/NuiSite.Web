@@ -15,14 +15,13 @@ import { BlogService } from '../blog.service';
 })
 export class PostComponent implements OnInit {
 
- user: Observable<firebase.User>;
+  user: Observable<firebase.User>;
   posts: FirebaseListObservable<any[]>;
-  name: any;
 
   constructor(public afAuth: AngularFireAuth, public db: AngularFireDatabase) {
 
     this.posts = db.list('/blog');
-    this.user =  this.afAuth.authState;
+    this.user = this.afAuth.authState;
 
   }
 

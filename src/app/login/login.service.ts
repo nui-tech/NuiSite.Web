@@ -9,6 +9,8 @@ import * as firebase from 'firebase/app';
 
 @Injectable()
 export class LoginService {
+
+    //Observable monitor your application's authentication State.
     user: Observable<firebase.User>;
 
 
@@ -52,7 +54,8 @@ export class LoginService {
             .catch((err) => {
                 alert("Loing failed due to " + err.message);
             });
-
+            
+            
             
     }
 
