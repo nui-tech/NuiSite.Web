@@ -1,18 +1,56 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400');
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:200');
-.page-container {
+
+.container-fluid{
+    background-color: whitesmoke;
+}
+.container.body {
     min-height: 100%;
 }
 
+@media (max-width: 767px) {
+    .navbar-toggleable-sm > .container {
+        width: 100%;
+    }
+    .navbar {
+        padding-left: 30px;
+    }
+}
+
+.navbar {
+    background-color: white;
+}
+
+footer{
+    text-align: center;
+    height: 60px;
+    padding: 18px;
+    /*border-top: 1px solid;*/
+}
+
 .wrapper {
-    padding: 5%;
+    /*padding: 5%;*/
     padding-top: 20px;
-    padding-bottom: 0;
-    max-width: 1200px;
+    padding-bottom: 10px;
+    /*max-width: 1200px;*/
     margin: 0 auto;
     /*font-family: 'Open Sans', sans-serif;*/
     font-size: 100%;
     /*border: 1px solid;*/
+}
+.blog-main{
+    padding-left: 20px;
+    /*border: 1px solid;*/
+}
+
+/* Side bar*/
+.blog-sidebar{
+    padding: 10px;
+}
+
+.sidebar-module-header{
+    padding-top: 20px;
+    
 }
 
 .btn-circle {
@@ -56,25 +94,7 @@
     /*border: 1px solid #444444;*/
 }
 
-#newpost a:hover {
-    /*background: black;*/
-    /*border: black;*/
-    /*color: whitesmoke;*/
-}
-
-
-/*
-.navbar-brand
-{
-    position: absolute;
-    width: 100%;
-    left: 0;
-
-    text-align: center;
-    margin: auto;
-    padding:0px;
-}*/
-
+/****** Login ********/
 #login-dp {
     min-width: 255px;
     padding: 14px 14px 0;

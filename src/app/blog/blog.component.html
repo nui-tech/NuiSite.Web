@@ -1,9 +1,6 @@
-<div class="container">
-
-
-    <!-- Nav bar-->
-    <nav class="navbar navbar-toggleable-sm sticky-top navbar-light" style="background-color:white;">
-
+<!-- Nav bar-->
+<nav class="navbar navbar-toggleable-sm sticky-top navbar-light">
+    <div class="container">
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
             aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -44,12 +41,8 @@
                                         <button (click)="loginService.loginByGoogle()" class="btn btn-gg"><i class="fa fa-google"></i> </button>
                                     </div>
                                     or
-
-
-
                                     <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav" novalidate (ngSubmit)="loginByEmail()"
                                         [formGroup]="loginForm">
-
                                         <div class="form-group" [ngClass]="{'has-danger': (loginForm.get('email').touched || loginForm.get('email').dirty) && !loginForm.get('email').valid,
                                                     'has-success': loginForm.get('email').valid}">
                                             <label class="sr-only" for="exampleInputEmail2">Email address</label>
@@ -70,10 +63,6 @@
 											 </label>
                                         </div>
                                     </form>
-
-
-
-
                                 </div>
                                 <div class="bottom text-center">
                                     New here ? <a href="#"><b>Sign Up</b></a>
@@ -82,124 +71,124 @@
                         </li>
                     </ul>
                 </li>
-
-
             </ul>
-
         </div>
-    </nav>
-    <!--End nav bar-->
-
-
-    <!-- *** Add new post Popup modal *** -->
-    <div class="wrapper">
-
-
-        <div *ngIf="(afAuth.authState | async)" id="newpost">
-            <button class="btn btn-success btn-circle" data-toggle="modal" data-target="#newPostModalLong">new<br/>post</button>
-        </div>
-
-
-        <!-- Modal -->
-        <div class="modal fade" id="newPostModalLong" tabindex="-1" role="dialog" aria-labelledby="newPostModalLongTitle" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-
-
-                    <!-- Post Form -->
-                    <form (ngSubmit)="addPost()" [formGroup]="addPostForm" novalidate>
-
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="newPostModalLongTitle">New Post</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                        </div>
-                        <!--Model inner Start here-->
-                        <div class="modal-body">
-                            <!--Title-->
-                            <div class="form-group row" [ngClass]="{'has-success': addPostForm.get('title').valid, 
-                                        'has-danger': (addPostForm.get('title').touched || addPostForm.get('title').dirty) && !addPostForm.get('title').valid}">
-                                <label for="title" class="col-sm-2 col-form-label">Title</label>
-                                <div class="col-sm-10">
-                                    <input formControlName="title" type="text" class="form-control" placeholder="required">
-                                </div>
-                            </div>
-                            <!--Author-->
-                            <div class="form-group row" [ngClass]="{'has-success': addPostForm.get('author').valid, 
-                                        'has-danger': (addPostForm.get('author').touched || addPostForm.get('author').dirty) && !addPostForm.get('author').valid}">
-                                <label for="author" class="col-sm-2 col-form-label">Author</label>
-                                <div class="col-sm-10">
-                                    <input formControlName="author" type="text" class="form-control" placeholder="required">
-                                </div>
-                            </div>
-                            <!--Picture-->
-                            <div class="form-group row">
-                                <label for="picurl" class="col-sm-2 col-form-label">Picture</label>
-                                <div class="col-sm-10">
-                                    <input formControlName="picurl" type="text" class="form-control">
-                                </div>
-                            </div>
-                            <!--Date-->
-                            <div class="form-group row" [ngClass]="{'has-success': addPostForm.get('createdon').valid, 
-                                        'has-danger': (addPostForm.get('createdon').touched || addPostForm.get('createdon').dirty) && !addPostForm.get('createdon').valid}">
-                                <label for="createdon" class="col-sm-2 col-form-label">Date</label>
-                                <div class="col-sm-10">
-                                    <input formControlName="createdon" class="form-control" type="date" placeholder="Date">                                    </div>
-                            </div>
-
-                            <!--Content-->
-                            <div class="form-group" [ngClass]="{'has-success': addPostForm.get('content').valid, 
-                                        'has-danger': (addPostForm.get('content').touched || addPostForm.get('content').dirty) && !addPostForm.get('content').valid}">
-                                <label for="content" class="form-label">Content</label>
-                                <textarea formControlName="content" class="form-control" rows="5"></textarea>
-                            </div>
-
-                            <!--End model inner-->
-                        </div>
-                        <div class="modal-footer">
-                            <div class="form-group">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                                <button [disabled]="!addPostForm.valid" type="submit" class="btn btn-primary">Post</button>
-                            </div>
-                        </div>
-
-                    </form>
-
+    </div>
+</nav>
+<!--End nav bar-->
+<div class="container-fluid">
+<div class="container body">
+    <div class="row">
+        <div class="col-sm-9 blog-main">
+            <!-- *** Add new post Popup modal *** -->
+            <div class="wrapper">
+                <div *ngIf="(afAuth.authState | async)" id="newpost">
+                    <button class="btn btn-success btn-circle" data-toggle="modal" data-target="#newPostModalLong">new<br/>post</button>
                 </div>
+
+                <blog-post></blog-post>
+
             </div>
         </div>
-
-        <!--<br>Dirty: {{ loginForm.dirty }}
-        <br>Touched: {{ loginForm.touched }}
-        <br>Valid: {{ loginForm.valid }}
-        <br>Value: {{ loginForm.value | json }}-->
-
-
-        <div *ngIf="(afAuth.authState | async)" class="alert alert-success alert-dismissible fade show" role="alert">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-            </button>
-            <strong>Welcome</strong>&nbsp; Add new post is working now... try it. woo hoo!! :D<br/>
+        <div class="col-sm-3  blog-sidebar">
+            <div class="sidebar-module sidebar-module-header">
+            <h4>About</h4>
+            <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
+          </div>
+          <div class="sidebar-module">
+            <h4>Archives</h4>
+            <ol class="list-unstyled">
+              <li><a href="#">March 2014</a></li>
+              <li><a href="#">February 2014</a></li>
+              <li><a href="#">January 2014</a></li>
+              <li><a href="#">December 2013</a></li>
+              <li><a href="#">November 2013</a></li>
+              <li><a href="#">October 2013</a></li>
+              <li><a href="#">September 2013</a></li>
+              <li><a href="#">August 2013</a></li>
+              <li><a href="#">July 2013</a></li>
+              <li><a href="#">June 2013</a></li>
+              <li><a href="#">May 2013</a></li>
+              <li><a href="#">April 2013</a></li>
+            </ol>
+          </div>
         </div>
-
-        <div class="alert alert-info alert-dismissible fade show" role="alert">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-            </button>
-            <strong>Update! &nbsp;&nbsp; 8.May.17 &nbsp; 22:30</strong>&nbsp; Blog is on building progress, Login and Add
-            post features are working. So excited... :D<br/>
-        </div>
-
-        <!--
-        Email: {{ useremail }}
-        <button type="button" class="btn btn-info" (click)="newpost()">Get email</button>-->
-        <blog-post></blog-post>
-
-
-
-
     </div>
+</div>
+</div>
+<!--Footer-->
+<footer class="footer">
+    <div class="container">
+        Nui Rattapon
+    </div>
+</footer>
+
+<!-- Modal -->
+<div class="modal fade" id="newPostModalLong" tabindex="-1" role="dialog" aria-labelledby="newPostModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
 
 
+            <!-- Post Form -->
+            <form (ngSubmit)="addPost()" [formGroup]="addPostForm" novalidate>
+
+                <div class="modal-header">
+                    <h5 class="modal-title" id="newPostModalLongTitle">New Post</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                </div>
+                <!--Model inner Start here-->
+                <div class="modal-body">
+                    <!--Title-->
+                    <div class="form-group row" [ngClass]="{'has-success': addPostForm.get('title').valid, 
+                                        'has-danger': (addPostForm.get('title').touched || addPostForm.get('title').dirty) && !addPostForm.get('title').valid}">
+                        <label for="title" class="col-sm-2 col-form-label">Title</label>
+                        <div class="col-sm-10">
+                            <input formControlName="title" type="text" class="form-control" placeholder="required">
+                        </div>
+                    </div>
+                    <!--Author-->
+                    <div class="form-group row" [ngClass]="{'has-success': addPostForm.get('author').valid, 
+                                        'has-danger': (addPostForm.get('author').touched || addPostForm.get('author').dirty) && !addPostForm.get('author').valid}">
+                        <label for="author" class="col-sm-2 col-form-label">Author</label>
+                        <div class="col-sm-10">
+                            <input formControlName="author" type="text" class="form-control" placeholder="required">
+                        </div>
+                    </div>
+                    <!--Picture-->
+                    <div class="form-group row">
+                        <label for="picurl" class="col-sm-2 col-form-label">Picture</label>
+                        <div class="col-sm-10">
+                            <input formControlName="picurl" type="text" class="form-control">
+                        </div>
+                    </div>
+                    <!--Date-->
+                    <div class="form-group row" [ngClass]="{'has-success': addPostForm.get('createdon').valid, 
+                                        'has-danger': (addPostForm.get('createdon').touched || addPostForm.get('createdon').dirty) && !addPostForm.get('createdon').valid}">
+                        <label for="createdon" class="col-sm-2 col-form-label">Date</label>
+                        <div class="col-sm-10">
+                            <input formControlName="createdon" class="form-control" type="date" placeholder="Date"> </div>
+                    </div>
+
+                    <!--Content-->
+                    <div class="form-group" [ngClass]="{'has-success': addPostForm.get('content').valid, 
+                                        'has-danger': (addPostForm.get('content').touched || addPostForm.get('content').dirty) && !addPostForm.get('content').valid}">
+                        <label for="content" class="form-label">Content</label>
+                        <textarea formControlName="content" class="form-control" rows="5"></textarea>
+                    </div>
+
+                    <!--End model inner-->
+                </div>
+                <div class="modal-footer">
+                    <div class="form-group">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                        <button [disabled]="!addPostForm.valid" type="submit" class="btn btn-primary">Post</button>
+                    </div>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
 </div>

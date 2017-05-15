@@ -8,6 +8,7 @@ import { MaterialModule } from '@angular/material';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabaseModule, AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+
 // Custom Modules
 import { AppRoutingModule } from './app-routing.module'
 import { CvModule } from './cv/cv.module';
