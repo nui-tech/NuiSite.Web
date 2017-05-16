@@ -10,6 +10,9 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { Observable } from 'rxjs/Observable';
 import * as firebase from 'firebase/app';
 
+//GSAP
+import { TweenLite } from 'gsap';
+
 //Service
 import { BlogService } from './blog.service';
 import { LoginService } from '../login/login.service';
@@ -43,10 +46,31 @@ export class BlogComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.initAnimation();
+    this.initFormGroup();
+  }
+
+  initAnimation() {
+    let
+      logo = document.getElementById("logo"),
+      logoTxt = document.getElementById("logoTxt"),
+      post = document.getElementById("post");
+
+    TweenLite.from(logo, 1, { autoAlpha: 0, delay: 0.3 });
+    TweenLite.from(logoTxt, 1, { x: 20 });
+
+
+    let linkBlog = document.getElementById("link-blog");
+    linkBlog.className += " active";
+
+  }
+
+  initFormGroup() {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]]
     });
+
     this.addPostForm = this.fb.group({
       title: ['', Validators.required],
       author: ['', Validators.required],
@@ -77,7 +101,7 @@ export class BlogComponent implements OnInit {
     mypost.content = this.addPostForm.value.content;
     mypost.picurl = this.addPostForm.value.picurl;
     mypost.tag = this.addPostForm.value.tag;
-    var jQuery:any;
+    var jQuery: any;
     this.post.push(mypost)
       .then(_ => {
         console.log('success');

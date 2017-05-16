@@ -1,9 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400');
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:200');
-
-.container-fluid{
+/* Layout */
+.container-fluid {
     background-color: whitesmoke;
 }
+
 .container.body {
     min-height: 100%;
 }
@@ -17,17 +18,30 @@
     }
 }
 
+/*Nav bar*/
 .navbar {
     background-color: white;
 }
 
-footer{
+.nav-item a:hover {
+    background-color: whitesmoke;
+    border-radius: 4px;
+    color: black;
+}
+
+.active {
+    font-weight: bold;
+}
+
+/*Footer*/
+footer {
     text-align: center;
     height: 60px;
     padding: 18px;
     /*border-top: 1px solid;*/
 }
 
+/*Body*/
 .wrapper {
     /*padding: 5%;*/
     padding-top: 20px;
@@ -38,19 +52,21 @@ footer{
     font-size: 100%;
     /*border: 1px solid;*/
 }
-.blog-main{
+
+.blog-main {
     padding-left: 20px;
     /*border: 1px solid;*/
 }
 
+
 /* Side bar*/
-.blog-sidebar{
+
+.blog-sidebar {
     padding: 10px;
 }
 
-.sidebar-module-header{
+.sidebar-module-header {
     padding-top: 20px;
-    
 }
 
 .btn-circle {
@@ -94,7 +110,9 @@ footer{
     /*border: 1px solid #444444;*/
 }
 
+
 /****** Login ********/
+
 #login-dp {
     min-width: 255px;
     padding: 14px 14px 0;

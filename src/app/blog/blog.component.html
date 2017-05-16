@@ -7,8 +7,9 @@
          </button>
 
         <a class="navbar-brand" [routerLink]="['/blog']">
-            <img src="/assets/img/n-icon.svg" width="30" height="30" class="d-inline-block align-top" alt="">
-           Nui</a>
+            <img id="logo" src="/assets/img/n-icon.svg" width="30" height="30" class="d-inline-block align-top">
+           <div class="d-inline-block" id="logoTxt">Nui</div>
+        </a>
 
         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
 
@@ -21,14 +22,18 @@
             <!--Right nav-->
             <ul class="navbar-nav pull-right">
                 <li class="nav-item">
-                    <a class="nav-link"> </a>
+                    <a class="nav-link" id="link-cv" [routerLink]="['/cv']">CV</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" [routerLink]="['/cv']">CV</a>
+                    <a class="nav-link" id="link-cover" [routerLink]="['/cover']">Cover</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="link-blog" [routerLink]="['/blog']">Blog</a>
+                </li>
+                <li class="nav-item"><div class="nav-link">|</div></li>
                 <li class="nav-item">
                     <a *ngIf="(afAuth.authState | async)" class="nav-link" (click)="loginService.logout()">Logout</a>
-                </li>
+                </li>               
                 <li *ngIf="!(afAuth.authState | async)" class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Login <span class="caret"></span></a>
                     <ul id="login-dp" class="dropdown-menu dropdown-menu-right">
@@ -76,45 +81,47 @@
     </div>
 </nav>
 <!--End nav bar-->
+<!--Body-->
 <div class="container-fluid">
-<div class="container body">
-    <div class="row">
-        <div class="col-sm-9 blog-main">
-            <!-- *** Add new post Popup modal *** -->
-            <div class="wrapper">
-                <div *ngIf="(afAuth.authState | async)" id="newpost">
-                    <button class="btn btn-success btn-circle" data-toggle="modal" data-target="#newPostModalLong">new<br/>post</button>
+    <div class="container body">
+        <div class="row">
+            <div class="col-sm-9 blog-main">
+                <!-- *** Add new post Popup modal *** -->
+                <div class="wrapper">
+                    <div *ngIf="(afAuth.authState | async)" id="newpost">
+                        <button class="btn btn-success btn-circle" data-toggle="modal" data-target="#newPostModalLong">new<br/>post</button>
+                    </div>
+
+                    <blog-post>Logding posts..</blog-post>
+
                 </div>
-
-                <blog-post></blog-post>
-
+            </div>
+            <div class="col-sm-3  blog-sidebar">
+                <div class="sidebar-module sidebar-module-header">
+                    <h4>About</h4>
+                    <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum.
+                        Aenean lacinia bibendum nulla sed consectetur.</p>
+                </div>
+                <div class="sidebar-module">
+                    <h4>Archives</h4>
+                    <ol class="list-unstyled">
+                        <li><a href="#">March 2014</a></li>
+                        <li><a href="#">February 2014</a></li>
+                        <li><a href="#">January 2014</a></li>
+                        <li><a href="#">December 2013</a></li>
+                        <li><a href="#">November 2013</a></li>
+                        <li><a href="#">October 2013</a></li>
+                        <li><a href="#">September 2013</a></li>
+                        <li><a href="#">August 2013</a></li>
+                        <li><a href="#">July 2013</a></li>
+                        <li><a href="#">June 2013</a></li>
+                        <li><a href="#">May 2013</a></li>
+                        <li><a href="#">April 2013</a></li>
+                    </ol>
+                </div>
             </div>
         </div>
-        <div class="col-sm-3  blog-sidebar">
-            <div class="sidebar-module sidebar-module-header">
-            <h4>About</h4>
-            <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
-          </div>
-          <div class="sidebar-module">
-            <h4>Archives</h4>
-            <ol class="list-unstyled">
-              <li><a href="#">March 2014</a></li>
-              <li><a href="#">February 2014</a></li>
-              <li><a href="#">January 2014</a></li>
-              <li><a href="#">December 2013</a></li>
-              <li><a href="#">November 2013</a></li>
-              <li><a href="#">October 2013</a></li>
-              <li><a href="#">September 2013</a></li>
-              <li><a href="#">August 2013</a></li>
-              <li><a href="#">July 2013</a></li>
-              <li><a href="#">June 2013</a></li>
-              <li><a href="#">May 2013</a></li>
-              <li><a href="#">April 2013</a></li>
-            </ol>
-          </div>
-        </div>
     </div>
-</div>
 </div>
 <!--Footer-->
 <footer class="footer">

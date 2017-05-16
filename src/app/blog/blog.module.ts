@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 
-//3rd party
+//3rd part
 import { NgPipesModule } from 'ngx-pipes';
 
 import { SharedModule } from '../shared/shared.module';
