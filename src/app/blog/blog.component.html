@@ -30,7 +30,7 @@
                 <li class="nav-item">
                     <a class="nav-link" id="link-blog" [routerLink]="['/blog']">Blog</a>
                 </li>
-                <li class="nav-item"><div class="nav-link">|</div></li>
+                <li class="nav-item hidden-sm-down"><div class="nav-link">|</div></li>
                 <li class="nav-item">
                     <a *ngIf="(afAuth.authState | async)" class="nav-link" (click)="loginService.logout()">Logout</a>
                 </li>               
