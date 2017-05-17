@@ -12,15 +12,22 @@ import * as firebase from 'firebase/app';
 
 //GSAP
 import { TweenLite } from 'gsap';
+//skrollr
+import * as skrollr from 'skrollr/src/skrollr';
 
 //Service
 import { BlogService } from './blog.service';
 import { LoginService } from '../login/login.service';
 
+//custom
+import { slideInOutAnimation} from '../_animations/route-animation'
+
 @Component({
   selector: 'app-blog',
   templateUrl: './blog.component.html',
-  styleUrls: ['./blog.component.css']
+  styleUrls: ['./blog.component.css'],
+  animations: [slideInOutAnimation],
+  host: {'[@slideInOutAnimation]': ''}
 
 })
 export class BlogComponent implements OnInit {
@@ -60,8 +67,8 @@ export class BlogComponent implements OnInit {
     TweenLite.from(logoTxt, 1, { x: 20 });
 
 
-    let linkBlog = document.getElementById("link-blog");
-    linkBlog.className += " active";
+    // let linkBlog = document.getElementById("link-blog");
+    // linkBlog.className += " active";
 
   }
 
