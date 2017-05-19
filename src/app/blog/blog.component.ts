@@ -20,14 +20,12 @@ import { BlogService } from './blog.service';
 import { LoginService } from '../login/login.service';
 
 //custom
-import { slideInOutAnimation} from '../_animations/route-animation'
+import { slideInOutAnimation} from '../_animations/index'
 
 @Component({
   selector: 'app-blog',
   templateUrl: './blog.component.html',
-  styleUrls: ['./blog.component.css'],
-  animations: [slideInOutAnimation],
-  host: {'[@slideInOutAnimation]': ''}
+  styleUrls: ['./blog.component.css']
 
 })
 export class BlogComponent implements OnInit {
@@ -63,8 +61,8 @@ export class BlogComponent implements OnInit {
       logoTxt = document.getElementById("logoTxt"),
       post = document.getElementById("post");
 
-    TweenLite.from(logo, 1, { autoAlpha: 0, delay: 0.3 });
-    TweenLite.from(logoTxt, 1, { x: 20 });
+    TweenLite.from(logo, 1, { autoAlpha: 0, delay: 0.7 });
+    TweenLite.from(logoTxt, 1, {autoAlpha: 0, x: 20 , delay: 0.6});
 
 
     // let linkBlog = document.getElementById("link-blog");
