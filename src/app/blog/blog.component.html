@@ -30,10 +30,12 @@
                 <li class="nav-item">
                     <a class="nav-link" routerLinkActive="active" id="link-blog" [routerLink]="['/blog']">Blog</a>
                 </li>
-                <li class="nav-item hidden-sm-down"><div class="nav-link">|</div></li>
+                <li class="nav-item hidden-sm-down">
+                    <div class="nav-link">|</div>
+                </li>
                 <li class="nav-item">
                     <a *ngIf="(afAuth.authState | async)" class="nav-link" (click)="loginService.logout()">Logout</a>
-                </li>               
+                </li>
                 <li *ngIf="!(afAuth.authState | async)" class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Login <span class="caret"></span></a>
                     <ul id="login-dp" class="dropdown-menu dropdown-menu-right">
@@ -86,23 +88,27 @@
     <div class="container body">
         <div class="row">
             <div class="col-sm-9 blog-main">
-                <!-- *** Add new post Popup modal *** -->
-                <div class="wrapper">
-                    <div *ngIf="(afAuth.authState | async)" id="newpost">
-                        <button class="btn btn-success btn-circle" data-toggle="modal" data-target="#newPostModalLong">new<br/>post</button>
-                    </div>
-
+                <div class="post-wrapper">
                     <blog-post>Logding posts..</blog-post>
-
                 </div>
             </div>
             <div class="col-sm-3  blog-sidebar">
                 <div class="sidebar-module sidebar-module-header">
-                    <h4>About</h4>
-                    <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum.
-                        Aenean lacinia bibendum nulla sed consectetur.</p>
+                    <div class="thumbnail mx-auto d-block">
+                        <img class="img-thumbnail rounded-circle border-0" src="/src/assets/img/NUI_9506.jpg" alt="">
+                    </div>
+                    <p style="margin-top: 5px;  text-indent: 20px;">
+                        Hi, I'm Nui Rattapon — a full-stack web developer from Thailand. Currently work in Auckland for MVP Studio.
+                    </p>
+                    <p>This blog was built from scratch, powered by Angular 4, Bootstrap 4, GSAP, Skrollr and many more. And
+                        host on Firebase.
+                    </p>
+                    <p>
+                        Thanks for visiting.
+                    </p>
+
                 </div>
-                <div class="sidebar-module">
+                <div class="sidebar-module sidebar-module-archive">
                     <h4>Archives</h4>
                     <ol class="list-unstyled">
                         <li><a href="#">March 2014</a></li>
@@ -122,7 +128,22 @@
             </div>
         </div>
     </div>
+
+    <!--New Post Button-->
+    <div class="container newpost-container" *ngIf="(afAuth.authState | async)">
+        <div class="row">
+            <div class="col-sm-9">
+                <div class="newpost pull-right">
+                    <button class="btn btn-success btn-circle btn-newpost" data-toggle="modal" data-target="#newPostModalLong">new<br/>post</button>
+                </div>
+            </div>
+            <!--<div class="col-sm-3" style="z-index: -1; display:none;"></div>-->
+        </div>
+
+    </div>
 </div>
+
+
 <!--Footer-->
 <footer class="footer">
     <div class="container">
@@ -189,8 +210,8 @@
                 </div>
                 <div class="modal-footer">
                     <div class="form-group">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
                         <button [disabled]="!addPostForm.valid" type="submit" class="btn btn-primary">Post</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
                     </div>
                 </div>
 

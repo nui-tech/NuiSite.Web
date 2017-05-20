@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TweenLite } from 'gsap';
+import { TweenLite} from 'gsap';
 // import { slideInOutAnimation } from '../../_animations/index'
 import * as skrollr from 'skrollr/src/skrollr';
 
@@ -17,7 +17,7 @@ export class CvCoverComponent implements OnInit {
   
 
   ngOnInit() {
-    this.skr = skrollr.init();
+ this.skr = skrollr.init();
     let coverH1 = document.getElementById("hello");
     TweenLite.from(coverH1, 2, { autoAlpha: 0, delay: 0.75 });
     
