@@ -186,6 +186,12 @@ section .exp-item h3 {
 
 
 /* Screen break point */
+@media (max-width: 567px) {
+    .nav{
+    margin-right: 5px;   
+}
+}
+
 
 @media (max-width: 767px) {
     .wrapper {

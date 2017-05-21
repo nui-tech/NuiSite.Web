@@ -1,11 +1,6 @@
 .post-container {
-    /*border: 1px solid;*/
-    /*background-color: whitesmoke;*/
-    margin-bottom: 2%;
-    /*border: 1px solid #d8d8d8;*/
-    /*border-bottom: 1px solid gray;*/
+    margin-bottom: 12px;
     background-color: white;
-    /*border-radius: 4px;*/
     padding: 15px;
 }
 
@@ -15,6 +10,17 @@
     /*margin-bottom: 3%;*/
     /*color: white;*/
     /*padding: 8px;*/
+}
+.post-action  .dropdown-menu{
+    border-radius: 0;
+}
+.btn-postaction i{
+    color: gray;
+}
+
+
+.btn-postaction:hover i{
+    color: black;
 }
 
 .post-pic {
@@ -70,5 +76,11 @@ p {
     .post-pic img {
         width: 100%;
         box-shadow: 1px 2px 7px 2px gray;
+    }
+}
+
+@media(max-width: 576px){
+    .post-container {
+        
     }
 }

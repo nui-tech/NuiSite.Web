@@ -95,10 +95,10 @@
             <div class="col-sm-3  blog-sidebar">
                 <div class="sidebar-module sidebar-module-header">
                     <div class="thumbnail mx-auto d-block">
-                        <img class="img-thumbnail rounded-circle border-0" src="/src/assets/img/NUI_9506.jpg" alt="">
+                        <img class="img-thumbnail rounded-circle border-0" src="../assets/img/nui-thumbnail.jpg" alt="">
                     </div>
                     <p style="margin-top: 5px;  text-indent: 20px;">
-                        Hi, I'm Nui Rattapon — a full-stack web developer from Thailand. Currently work in Auckland for MVP Studio.
+                        <b>Hello, my name is Nui Rattapon — a full-stack web developer. Currently work in Auckland for MVP Studio.</b>
                     </p>
                     <p>This blog was built from scratch, powered by Angular 4, Bootstrap 4, GSAP, Skrollr and many more. And
                         host on Firebase.
@@ -192,12 +192,12 @@
                         </div>
                     </div>
                     <!--Date-->
-                    <div class="form-group row" [ngClass]="{'has-success': addPostForm.get('createdon').valid, 
+                    <!--<div class="form-group row" [ngClass]="{'has-success': addPostForm.get('createdon').valid, 
                                         'has-danger': (addPostForm.get('createdon').touched || addPostForm.get('createdon').dirty) && !addPostForm.get('createdon').valid}">
                         <label for="createdon" class="col-sm-2 col-form-label">Date</label>
                         <div class="col-sm-10">
                             <input formControlName="createdon" class="form-control" type="date" placeholder="Date"> </div>
-                    </div>
+                    </div>-->
 
                     <!--Content-->
                     <div class="form-group" [ngClass]="{'has-success': addPostForm.get('content').valid, 
@@ -210,7 +210,7 @@
                 </div>
                 <div class="modal-footer">
                     <div class="form-group">
-                        <button [disabled]="!addPostForm.valid" type="submit" class="btn btn-primary">Post</button>
+                        <button [disabled]="!addPostForm.valid" type="submit" class="btn btn-primary" >Post</button>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
                     </div>
                 </div>

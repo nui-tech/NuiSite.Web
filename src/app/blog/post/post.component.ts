@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
@@ -14,54 +14,20 @@ import { BlogService } from '../blog.service';
   styleUrls: ['./post.component.css']
 })
 export class PostComponent implements OnInit {
-
   user: Observable<firebase.User>;
   posts: FirebaseListObservable<any[]>;
 
-  constructor(public afAuth: AngularFireAuth, public db: AngularFireDatabase) {
-
-    this.posts = db.list('/blog');
+  constructor(public afAuth: AngularFireAuth, public db: AngularFireDatabase, public bs:BlogService) {
     this.user = this.afAuth.authState;
-
   }
-
-
 
   ngOnInit() {
-    //this.posts = this._blogService.getLocalPosts();
+    this.posts = this.bs.getPosts();
   }
 
-  // posts = [
-  //   {
-  //     id: 1,
-  //     title: "Hiking on Arthur's pass",
-  //     createddate: "Jan, 12, 2017",
-  //     author: "Nui Rattapon",
-  //     picurl: "../../assets/img/phone.jpg",
-  //     content: "Full-stack web developer work in Agile & Scrum software environment, build emergency contact platform . Main technologies involve : C# Asp.Net MVC, AngularJS",
-  //     social: "",
-  //     tag: ""
-  //   },
-  //   {
-  //     id: 2,
-  //     title: "Hiking on Arthur's pass",
-  //     createddate: "Jan, 12, 2017",
-  //     author: "Nui Rattapon",
-  //     picurl: "../../assets/img/phone.jpg",
-  //     content: "Full-stack web developer work in Agile & Scrum software environment, build emergency contact platform . Main technologies involve : C# Asp.Net MVC, AngularJS",
-  //     social: "",
-  //     tag: ""
-  //   },
-  //   {
-  //     id: 3,
-  //     title: "Hiking on Arthur's pass",
-  //     createddate: "Jan, 12, 2017",
-  //     author: "Nui Rattapon",
-  //     picurl: "../../assets/img/phone.jpg",
-  //     content: "Full-stack web developer work in Agile & Scrum software environment, build emergency contact platform . Main technologies involve : C# Asp.Net MVC, AngularJS",
-  //     social: "",
-  //     tag: ""
-  //   }
-  // ];
+  deletePost(id){
+    this.bs.deletePost();
+    console.log(id);
+  }
 
 }

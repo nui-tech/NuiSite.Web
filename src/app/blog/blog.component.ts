@@ -19,8 +19,15 @@ import * as skrollr from 'skrollr/src/skrollr';
 import { BlogService } from './blog.service';
 import { LoginService } from '../login/login.service';
 
+//librally
+
 //custom
-import { slideInOutAnimation} from '../_animations/index'
+import { slideInOutAnimation } from '../_animations/index'
+
+//interface
+import { Post } from './post';
+declare var jquery:any;
+declare var $ :any;
 
 @Component({
   selector: 'app-blog',
@@ -40,12 +47,13 @@ export class BlogComponent implements OnInit {
     public afAuth: AngularFireAuth,
     public db: AngularFireDatabase,
     public loginService: LoginService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    public bs: BlogService
   ) {
 
     this.user = this.afAuth.authState;
-    this.post = this.db.list('/blog');
-
+    this.post = this.db.list('/blog'); debugger;
+    console.log(this.post.first);
   }
 
 
@@ -62,7 +70,7 @@ export class BlogComponent implements OnInit {
       post = document.getElementById("post");
 
     TweenLite.from(logo, 1, { autoAlpha: 0, delay: 0.7 });
-    TweenLite.from(logoTxt, 1, {autoAlpha: 0, x: 20 , delay: 0.6});
+    TweenLite.from(logoTxt, 1, { autoAlpha: 0, x: 20, delay: 0.6 });
 
 
     // let linkBlog = document.getElementById("link-blog");
@@ -79,7 +87,7 @@ export class BlogComponent implements OnInit {
     this.addPostForm = this.fb.group({
       title: ['', Validators.required],
       author: ['', Validators.required],
-      createdon: ['', Validators.required],
+      // createdon: ['', Validators.required],
       content: ['I love dog', [Validators.required, Validators.minLength(3)]],
       picurl: 'https://cdn.pixabay.com/photo/2017/05/06/04/01/dog-2288841__340.jpg',
       tag: ''
@@ -102,35 +110,46 @@ export class BlogComponent implements OnInit {
     let mypost = new Post();
     mypost.title = this.addPostForm.value.title;
     mypost.author = this.addPostForm.value.author;
-    mypost.createdon = this.addPostForm.value.createdon;
+    mypost.createdon = Date.now().toString();
     mypost.content = this.addPostForm.value.content;
     mypost.picurl = this.addPostForm.value.picurl;
     mypost.tag = this.addPostForm.value.tag;
-    var jQuery: any;
+    // this.bs.addPost(mypost)
+    //   .then(_ => {
+    //     console.log('success');
+    //     alert('Post Success!');
+    //     document.getElementById('newPostModalLong').hidden;
+    //     //jQuery("#newPostModalLong").modal("hide");
+    //   })
+    //   .catch(err => console.log('You do not have access!', err));
+    // console.log('newpost fired');
     this.post.push(mypost)
       .then(_ => {
         console.log('success');
         alert('Post Success!');
-        jQuery("#newPostModalLong").modal("hide");
+        $('#newPostModalLong').modal('hide');       
       })
       .catch(err => console.log('You do not have access!', err));
     console.log('newpost fired');
   }
 
+  editPost() { }
+
+
 
 
 }
 
-class Post {
-  author: string = '';
-  content: string = '';
-  createdon: string = '';
-  id: number = 0;
-  picurl: string = '';
-  social: string = "";
-  tag: string = "";
-  title: string = '';
-}
+// class Post {
+//   author: string = '';
+//   content: string = '';
+//   createdon: string = '';
+//   id: number = 0;
+//   picurl: string = '';
+//   social: string = "";
+//   tag: string = "";
+//   title: string = '';
+// }
 
   //To create ReactiveFrom 
   // 1 import ReactiveFromModule in root module 
