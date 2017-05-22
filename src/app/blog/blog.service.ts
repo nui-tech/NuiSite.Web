@@ -25,12 +25,12 @@ export class BlogService {
     }
 
     getPosts(): FirebaseListObservable<any[]> {
-        return this.db.list('blog');
+        return this.db.list('/blog');
     }
 
-    deletePost() {
-        alert('Delete Post');
-        debugger;
+    deletePost(item: string) {
+        alert('Delete Post'); debugger;
+        this.posts.remove(item);
     }
 
     // getPosts(): Observable<any[]> {

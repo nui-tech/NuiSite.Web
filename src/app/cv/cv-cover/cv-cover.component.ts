@@ -19,9 +19,9 @@ export class CvCoverComponent implements OnInit {
 
   ngOnInit() {
     this.skr = skrollr.init();
-    // let coverH1 = document.getElementById("hello");
+    let coverH1 = document.getElementById("hello");
     // let myname = $('#myname');
-    // TweenLite.from(coverH1, 2, { autoAlpha: 0, delay: 0.75 });
+    TweenLite.from(coverH1, 2, { autoAlpha: 0, delay: 0.75 });
     // TweenLite.from(myname, 2, { autoAlpha: 0, delay: 0.75 });
 
   }

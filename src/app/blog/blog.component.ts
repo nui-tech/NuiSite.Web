@@ -52,7 +52,8 @@ export class BlogComponent implements OnInit {
   ) {
 
     this.user = this.afAuth.authState;
-    this.post = this.db.list('/blog'); debugger;
+    this.post = this.db.list('/blog');
+    // this.post = this.db.object('/blog');
     console.log(this.post.first);
   }
 
@@ -114,18 +115,8 @@ export class BlogComponent implements OnInit {
     mypost.content = this.addPostForm.value.content;
     mypost.picurl = this.addPostForm.value.picurl;
     mypost.tag = this.addPostForm.value.tag;
-    // this.bs.addPost(mypost)
-    //   .then(_ => {
-    //     console.log('success');
-    //     alert('Post Success!');
-    //     document.getElementById('newPostModalLong').hidden;
-    //     //jQuery("#newPostModalLong").modal("hide");
-    //   })
-    //   .catch(err => console.log('You do not have access!', err));
-    // console.log('newpost fired');
     this.post.push(mypost)
       .then(_ => {
-        console.log('success');
         alert('Post Success!');
         $('#newPostModalLong').modal('hide');       
       })

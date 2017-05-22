@@ -26,7 +26,7 @@ export class PostComponent implements OnInit {
   }
 
   deletePost(id){
-    this.bs.deletePost();
+    this.bs.deletePost('-KkjUHqRk2dgjlhcDv0D');
     console.log(id);
   }
 
