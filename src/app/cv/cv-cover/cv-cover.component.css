@@ -1,152 +1,111 @@
 .body {
-    /*padding:0;
-		margin:0;*/
-    width: 100%;
-    height: 100%;
-    /*background-attachment:fixed;
-		color:#fff;
-		font-family:sans-serif;
-		text-align:center;*/
+  width: 100%;
+  height: 100%;
 }
 
-.caption {
-    position: absolute;
-    bottom: 5%;
-    right: 5%;
-    text-align: right;
-    color: #fff;
+main{
+    height: 5000px
 }
 
-p, h1 {
-    margin: 0;
+/*.full-screen {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}*/
+
+.scene {
+  width: 100%;
+  height: 100%;
+  background-repeat: repeat;
+  background-position: center top;
+  background-attachment: fixed;
 }
 
-h1 {
-    margin-bottom: 0.2em;
+#scene1 {
+  background: url("../../../assets/img/phone.jpg") no-repeat center center;
+  background-size: cover;
+  -webkit-transform: translate(0, 100%);
+  -ms-transform: translate(0, 100%);
+  transform: translate(0, 100%);
 }
 
-p {
-    line-height: 1.333em;
+#scene2 {
+  background: url("../../../assets/img/DSC_6711.jpg") no-repeat center center;
+  background-size: cover;
+  -webkit-transform: translate(0, 200%);
+  -ms-transform: translate(0, 200%);
+  transform: translate(0, 200%);
 }
 
-#slide-3 .caption {
-    left: 5%;
-    right: auto;
+#scene3 {
+  background: url("../../../assets/img/NUI_9500.jpg") no-repeat center center;
+  background-size: cover;
+  -webkit-transform: translate(0, 300%);
+  -ms-transform: translate(0, 300%);
+  transform: translate(0, 300%);
 }
 
-#slide-4 .caption {
-    left: 5%;
-    top: 5%;
-    right: auto;
-    bottom: auto;
-}
-
-#slides-container {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-}
-
-#slides {
-    width: 200%;
-    height: 200%;
-    position: fixed;
-    top: 0;
-    left: 0;
-}
-
-.slide {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 50%;
-    height: 50%;
-}
-
-#slide-1 {
-    background: url("../../../assets/img/phone.jpg") no-repeat center center;
-    background-size: cover;
-}
-
-#slide-2 {
-    background: url("../../../assets/img/DSC_6711.jpg") no-repeat center center;
-    background-size: cover;
-    -webkit-transform: translate(0, 100%);
-    -ms-transform: translate(0, 100%);
-    transform: translate(0, 100%);
-}
-
-#slide-3 {
-    background: url("../../../assets/img/NUI_9500.jpg") no-repeat center center;
-    background-size: cover;
-    -webkit-transform: translate(100%, 100%);
-    -ms-transform: translate(100%, 100%);
-    transform: translate(100%, 100%);
-}
-
-#slide-4 {
-    background: url("../../../assets/img/NUI_9506.jpg") no-repeat center center;
-    background-size: cover;
-    -webkit-transform: translate(100%, 0);
-    -ms-transform: translate(100%, 0);
-    transform: translate(100%, 0);
-}
-
-#helper {
-    position: absolute;
-    left: 0;
-    top: 0;
-    height: 600%;
-    /*width: 10px;*/
-}
-
-.marker {
-    height: 25%;
-    width: 100%;
+#scene4 {
+  background: url("../../../assets/img/NUI_9506.jpg") no-repeat center center;
+  background-size: cover;
+  -webkit-transform: translate(0, 400%);
+  -ms-transform: translate(0, 400%);
+  transform: translate(0, 400%);
 }
 
 .red {
-    background-color: tomato;
+  background-color: tomato;
 }
 
 .green {
-    background-color: forestgreen;
+  background-color: forestgreen;
 }
 
 .blue {
-    background-color: skyblue;
+  background-color: skyblue;
 }
 
 .yellow {
-    background-color: gold;
+  background-color: gold;
 }
 
-
-
-.hello {
-    width: 300px;
-    height: 300px;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
-        text-align: center;
-    /*border: 1px solid gray;*/
-background:rgba(255,255,255,0.5);}
-
-.hello div {
-    font-size: 85%;
-    /*border: 1px solid gray;*/
-    
+#intro{
 
 }
 
-#hello {
-    font-size: 700%;
-    padding-top: 40px;
-    /*border: 1px solid gray;*/
+.intro-content {
+  width: 320px;
+  height: 320px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  text-align: center;
+  border: 1px solid gray;
+}
+
+#intro h1 {
+  position: relative;
+  border: 1px solid gray;
+  font-size: 900%;
+  color: white;
+  opacity: 0;
+}
+
+.move-left{
+    position: relative;
+    transform: translate(-100px,-20px);
+}
 
 
+/* Skrollr */
+.scroll-info{
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 9999;
+    background-color: white;
+    padding: 20px;
 }

@@ -1,8 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { TweenLite } from 'gsap';
+import { TweenLite, TweenMax } from 'gsap';
 // import { slideInOutAnimation } from '../../_animations/index'
-import * as skrollr from 'skrollr/src/skrollr';
 declare var $: any;
+import * as skrollr from 'skrollr/src/skrollr';
+
+
+// import * as ScrollMagic from 'scrollmagic/scrollmagic/uncompressed/scrollmagic';
+// import * as animationGsap from 'scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap';
+// import * as addIndicators from 'scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators';
 
 
 @Component({
@@ -18,21 +23,27 @@ export class CvCoverComponent implements OnInit {
 
 
   ngOnInit() {
-    this.skr = skrollr.init();
-    let coverH1 = document.getElementById("hello");
-    // let myname = $('#myname');
-    TweenLite.from(coverH1, 2, { autoAlpha: 0, delay: 0.75 });
-    // TweenLite.from(myname, 2, { autoAlpha: 0, delay: 0.75 });
+    //test scrollmagic
+    // this.initScrollMagic();
+
+    this.skr = skrollr.init({
+      render: function(data){
+        //log the current scroll positino.
+        $('.scroll-info').text(data.curTop);
+      }
+    });
+    TweenLite.to('.intro-content h1', 1.3, { opacity: 1, y: 50 });
 
   }
 
-  progressBar() {
-
-  }
+  // initScrollMagic() {
+  //   // TweenLite.to('.intro-content h1', 1.3, { opacity: 1, y: 50 });
+  //   // var photo = $('.intro-content h1');
+  //   // TweenLite.to(photo, 1, { opacity: 0, y: 50 });
+  // }
 
   myClick() {
     // let photo = document.getElementById("testImg");
-
     // TweenLite.to(photo, 1, { opacity: 0, y: 50 });
 
   }
