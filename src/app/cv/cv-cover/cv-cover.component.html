@@ -1,16 +1,20 @@
-<!--<div class="scroll-info">0</div>-->
+<div class="scroll-info">0</div>
 
 <div class="full-screen">
 
   <!-- Progrss bar section -->
-  <div id="progress" data-0="opacity:0;" data-50="opacity:1; width:0%; background:skyblue;" data-300="width:20%; background: tomato;" data-end="width:100%;">
+  <div id="progress" data-0="opacity:0;" data-200="opacity:1; width:0%; background:hsl(195, 53%, 69%);" 
+  data-500="width:20%; background:hsl(195, 53%, 60%);" 
+  data-999="width:39.8%; background:hsl(195, 53%, 60%)"
+  data-1000="width:40%; background:hsl(9, 85%, 59%);"
+  data-end="width:100%;">
   </div>
   <div id="progress-items" data-100="opacity:0;" data-200="opacity:1;">
-    <div class="about item">about me</div>
-    <div class="skills item">skills</div>
-    <div class="exprience item">exprience</div>
-    <div class="education item">education</div>
-    <div class="connect item">connect</div>
+    <div class="about item">ABOUT ME</div>
+    <div class="skills item">SKILLS</div>
+    <div class="exprience item">WORK</div>
+    <div class="education item">EDUCATION</div>
+    <div class="connect item">CONNECT</div>
   </div>
   <!-- Background Section -->
 
@@ -18,15 +22,19 @@
   <div id="bg2" data-0="background-position:0px 0px;" data-end="background-position:-500px -8000px;" class="skrollable skrollable-between" style="background-position: 0px 0px;"></div>
   <div id="bg3" data-0="background-position:0px 0px;" data-end="background-position:-500px -6000px;" class="skrollable skrollable-between" style="background-position: 0px 0px;"></div>-->
 
-
+  <!-- Hello -->
   <div class="white" data-0="transform:translate(0,0);" data-100="transform:translate(0,-100%);"></div>
-
+  <!-- about me -->
   <div id="scene1" class="scene" data-0="transform:translate(0,100%);" data-200="transform:translate(0,0);"></div>
-  <div class="blue" data-500="transform:translate(0,100%);" data-700="transform:translate(0,0);">
-    <h3>Skills</h3>
+
+  <!-- Skills -->
+  <div class="blue skill" data-500="transform:translate(0,100%);" data-700="transform:translate(0,0);">
+    <h1 data-685="top: 50%; left:47%;" data-700="top: 3%; left: 10%;">Skills</h1>
+
+    <img id="laptop" data-670="top:-20%; right:-50%;" data-700="top:5%; right:3%;" data-999="top:5%; right:3%;" data-1200="top:1%; right:105%;" src="/src/assets/img/notebook.svg">
   </div>
 
-  <div class="red" data-1000="transform:translate(100%,0);" data-1200="transform:translate(0,0);">
+  <div class="red exprience" data-1000="transform:translate(100%,0);" data-1200="transform:translate(0,0);">
     <h3>Exprience</h3>
   </div>
 
