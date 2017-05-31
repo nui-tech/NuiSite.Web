@@ -12,7 +12,7 @@ const routes: Routes = [
   { path: 'cover', component: CvCoverComponent },
   { path: 'blog', loadChildren: './blog/blog.module#BlogModule' },
   { path: 'blog/:id', loadChildren: './blog/blog.module#BlogModule' },
-  { path: '', component: CvComponent },
+  { path: '', component: CvCoverComponent },
   { path: '**', component: PagenotfoundComponent }
 
 ];
