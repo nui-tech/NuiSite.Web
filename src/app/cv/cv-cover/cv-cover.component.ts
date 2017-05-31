@@ -27,12 +27,13 @@ export class CvCoverComponent implements OnInit {
     // this.initScrollMagic();
 
     this.skr = skrollr.init({
-      render: function(data){
+      render: function (data) {
         //log the current scroll positino.
         $('.scroll-info').text(data.curTop);
       }
     });
     TweenLite.to('.intro-content h1', 1.3, { opacity: 1, y: 50 });
+    TweenLite.from('#advice', 1.8, { opacity: 0, y: -20  });
 
   }
 
