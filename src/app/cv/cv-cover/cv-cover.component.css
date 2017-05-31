@@ -2,9 +2,14 @@
 
 main {
   height: 2800px;
+  min-width: 1200px;
   padding: 0;
   margin: 0;
   font-family: 'Roboto', sans-serif;
+}
+
+@media (max-width: 1200px) {
+height: 3000px;
 }
 
 
@@ -147,6 +152,7 @@ main {
   margin: 0 auto;
   padding: 0;
   color: white;
+  background-color: rgba(255,255,255,0.2);
     /*border: 1px solid black;*/
 }
 
