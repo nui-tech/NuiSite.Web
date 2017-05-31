@@ -1,49 +1,88 @@
 <div class="scroll-info">0</div>
-<!--<header role="banner">
-  <nav class="anchor-nav" role="navigation">
-    <a href="#intro" id="intro-anchor">Intro</a>
-    <a href="#scene1" id="anchor1">Skills</a>
-    <a href="#scene2" id="anchor2">Exprience</a>
-    <a href="#scene3" id="anchor3">Education</a>
-    <a href="#scene4" id="anchor4">Connect</a>
-  </nav>
-</header> -->
 
 <main class="full-screen">
+
+  <!-- Progrss bar section -->
+  <div id="progress" data-0="opacity:0;" data-50="opacity:1; width:0%;background:hsl(200, 100%, 50%);" data-end="width:100%;background:hsl(920, 100%, 50%);"
+    class="skrollable skrollable-between" style="width: 28.9333%; background: rgb(255, 204, 0);">
+  </div>
+  <div id="progress-items" data-100="opacity:0;" data-200="opacity:1;">
+    <div class="about item">about me</div>
+    <div class="skills item">skills</div>
+    <div class="exprience item">exprience</div>
+    <div class="education item">education</div>
+    <div class="connect item">connect</div>
+  </div>
+  <!-- Background Section -->
+
+  <!--<div id="bg1" data-0="background-position:0px 0px;" data-end="background-position:-500px -10000px;" class="skrollable skrollable-between"  style="background-position: 0px 0px;"></div>
+  <div id="bg2" data-0="background-position:0px 0px;" data-end="background-position:-500px -8000px;" class="skrollable skrollable-between" style="background-position: 0px 0px;"></div>
+  <div id="bg3" data-0="background-position:0px 0px;" data-end="background-position:-500px -6000px;" class="skrollable skrollable-between" style="background-position: 0px 0px;"></div>-->
+
+
+  <div class="white" data-0="transform:translate(0,0);" data-100="transform:translate(0,-100%);"></div>
+
+  <div id="scene1" class="scene" data-0="transform:translate(0,100%);" data-100="transform:translate(0,0);"></div>
+  <div class="blue" data-300="transform:translate(0,100%);" data-400="transform:translate(0,0);">
+    <h3>Skills</h3>
+  </div>
+
+  <div class="red" data-700="transform:translate(100%,0);" data-800="transform:translate(0,0);">
+    <h3>Exprience</h3>
+  </div>
+
+  <div class="green" data-1100="transform:translate(-100%,0);" data-1200="transform:translate(0,0);">
+    <h3>education</h3>
+  </div>
+
+  <div class="yellow" data-1500="transform:translate(0,100%);" data-1600="transform:translate(0,0);">
+    <h3>connect</h3>
+  </div>
+
   <!--Intro-->
-  <section class="scene blue" id="intro">
-    <div class="intro-content" 
-      data-top="transform:translate(0px, 0px)" 
-      data--275-top="transform:translate(-200px, 300px)" 
-      data-anchor-target="#intro">
+  <section class="scene" id="intro">
+    <div class="intro-content" data-0="transform:translate(0%, 0%); display:block; color:rgb(0,0,0);" data-100="transform:translate(130%, 3%); color:rgb(255,255,255);"
+      data-300="top:0%;" data-400="top:-150%; display:none;">
       <h1 id="hello">hello</h1>
+      <br>
+      <div style="left: 25px; position:absolute;" data-0="display:flex; opacity:1; z-index:9999;" data-10="opacity:0;">scroll down or&nbsp;<a style="color:#545454;" routerLink="/cv">just view my resume</a></div>
+      <div id="myName">
+        <h3 data-100="opacity:0;" data-130="opacity:1;">My name is Nui Rattapon</h3>
+        <br>
+        <h4 style="margin-top:10px; margin-left:26px" data-110="opacity:0;" data-150="opacity:1;">I am a full-stack developer.</h4>
+        <br><br><br>
+        <h4 style="margin-left:-126px;" data-120="opacity:0;" data-170="opacity:1;">Currently work for <a href="http://www.mvpstudio.co.nz/"> MVP Studio</a> , Auckland.</h4>
+      </div>
     </div>
+
+
+
   </section>
 
 </main>
 
 
-   <!--Skills-->
-  <!--<section class="scene green" id="scene1">
+<!--Skills-->
+<!--<section class="scene green" id="scene1">
     <div>
       <p>Skills</p>
     </div>
   </section>-->
 
-  <!-- Exprience -->
-  <!--<section class="scene red" id="scene2">
+<!-- Exprience -->
+<!--<section class="scene red" id="scene2">
     <div>
       <p>Exprience</p>
     </div>
   </section>-->
-  <!-- Education -->
-  <!--<section class="scene blue" id="scene3">
+<!-- Education -->
+<!--<section class="scene blue" id="scene3">
     <div>
       <p>Education</p>
     </div>
   </section>-->
-  <!--Connect-->
-  <!--<section class="scene yellow" id="scene4">
+<!--Connect-->
+<!--<section class="scene yellow" id="scene4">
     <div>
       <p>Connect</p>
     </div>
