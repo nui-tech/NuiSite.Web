@@ -1,10 +1,13 @@
+
 <!-- scrolling debuger -->
 <div class="scroll-info">0</div>
 
 <!-- fixed page height for scrolling length-->
 <div class="full-screen"></div>
 
-<!-- Progrss bar section -->
+<!-- *********************************** 
+        Progress bar 
+***********************************  -->
 <div id="progress" data-0="opacity:0;" data-200="opacity:1; width:0%; background:hsl(195, 53%, 69%);" data-1000="width:20%;"
   data-2000="width:40%;" data-3000="width:60%;" data-4000="width:80%;" data-5000="width:100%;" data-end="width:100%;">
 </div>
@@ -21,20 +24,39 @@
 
 
 
-<!-- Background Section -->
-
-<!-- Hello -->
+<!-- *********************************** 
+        About me 
+***********************************  -->
+<!-- Hello bg -->
 <div class="white" data-0="transform:translate(0,0);" data-100="transform:translate(0,-100%);"></div>
-<!-- about me -->
+<!-- about me bg -->
 <div id="aboutme" class="scene" data-0="transform:translate(0%,100%); display:block;" data-200="transform:translate(0%,0%); display:block;"
   data-1200="display:none;">
+  
 </div>
 <div id="me-png" class="scene" data-180="transform:translate(0%,70%); display:block; opacity:0.4;" data-300="transform:translate(0%,0%); opacity:1;"
   data-900="transform:translate(0%,0%);" data-1200="transform:translate(-50%,0%); display:none;">
 </div>
+<!-- decorator -->
+<div class="scene" id="intro">
+  <div class="intro-content" data-0="transform:translate(0%, 0%); display:block; color:rgb(0,0,0);" data-200="transform:translate(110%, 3%); color:rgb(255,255,255);"
+    data-800="top:0%;" data-1200="top:-150%; display:none;">
+    <h1 id="hello">hello</h1>
+    <br>
+    <div id="advice" data-0="opacity:1; z-index:9999;" data-10="opacity:0;">scroll down or&nbsp;<a style="color:#545454;" href="/cv">just view my resume</a></div>
+    <div id="myName">
+      <h3 data-300="opacity:0;" data-350="opacity:1;">I'm Nui Rattapon,</h3>
+      <h4 data-330="opacity:0;" data-380="opacity:1;">a junior web developer.</h4>      
+      <h4 data-340="opacity:0;" data-400="opacity:1;">Currently work for <a href="http://www.mvpstudio.co.nz/"> MVP Studio</a>, Auckland.</h4>
+    </div>
+  </div>
+</div>
 
 
-<!-- Skills -->
+<!-- *********************************** 
+        Skills 
+***********************************  -->
+<!-- bg -->
 <div class="blue skill" data-1000="transform:translate(0,100%);" data-1200="transform:translate(0,0);">
   <h1>Skills</h1>
   <div class="skill-container" data-720="opacity:0;" data-770="opacity:1;">
@@ -50,40 +72,34 @@
       <div class="percent" data-800="width:0%;" data-900="width:57%;">&nbsp;&nbsp;C#</div>
     </div>
   </div>
+
+
 </div>
-<img id="laptop" data-1150="top:0px; right:0px; opacity:0;" data-1260="top:30px; right:50px; opacity:1;" src="/assets/img/notebook.svg">
+<!-- decorator -->
+<img id="laptop" data-1150="top:0vmax; right:0vmax; opacity:0;" data-1260="top:3vmax; right:4vmax; opacity:1;" src="/assets/img/notebook.svg">
 
 
 
-
+<!-- *********************************** 
+        Work 
+***********************************  -->
+<!-- bg -->
 <div class="red exprience" data-2000="transform:translate(100%,0);" data-2200="transform:translate(0,0);">
   <h3>Work</h3>
 </div>
 
+<!-- *********************************** 
+       Education
+***********************************  -->
 <div class="green" data-3000="transform:translate(-100%,0);" data-3200="transform:translate(0,0);">
   <h3>education</h3>
 </div>
 
+<!-- *********************************** 
+        Connect
+***********************************  -->
 <div class="yellow" data-4000="transform:translate(0,100%);" data-4200="transform:translate(0,0);">
   <h3>connect</h3>
 </div>
 
-<!--Intro-->
-<section class="scene" id="intro">
-  <div class="intro-content" data-0="transform:translate(0%, 0%); display:block; color:rgb(0,0,0);" data-200="transform:translate(110%, 3%); color:rgb(255,255,255);"
-    data-800="top:0%;" data-1200="top:-150%; display:none;">
-    <h1 id="hello">hello</h1>
-    <br>
-    <div id="advice" style="left: 25px; position:absolute;" data-0="display:flex; opacity:1; z-index:9999;" data-10="opacity:0;">scroll down or&nbsp;<a style="color:#545454;" href="/cv">just view my resume</a></div>
-    <div id="myName">
-      <h3 data-300="opacity:0;" data-350="opacity:1;">I'm Nui Rattapon,</h3>
-      <br>
-      <h4 style="margin-top:10px; margin-left:60px" data-330="opacity:0;" data-380="opacity:1;">a junior web developer.</h4>
-      <br><br><br>
-      <h4 style="margin-left:-134px; margin-top:-15px;" data-340="opacity:0;" data-400="opacity:1;">Currently work for <a href="http://www.mvpstudio.co.nz/"> MVP Studio</a>, Auckland.</h4>
-    </div>
-  </div>
 
-
-
-</section>

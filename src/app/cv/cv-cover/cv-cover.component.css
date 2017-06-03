@@ -17,21 +17,21 @@
 ************************************/
 
 .full-screen {
-  height: 5850px;
+  height: 200px;
   min-width: 1200px;
   padding: 0;
   margin: 0;
   font-family: 'Roboto', sans-serif;
 }
 
-@media (max-width: 1200px) {
-  height: 3000px;
-}
-
 
 /************************************
     General setting
 ************************************/
+
+h1{
+  font-size: 3vmax;
+}
 
 .white,
 .red,
@@ -67,156 +67,22 @@
 
 
 /************************************
-    About me
-************************************/
-
-.scene {
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: transparent center no-repeat;
-  background-size: cover;
-  z-index: -1000;
-}
-
-#aboutme {
-  background: url("/assets/img/NUI_9506-nome2.jpg") no-repeat center center;
-  left: -500px;
-  width: 150%;
-}
-
-#me-png {
-  background: url("/assets/img/NUI_9506.png") no-repeat center center;
-  left: -500px;
-  width: 150%;
-  z-index: 100;
-  /*border: 1px solid;*/
-}
-
-.intro-content {
-  width: 330px;
-  height: 330px;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
-  text-align: center;
-  /*border: 1px solid gray;*/
-}
-
-#intro h1 {
-  position: relative;
-  /*border: 1px solid gray;*/
-  font-size: 900%;
-  font-weight: 900;
-  /*color: white;*/
-  opacity: 0;
-}
-
-#intro h3 {
-  right: 5px;;
-}
-
-#myName {
-  padding-top: 25px;
-  z-index: 100;
-  /*font-weight: 300;*/
-  text-align: right;
-  font-weight: 100;
-  font-family: 'Open Sans', sans-serif;
-  /*border: 1px solid gray;*/
-}
-
-#myName a {
-  color: white;
-}
-
-
-/************************************
-    Skills
-************************************/
-
-.skill {
-  text-align: center;
-}
-
-.skill h1 {
-  position: absolute;
-  top: 10%;
-  left: 10%;
-}
-
-#laptop {
-  width: 300px;
-  position: fixed;
-  top: -20%;
-  right: -35%;
-  -ms-transform: rotate(30deg);
-  /* IE 9 */
-  -webkit-transform: rotate(30deg);
-  /* Chrome, Safari, Opera */
-  transform: rotate(30deg);
-}
-.skill-container{
-  position: absolute;
-  top: 30%;
-  left: 40%;
-  display: inline-block;
-}
-.skill-box{
-  position: relative;
-  width: 300px;
-  height: 20px;
-  border-radius: 10px;
-  background-color: rgba(255, 255, 255, 0.5);
-  /*border: 1px solid gray;*/
-  font-size: 80%;
-}
-.percent{
-  position: absolute;
-  top: 0;
-  left: 0;
-  border-radius: 10px;
-  background-color: white;
-  height: 20px;
-    /*border: 1px solid gray;*/
-
-
-}
-
-/************************************
-    Work
-************************************/
-
-
-/************************************
-    exprience
-************************************/
-
-
-/************************************
-    connect
-************************************/
-
-
-/************************************
     Progress bar
 ************************************/
 
 #progress {
-  height: 4%;
-  background: #444;
+  position: fixed;
+  height: 5vh;
+  /*background: #444;*/
   bottom: 0;
   z-index: 200;
+  margin: 0;
 }
 
 #progress-items {
   position: fixed;
-  font-size: 140%;
-  height: 4%;
+  font-size: 3vmin;
+  height: 5vh;
   bottom: 0;
   width: 100%;
   z-index: 9900;
@@ -231,10 +97,164 @@
   text-align: center;
   padding: 0;
   margin: 0;
-  width: 19.5%;
+  width: 19vw;
   /*border: 1px solid black;*/
   display: inline-block;
 }
+
+
+/************************************
+    About me
+************************************/
+
+.scene {
+  top: 0;
+  left: 0;
+  width: 130vw;
+  height: 100vh;
+  /*background: transparent center no-repeat;*/
+  /*background-size: cover;*/
+  z-index: -1000;
+}
+
+#aboutme {
+  background: url("/assets/img/NUI_9506-nome2.jpg") no-repeat center center;
+  left: -30vw;
+  width: 150vmax;
+}
+
+#me-png {
+  background: url("/assets/img/NUI_9506.png") no-repeat center center;
+  left: -20vh;
+  width: 100vmax;
+  z-index: 100;
+  /*border: 1px solid;*/
+}
+
+.intro-content {
+  width: 30vw;
+  height: 30vmax;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  text-align: center;
+  /*border: 1px solid gray;*/
+}
+
+#intro h1 {
+  position: relative;
+  /*border: 1px solid gray;*/
+  font-size: 10vw;
+  font-weight: 900;
+  /*color: white;*/
+  opacity: 0;
+}
+
+#advice {
+  font-size: 1vw;
+  /*border: 1px solid gray;*/
+  position: relative;
+  text-align: center;
+}
+
+
+#myName {
+  position: absolute;
+  right: 2vmax;
+  padding-top: 0.5vmax;
+  width: 45vw;
+  z-index: 100;
+  text-align: right;
+  font-weight: 100;
+  font-family: 'Open Sans', sans-serif;
+  /*background: gold;*/
+}
+
+#myName>* {
+  position: relative;
+  padding-right: 2vw;
+  font-size: 2vw;
+}
+
+#myName a {
+  color: white;
+}
+
+
+/************************************
+    Skills
+************************************/
+
+.skill {
+  text-align: center;
+
+}
+
+.skill h1 {
+  position: absolute;
+  top: 5vh;
+  left: 5vw;
+}
+
+#laptop {
+  width: 20vw;
+  position: fixed;
+  top: -2vmax;
+  right: -2vmax;
+  -ms-transform: rotate(30deg);
+  /* IE 9 */
+  -webkit-transform: rotate(30deg);
+  /* Chrome, Safari, Opera */
+  transform: rotate(30deg);
+}
+
+.skill-container {
+  width:40vw;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  background: gold;
+}
+
+.skill-box {
+  position: relative;
+  width: 300px;
+  height: 20px;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.5);
+  /*border: 1px solid gray;*/
+  font-size: 80%;
+}
+
+.percent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 10px;
+  background-color: white;
+  height: 20px;
+  /*border: 1px solid gray;*/
+}
+
+
+/************************************
+    Work
+************************************/
+
+
+/************************************
+    exprience
+************************************/
+
+
+/************************************
+    connect
+************************************/
 
 
 /*
@@ -272,4 +292,32 @@
 	 * Third-level (and below) skrollables are positioned static
 	 */
   position: static;
+}
+
+
+/************************************
+    Screen breakpoint
+************************************/
+
+
+/*@media (max-width: 1200px) {
+  height: 3000px;
+}*/
+
+@media (max-width: 700px) {
+  /* progress bar */
+  .item {
+    width: 18.5vw;
+    padding-top: 5px;
+  }
+  /* about me */
+  #advice {
+    padding-top: 3vmin;
+    font-size: 1.5vw;
+  }
+  /* skill */
+  .skill h1 {
+    top: 2vh;
+    left: 2vw;
+  }
 }

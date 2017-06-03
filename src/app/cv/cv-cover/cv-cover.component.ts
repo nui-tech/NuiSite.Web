@@ -26,6 +26,8 @@ export class CvCoverComponent implements OnInit {
     //test scrollmagic
     // this.initScrollMagic();
 
+
+
     this.skr = skrollr.init({
       render: function (data) {
         //log the current scroll positino.
