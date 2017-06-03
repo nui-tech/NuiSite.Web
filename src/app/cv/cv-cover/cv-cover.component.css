@@ -1,7 +1,23 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,900');
+/************************************
+    Debuging
+************************************/
+
+.scroll-info {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 9999;
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 20px;
+}
+
+
+/************************************
+    Page setting
+************************************/
 
 .full-screen {
-  height: 3800px;
+  height: 5850px;
   min-width: 1200px;
   padding: 0;
   margin: 0;
@@ -9,41 +25,19 @@
 }
 
 @media (max-width: 1200px) {
-height: 3000px;
+  height: 3000px;
 }
 
 
-/*.full-screen {
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-}*/
-
-.scene {
-  /*position: fixed;*/
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: transparent center no-repeat;
-  background-size: cover;
-  z-index: -1000;
-  /*background-repeat: repeat;
-  background-position: center top;
-  background-attachment: fixed;*/
-}
-
-#scene1 {
-  background: url("../../../assets/img/NUI_9506.jpg") no-repeat center center;
-  left: -500px;
-  width: 150%;
-  /*-webkit-transform: translate(0, 100%);
-  -ms-transform: translate(0, 100%);
-  transform: translate(0, 100%);*/
-}
+/************************************
+    General setting
+************************************/
 
 .white,
-.red, .blue, .green, .yellow {
+.red,
+.blue,
+.green,
+.yellow {
   background-color: white;
   position: fixed;
   top: 0;
@@ -52,6 +46,7 @@ height: 3000px;
   height: 100%;
   /*background: transparent center no-repeat;*/
   background-size: cover;
+  z-index: -1000;
 }
 
 .red {
@@ -70,9 +65,38 @@ height: 3000px;
   background-color: gold;
 }
 
+
+/************************************
+    About me
+************************************/
+
+.scene {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent center no-repeat;
+  background-size: cover;
+  z-index: -1000;
+}
+
+#aboutme {
+  background: url("/assets/img/NUI_9506-nome2.jpg") no-repeat center center;
+  left: -500px;
+  width: 150%;
+}
+
+#me-png {
+  background: url("/assets/img/NUI_9506.png") no-repeat center center;
+  left: -500px;
+  width: 150%;
+  z-index: 100;
+  /*border: 1px solid;*/
+}
+
 .intro-content {
-  width: 320px;
-  height: 320px;
+  width: 330px;
+  height: 330px;
   position: absolute;
   top: 0;
   bottom: 0;
@@ -92,10 +116,18 @@ height: 3000px;
   opacity: 0;
 }
 
+#intro h3 {
+  right: 5px;;
+}
+
 #myName {
-  padding-top: 30px;
-  z-index: 9999;
-  font-weight: 300;
+  padding-top: 25px;
+  z-index: 100;
+  /*font-weight: 300;*/
+  text-align: right;
+  font-weight: 100;
+  font-family: 'Open Sans', sans-serif;
+  /*border: 1px solid gray;*/
 }
 
 #myName a {
@@ -103,37 +135,76 @@ height: 3000px;
 }
 
 
-/* Skrollr */
+/************************************
+    Skills
+************************************/
 
-.scroll-info {
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  z-index: 9999;
-  background-color: rgba(255,255,255,0.2);
-  padding: 20px;
+.skill {
+  text-align: center;
 }
 
-#bg1,
-#bg2,
-#bg3 {
-  z-index: 50;
+.skill h1 {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+}
+
+#laptop {
+  width: 300px;
+  position: fixed;
+  top: -20%;
+  right: -35%;
+  -ms-transform: rotate(30deg);
+  /* IE 9 */
+  -webkit-transform: rotate(30deg);
+  /* Chrome, Safari, Opera */
+  transform: rotate(30deg);
+}
+.skill-container{
+  position: absolute;
+  top: 30%;
+  left: 40%;
+  display: inline-block;
+}
+.skill-box{
+  position: relative;
+  width: 300px;
+  height: 20px;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.5);
+  /*border: 1px solid gray;*/
+  font-size: 80%;
+}
+.percent{
+  position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background: url("/src/assets/img/bubbles.png");
+  border-radius: 10px;
+  background-color: white;
+  height: 20px;
+    /*border: 1px solid gray;*/
+
+
 }
 
-#bg2 {
-  z-index: 49;
-  background-image: url("/src/assets/img/bubbles2.png");
-}
+/************************************
+    Work
+************************************/
 
-#bg3 {
-  z-index: 48;
-  background-image: url("/src/assets/img/bubbles3.png");
-}
+
+/************************************
+    exprience
+************************************/
+
+
+/************************************
+    connect
+************************************/
+
+
+/************************************
+    Progress bar
+************************************/
 
 #progress {
   height: 4%;
@@ -152,8 +223,8 @@ height: 3000px;
   margin: 0 auto;
   padding: 0;
   color: white;
-  background-color: rgba(255,255,255,0.2);
-    /*border: 1px solid black;*/
+  background-color: rgba(255, 255, 255, 0.2);
+  /*border: 1px solid black;*/
 }
 
 .item {
@@ -163,23 +234,6 @@ height: 3000px;
   width: 19.5%;
   /*border: 1px solid black;*/
   display: inline-block;
-}
-
-/* Skills */
-
-.skill{
-  text-align: center;
-}
-.skill h1{
-  top: 10%;
-  left: 10%;
-}
-
-#laptop{
-    width: 300px;
-    -ms-transform: rotate(30deg); /* IE 9 */
-    -webkit-transform: rotate(30deg); /* Chrome, Safari, Opera */
-    transform: rotate(30deg);
 }
 
 
