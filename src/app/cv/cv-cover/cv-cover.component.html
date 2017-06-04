@@ -1,105 +1,238 @@
-
 <!-- scrolling debuger -->
 <div class="scroll-info">0</div>
 
 <!-- fixed page height for scrolling length-->
-<div class="full-screen"></div>
+<div class="full-screen">
 
-<!-- *********************************** 
+  <!-- *********************************** 
         Progress bar 
 ***********************************  -->
-<div id="progress" data-0="opacity:0;" data-200="opacity:1; width:0%; background:hsl(195, 53%, 69%);" data-1000="width:20%;"
-  data-2000="width:40%;" data-3000="width:60%;" data-4000="width:80%;" data-5000="width:100%;" data-end="width:100%;">
-</div>
-<!--data-500="width:20%; background:hsl(195, 53%, 60%);"
+  <div id="progress" data-0="opacity:0;" data-200="opacity:1; width:0%; background:hsl(195, 53%, 69%);" data-1000="width:20%;"
+    data-2000="width:40%;" data-3000="width:60%;" data-4000="width:80%;" data-5000="width:100%;" data-end="width:100%;">
+  </div>
+  <!--data-500="width:20%; background:hsl(195, 53%, 60%);"
     data-1112="width:39.8%; background:hsl(195, 53%, 60%)" data-1113="width:40%; background:hsl(9, 85%, 59%);"-->
 
-<div id="progress-items" data-100="opacity:0;" data-200="opacity:1;">
-  <div class="about item">ABOUT ME</div>
-  <div class="skills item">SKILLS</div>
-  <div class="exprience item">WORK</div>
-  <div class="education item">EDUCATION</div>
-  <div class="connect item">CONNECT</div>
-</div>
+  <div id="progress-items" data-100="opacity:0;" data-200="opacity:1;">
+    <div class="about item">ABOUT ME</div>
+    <div class="skills item">SKILLS</div>
+    <div class="exprience item">WORK</div>
+    <div class="education item">EDUCATION</div>
+    <div class="connect item">CONNECT</div>
+  </div>
 
 
 
-<!-- *********************************** 
+  <!-- *********************************** 
         About me 
 ***********************************  -->
-<!-- Hello bg -->
-<div class="white" data-0="transform:translate(0,0);" data-100="transform:translate(0,-100%);"></div>
-<!-- about me bg -->
-<div id="aboutme" class="scene" data-0="transform:translate(0%,100%); display:block;" data-200="transform:translate(0%,0%); display:block;"
-  data-1200="display:none;">
-  
-</div>
-<div id="me-png" class="scene" data-180="transform:translate(0%,70%); display:block; opacity:0.4;" data-300="transform:translate(0%,0%); opacity:1;"
-  data-900="transform:translate(0%,0%);" data-1200="transform:translate(-50%,0%); display:none;">
-</div>
-<!-- decorator -->
-<div class="scene" id="intro">
-  <div class="intro-content" data-0="transform:translate(0%, 0%); display:block; color:rgb(0,0,0);" data-200="transform:translate(110%, 3%); color:rgb(255,255,255);"
-    data-800="top:0%;" data-1200="top:-150%; display:none;">
-    <h1 id="hello">hello</h1>
-    <br>
-    <div id="advice" data-0="opacity:1; z-index:9999;" data-10="opacity:0;">scroll down or&nbsp;<a style="color:#545454;" href="/cv">just view my resume</a></div>
-    <div id="myName">
-      <h3 data-300="opacity:0;" data-350="opacity:1;">I'm Nui Rattapon,</h3>
-      <h4 data-330="opacity:0;" data-380="opacity:1;">a junior web developer.</h4>      
-      <h4 data-340="opacity:0;" data-400="opacity:1;">Currently work for <a href="http://www.mvpstudio.co.nz/"> MVP Studio</a>, Auckland.</h4>
+  <!-- Hello bg -->
+  <div class="white" data-0="transform:translate(0,0);" data-100="transform:translate(0,-100%);"></div>
+  <!-- about me bg -->
+  <div id="aboutme" class="scene" data-0="transform:translate(0%,100%); display:block;" data-200="transform:translate(0%,0%); display:block;"
+    data-1200="display:none;">
+
+  </div>
+  <div id="me-png" class="scene" data-180="transform:translate(0%,70%); display:block; opacity:0.4;" data-300="transform:translate(0%,0%); opacity:1;"
+    data-900="transform:translate(0%,0%);" data-1200="transform:translate(-50%,0%); display:none;">
+  </div>
+  <!-- decorator -->
+  <div class="scene" id="intro">
+    <div class="intro-content" data-0="transform:translate(0vw, 0vh); display:block; color:rgb(0,0,0);" data-200="transform:translate(30vw, -20vh); color:rgb(255,255,255);"
+      data-800="top:0%;" data-1200="top:-150%; display:none;">
+      <h1 id="hello">hello</h1>
+      <br>
+      <div id="advice" data-0="opacity:1; z-index:9999;" data-10="opacity:0;">scroll down or&nbsp;<a style="color:#545454;" href="/cv">just view my resume</a></div>
+      <div id="myName">
+        <h3 data-300="opacity:0;" data-350="opacity:1;">I am Nui Rattapon,</h3>
+        <h4 data-330="opacity:0;" data-380="opacity:1;">a junior web developer.</h4>
+        <h4 data-340="opacity:0;" data-400="opacity:1;">Currently work for <a href="http://www.mvpstudio.co.nz/"> MVP Studio</a>, Auckland.</h4>
+      </div>
     </div>
   </div>
-</div>
 
 
-<!-- *********************************** 
+  <!-- *********************************** 
         Skills 
 ***********************************  -->
-<!-- bg -->
-<div class="blue skill" data-1000="transform:translate(0,100%);" data-1200="transform:translate(0,0);">
-  <h1>Skills</h1>
-  <div class="skill-container" data-720="opacity:0;" data-770="opacity:1;">
-    <div class="skill-box">
-      <div class="percent" data-800="width:0%;" data-900="width:77%;">&nbsp;&nbsp;Angular</div>
+  <!-- bg -->
+  <div class="blue skill" data-1000="transform:translate(0,100%);" data-1200="transform:translate(0,0);">
+    <h1>Skills, knowledge and ablities</h1>
+
+
+    <div class="skill-container" data-720="opacity:0;" data-770="opacity:1;">
+      <!--<div class="row">-->
+
+      <div class="skill-box">
+        <div class="fontend">
+          <div class="skill-header">
+            <h3>Font-end</h3>
+          </div>
+          <div class="skill-level">
+            <div class="level-l">Beginer</div>
+            <div class="level-r">Expert</div>
+          </div>
+          <h6>Angular (2,4)</h6>
+          <div class="skill-bar">
+            <div class="percent" data-1200="width:0%; background:rgb(227, 233, 139);" data-1300="width:62%; background:rgb(203, 90, 0);"></div>
+          </div>
+
+          <h6>AngularJS</h6>
+          <div class="skill-bar">
+            <div class="percent" data-1200="width:0%; background:rgb(227, 233, 139);" data-1300="width:55%; background:rgb(203, 150, 0);"></div>
+          </div>
+
+          <h6>Javascript</h6>
+          <div class="skill-bar">
+            <div class="percent" data-1200="width:0%; background:rgb(255, 187, 0);" data-1300="width:71%; background:rgb(203, 60, 0);"></div>
+          </div>
+
+          <h6>HTML</h6>
+          <div class="skill-bar">
+            <div class="percent" data-1200="width:0%; background:rgb(255, 187, 0);" data-1300="width:80%; background:rgb(203, 20, 0);"></div>
+          </div>
+
+          <h6>CSS</h6>
+          <div class="skill-bar">
+            <div class="percent" data-1200="width:0%; background:rgb(255, 187, 0);" data-1300="width:80%; background:rgb(203, 20, 0);"></div>
+          </div>
+
+          <h6>Including: Typescript, JQuery, Bootstrap, Angular Material, GSAP, Skrollr and Photoshop</h6>
+
+        </div>
+
+      </div>
+
+      <div class="skill-box">
+        <div class="backend">
+          <div class="skill-header">
+            <h3>Back-end</h3>
+          </div>
+          <div class="skill-level">
+            <div class="level-l">Beginer</div>
+            <div class="level-r">Expert</div>
+          </div>
+
+          <h6>C#</h6>
+          <div class="skill-bar">
+            <div class="percent" data-1300="width:0%; background:rgb(255, 187, 0);" data-1400="width:77%; background:rgb(251, 101, 66);"></div>
+          </div>
+
+          <h6>ASP.NET(MVC,API,Core)</h6>
+          <div class="skill-bar">
+            <div class="percent" data-1300="width:0%; background:rgb(255, 187, 0);" data-1400="width:77%; background:rgb(251, 101, 66);"></div>
+          </div>
+
+          <h6>MS SQL</h6>
+          <div class="skill-bar">
+            <div class="percent" data-1300="width:0%; background:rgb(255, 187, 0);" data-1400="width:77%; background:rgb(251, 101, 66);"></div>
+          </div>
+
+          <h6>NodeJS</h6>
+          <div class="skill-bar">
+            <div class="percent" data-1300="width:0%; background:rgb(255, 187, 0);" data-1400="width:80%; background:rgb(203, 20, 0);"></div>
+          </div>
+
+          <h6>Windows Service</h6>
+          <div class="skill-bar">
+            <div class="percent" data-1300="width:0%; background:rgb(255, 187, 0);" data-1400="width:74%; background:rgb(203, 50, 0);"></div>
+          </div>
+
+          <h6>AZURE</h6>
+          <div class="skill-bar">
+            <div class="percent" data-1300="width:0%; background:rgb(255, 187, 0);" data-1400="width:74%; background:rgb(203, 50, 0);"></div>
+          </div>
+
+          <h6>Including: Linq, Entity Framework, Firebase, Auth0, web deployment and configulation.</h6>
+
+
+        </div>
+
+
+
+      </div>
+
+
+      <div class="skill-box">
+        <div class="knowledge">
+          <div class="skill-header">
+            <h3>Khowledge</h3>
+          </div>
+          <div class="skill-level">
+            <div class="level-l">Beginer</div>
+            <div class="level-r">Expert</div>
+          </div>
+          <h6>HTTP/REST</h6>
+          <div class="skill-bar">
+            <div class="percent" data-1400="width:0%; background:rgb(255, 200, 0);" data-1500="width:77%; background:rgb(255, 80, 0);"></div>
+          </div>
+
+          <h6>Human Computer Interaction</h6>
+          <div class="skill-bar">
+            <div class="percent" data-1400="width:0%; background:rgb(255, 187, 0);" data-1500="width:77%; background:rgb(251, 101, 66);"></div>
+          </div>
+
+          <h6>Responsive design</h6>
+          <div class="skill-bar">
+            <div class="percent" data-1400="width:0%; background:rgb(255, 187, 0);" data-1500="width:77%; background:rgb(251, 101, 66);"></div>
+          </div>
+
+          <h6>OOP</h6>
+          <div class="skill-bar">
+            <div class="percent" data-1400="width:0%; background:rgb(255, 187, 0);" data-1500="width:77%; background:rgb(251, 101, 66);"></div>
+          </div>
+
+          <h6>Scrum / Agile methodology</h6>
+          <div class="skill-bar">
+            <div class="percent" data-1400="width:0%; background:rgb(255, 187, 0);" data-1500="width:80%; background:rgb(203, 20, 0);"></div>
+          </div>
+
+          <h6>Windows Service</h6>
+          <div class="skill-bar">
+            <div class="percent" data-1400="width:0%; background:rgb(255, 187, 0);" data-1500="width:74%; background:rgb(203, 50, 0);"></div>
+          </div>
+
+          <!--</div>-->
+
+        </div>
+
+
+
+
+      </div>
     </div>
-    <br>
-    <div class="skill-box">
-      <div class="percent" data-800="width:0%;" data-900="width:88%;">&nbsp;&nbsp;AngularJS</div>
-    </div>
-    <br>
-    <div class="skill-box">
-      <div class="percent" data-800="width:0%;" data-900="width:57%;">&nbsp;&nbsp;C#</div>
-    </div>
+
+
+
+
+
   </div>
+  <!-- decorator -->
 
-
-</div>
-<!-- decorator -->
-<img id="laptop" data-1150="top:0vmax; right:0vmax; opacity:0;" data-1260="top:3vmax; right:4vmax; opacity:1;" src="/assets/img/notebook.svg">
+  <img id="laptop" data-1150="top:0vmax; right:0vmax; opacity:0;" data-1260="top:2vmax; right:-1vmax; opacity:1;" src="/assets/img/notebook.svg">
 
 
 
-<!-- *********************************** 
+  <!-- *********************************** 
         Work 
 ***********************************  -->
-<!-- bg -->
-<div class="red exprience" data-2000="transform:translate(100%,0);" data-2200="transform:translate(0,0);">
-  <h3>Work</h3>
-</div>
+  <!-- bg -->
+  <div class="red exprience" data-2000="transform:translate(100%,0);" data-2200="transform:translate(0,0);">
+    <h3>Work</h3>
+  </div>
 
-<!-- *********************************** 
+  <!-- *********************************** 
        Education
 ***********************************  -->
-<div class="green" data-3000="transform:translate(-100%,0);" data-3200="transform:translate(0,0);">
-  <h3>education</h3>
-</div>
+  <div class="green" data-3000="transform:translate(-100%,0);" data-3200="transform:translate(0,0);">
+    <h3>education</h3>
+  </div>
 
-<!-- *********************************** 
+  <!-- *********************************** 
         Connect
 ***********************************  -->
-<div class="yellow" data-4000="transform:translate(0,100%);" data-4200="transform:translate(0,0);">
-  <h3>connect</h3>
+  <div class="yellow" data-4000="transform:translate(0,100%);" data-4200="transform:translate(0,0);">
+    <h3>connect</h3>
+  </div>
+
 </div>
-
-
