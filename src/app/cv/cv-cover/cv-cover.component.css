@@ -119,17 +119,24 @@ h1 {
 }
 
 #aboutme {
-  background: url("/assets/img/NUI_9506-nome2.jpg") no-repeat center center;
-  left: -30vw;
-  width: 150vmax;
+  background-image: url("/assets/img/NUI_9506-nome2.jpg");
+  /*left: -30vw;*/
+  /*width: 150vmax;*/
+  /*background-image:url('../images/bg.png');*/
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: right;
 }
 
 #me-png {
-  background: url("/assets/img/NUI_9506.png") no-repeat center center;
-  left: -20vh;
-  width: 100vmax;
+  background: url("/assets/img/NUI_9506.png");
+  left: -40vh;
+  /*width: 100vmax;*/
   z-index: 100;
   /*border: 1px solid;*/
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: right;
 }
 
 .intro-content {
@@ -292,15 +299,33 @@ h1 {
     Work
 ************************************/
 
+.work h1 {
+  position: absolute;
+  top: 7vh;
+  left: 5vw;
+}
+
 
 /************************************
-    exprience
+    Education
 ************************************/
+
+.education h1 {
+  position: absolute;
+  top: 7vh;
+  left: 5vw;
+}
 
 
 /************************************
     connect
 ************************************/
+
+.connect h1 {
+  position: absolute;
+  top: 7vh;
+  left: 5vw;
+}
 
 
 /*
@@ -346,9 +371,21 @@ h1 {
 ************************************/
 
 
-/*@media (max-width: 1200px) {
-  height: 3000px;
-}*/
+@media (max-width: 1024px) {
+  #me-png {
+    left: -10vmax;
+    background-size: 120vmax;
+  }
+}
+
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  /* STYLES GO HERE */
+  #me-png {
+    left: -35vw;
+    background-size: 120vmax;
+  }
+}
 
 @media (max-width: 700px) {
   /* progress bar */
@@ -357,15 +394,33 @@ h1 {
     padding-top: 5px;
   }
   /* about me */
+  #me-png {
+    left: 5vw;
+    background-size: 110vmax;
+  }
+  #intro h1 {
+    font-size: 14vw;
+  }
   #advice {
     padding-top: 3vmin;
-    font-size: 1.5vw;
+    font-size: 1.7vw;
+  }
+  #myName {
+    width: 60vw;
+    /*border: 1px solid;*/
+  }
+  #myName>* {
+    margin-right: -5vw;
+    font-size: 3vw;
   }
   /* skill */
   .skill-container {
     top: 13vh;
   }
-  .skill h1 {
+  .skill h1,
+  .work h1,
+  .education h1,
+  .connect h1 {
     top: 6vh;
     left: 7vw;
     font-size: 4vw;
