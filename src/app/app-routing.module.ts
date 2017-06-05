@@ -8,8 +8,8 @@ import { PagenotfoundComponent} from './shared/pagenotfound/pagenotfound.compone
 
 const routes: Routes = [
 
-  { path: 'cv', component: CvComponent },
   { path: 'cover', component: CvCoverComponent },
+  { path: 'cv', component: CvComponent },
   { path: 'blog', loadChildren: './blog/blog.module#BlogModule' },
   { path: 'blog/:id', loadChildren: './blog/blog.module#BlogModule' },
   { path: '', component: CvCoverComponent },

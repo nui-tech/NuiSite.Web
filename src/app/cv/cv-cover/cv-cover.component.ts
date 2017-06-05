@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TweenLite, TweenMax } from 'gsap';
+import { TweenLite } from 'gsap';
 // import { slideInOutAnimation } from '../../_animations/index'
 declare var $: any;
 import * as skrollr from 'skrollr/src/skrollr';
@@ -16,8 +16,7 @@ import * as skrollr from 'skrollr/src/skrollr';
   styleUrls: ['./cv-cover.component.css']
 })
 export class CvCoverComponent implements OnInit {
-  skr;
-  vl = 36;
+
   constructor() { }
 
 
@@ -26,16 +25,14 @@ export class CvCoverComponent implements OnInit {
     //test scrollmagic
     // this.initScrollMagic();
 
-
-
-    this.skr = skrollr.init({
+    var skr = skrollr.init({
       render: function (data) {
         //log the current scroll positino.
         $('.scroll-info').text(data.curTop);
       }
     });
     TweenLite.to('.intro-content h1', 1.3, { opacity: 1, y: 50 });
-    TweenLite.from('#advice', 1.8, { opacity: 0, y: -20  });
+    TweenLite.from('#advice', 1.5, { opacity: 0, y: -20  });
 
   }
 
@@ -44,11 +41,5 @@ export class CvCoverComponent implements OnInit {
   //   // var photo = $('.intro-content h1');
   //   // TweenLite.to(photo, 1, { opacity: 0, y: 50 });
   // }
-
-  myClick() {
-    // let photo = document.getElementById("testImg");
-    // TweenLite.to(photo, 1, { opacity: 0, y: 50 });
-
-  }
 
 }

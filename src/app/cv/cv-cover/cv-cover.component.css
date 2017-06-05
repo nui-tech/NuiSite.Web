@@ -131,12 +131,10 @@ h1 {
 #me-png {
   background: url("/assets/img/NUI_9506.png");
   left: -40vh;
-  /*width: 100vmax;*/
-  z-index: 100;
-  /*border: 1px solid;*/
   background-repeat: no-repeat;
   background-size: cover;
   background-position: right;
+    z-index: 120;
 }
 
 .intro-content {

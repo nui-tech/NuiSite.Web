@@ -4,7 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 //import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 
 // 3rd party modules
-import { MaterialModule } from '@angular/material';
+// import { MaterialModule } from '@angular/material';
 
 //Custom Module
 
@@ -19,7 +19,7 @@ import { MaterialModule } from '@angular/material';
     FormsModule,
     ReactiveFormsModule,
     //3rd party
-    MaterialModule
+    // MaterialModule
     
   ],
   entryComponents:[
