@@ -30,6 +30,7 @@ declare var jquery:any;
 declare var $ :any;
 
 @Component({
+  moduleId: module.id,
   selector: 'app-blog',
   templateUrl: './blog.component.html',
   styleUrls: ['./blog.component.css']
