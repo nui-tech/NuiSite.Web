@@ -14,11 +14,11 @@
     data-1112="width:39.8%; background:hsl(195, 53%, 60%)" data-1113="width:40%; background:hsl(9, 85%, 59%);"-->
 
   <div id="progress-items" data-100="opacity:0;" data-200="opacity:1;">
-    <div class="about item">INTRO</div>
-    <div class="skills item">SKILLS</div>
-    <div class="exprience item">WORK</div>
-    <div class="education item">EDUCATION</div>
-    <div class="connect item">ABOUT ME</div>
+    <div class="about item">Intro</div>
+    <div class="skills item">Skills</div>
+    <div class="exprience item">Exprience</div>
+    <div class="education item">Education</div>
+    <div class="connect item">About me</div>
   </div>
 
 
@@ -56,7 +56,7 @@
         Skills 
 ***********************************  -->
   <!-- bg -->
-  <div class="blue skill" data-1000="transform:translate(0,100%);" data-1200="transform:translate(0,0);">
+  <div class="blue skill" data-1000="transform:translate(0,100%); display:block;" data-1200="transform:translate(0,0); display:block;" data-2200="display:none;">
     <h1>Skills, knowledge and ablities</h1>
 
 
@@ -214,14 +214,30 @@
         Work 
 ***********************************  -->
   <!-- bg -->
-  <div class="red work" data-2000="transform:translate(100%,0);" data-2200="transform:translate(0,0);">
+  <div class="red work" data-2000="transform:translate(100%,0%) scale(1,1) rotate(0deg);" 
+                        data-2200="transform:translate(0%,0%) scale(1,1) rotate(0deg);" 
+                        data-2400="transform:translate(0%,0%) scale(1,1) rotate(0deg);" 
+                        data-2600="transform:translate(0%,0%) scale(3,3) rotate(-90deg);" 
+                        data-2800="transform:translate(0%,0%) scale(3,3) rotate(-90deg);"
+                        data-3000="transform:translate(0%,0%) scale(3,3) rotate(-90deg);"
+                        data-3200="transform:translate(0%,-100%) scale(3,3) rotate(-90deg);" >
     <h1>Work</h1>
+    <div class="work-container">
+    <div class="work1">
+      <h3>MVP Studio</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, optio. Consectetur tenetur, non, minima assumenda dolores esse dolorem nam perspiciatis aspernatur nisi ab ratione nesciunt illo ipsum, accusantium nihil eligendi.</p>
+    </div>
+    <div class="work2">
+      <h3>Thomson Rueter</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure, impedit, fuga. Porro voluptas doloribus eius soluta inventore ratione molestias, eum amet nesciunt nihil quam, sit repellat odit quos debitis labore!</p>
+    </div>
+    </div>
   </div>
 
   <!-- *********************************** 
        Education
 ***********************************  -->
-  <div class="green education" data-3000="transform:translate(-100%,0);" data-3200="transform:translate(0,0);">
+  <div class="green education" data-3000="transform:translate(0,100%);" data-3200="transform:translate(0,0);">
     <h1>education</h1>
   </div>
 

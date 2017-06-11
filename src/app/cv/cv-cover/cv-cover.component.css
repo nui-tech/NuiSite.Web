@@ -51,7 +51,7 @@ h1 {
 }
 
 .red {
-  background-color: tomato;
+  background-color: skyblue;
 }
 
 .green {
@@ -295,13 +295,33 @@ h1 {
 /************************************
     Work
 ************************************/
+.work-container{
+ position: absolute;
+ top: 0;
+ left: 0;
+ right: 0;
+ bottom: 0;
+ margin: auto;
+ width: 60vw;
+ height: 60vh;
 
+}
 .work h1 {
   position: absolute;
   top: 7vh;
   left: 5vw;
 }
-
+.work1{
+  /*position: relative;*/
+  border: 1px solid;
+  height: 50%;
+  margin-bottom: 10px;
+}
+.work2{
+  /*position: relative;*/
+  border: 1px solid;
+  height: 50%;
+}
 
 /************************************
     Education
