@@ -76,7 +76,7 @@ h1 {
   height: 5vh;
   /*background: #444;*/
   bottom: 0;
-  z-index: 200;
+  z-index: 9000;
   margin: 0;
 }
 
@@ -308,10 +308,14 @@ h1 {
   #drawing{
     position: absolute;
     bottom: 4vh;
-    left: 0vw;
-    width: 30vw;
-    height: 30vh;
+    right: 1vw;
+    width: 20vw;
+    height: 20vh;
     transform: scale(2,2);
+  }
+
+  .svgTxt1{
+    font-size: 150%;
   }
 
 /************************************
@@ -326,7 +330,7 @@ h1 {
  margin: auto;
  width: 60vw;
  height: 60vh;
-
+ font-size: 1.3vmax;
 }
 .work h1 {
   position: absolute;
@@ -334,15 +338,38 @@ h1 {
   left: 5vw;
 }
 .work1{
-  /*position: relative;*/
-  /*border: 1px solid;*/
-  height: 50%;
-  margin-bottom: 10px;
+  position: relative;
+  margin-bottom: 10%;
 }
 .work2{
-  /*position: relative;*/
-  /*border: 1px solid;*/
-  height: 50%;
+  position: relative;
+}
+.workbox{
+  display: inline-flex;
+  padding: 3% 2% 1% 0;
+  border-radius: 3px;
+  background: whitesmoke;
+  box-shadow: 2px 3px 8px gray;
+  /*border: solid 1px;*/
+}
+.workbox .des{
+  width: 80%;
+}
+.workbox .logo{
+  width: 20%;
+  text-align: center;
+    /*border: solid 1px;*/
+}
+.logo > img{
+  max-width: 70%;
+  max-height: 70%;
+}
+
+#gradCap{
+  position: fixed;
+  top: 5vh;
+  left: -10vw;
+  width: 20vh;
 }
 
 /************************************
@@ -426,7 +453,7 @@ h1 {
   }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 768px) {
   /* progress bar */
   .item {
     width: 18.5vw;
@@ -470,7 +497,32 @@ h1 {
   #doc{
     width: 15vw;
     top: 40%;
+  }
 
+  #drawing{
+    position: absolute;
+    bottom: 4vh;
+    right: 1vw;
+    width: 30vw;
+    height: 30vh;
+    transform: scale(2,2);
+  }
+
+  /* Work */
+  .work-container{
+    top: -15vmax;
+    width: 90vw;
+    font-size: 70%;
+  }
+  .workbox .des{
+    padding-left: 10px;
+  }
+
+  .logo > img{
+  max-width: 100%;
+  max-height: 100%;
+  min-width: 0;
+  min-height: 0;
 }
 }
 
