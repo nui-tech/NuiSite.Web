@@ -7,42 +7,54 @@
   <!-- *********************************** 
         Progress bar 
 ***********************************  -->
-  <div id="progress" data-0="opacity:0;" data-200="opacity:1; width:0%; background:hsl(195, 53%, 69%);" data-1000="width:20%;"
-    data-2000="width:40%;" data-3000="width:60%;" data-4000="width:80%;" data-5000="width:100%;" data-end="width:100%;">
+  <div id="progress-bar" 
+        data-0="opacity:0;" 
+        data-200="opacity:1; width:0%; background-color:rgb(173, 220, 226);"
+        data-999="width:19.99%; background-color:rgb(173, 220, 226);" 
+        data-1000="width:20%; background-color:rgb(63, 108, 69);"
+        data-1999="width:39.99%; background-color:rgb(63, 108, 69);"
+        data-2000="width:40%; background-color:rgb(51, 122, 173);" 
+        data-2999="width:59.99%; background-color:rgb(51, 122, 173);" 
+        data-3000="width:60%; background-color:rgb(136, 110, 105);" 
+        data-3999="width:79.99%; background-color:rgb(136, 110, 105);" 
+        data-4000="width:80%; background-color:rgb(213, 83, 71);" 
+        data-5000="width:100%; background-color:rgb(213, 83, 71);" 
+        data-end="width:100%;">
   </div>
-  <!--data-500="width:20%; background:hsl(195, 53%, 60%);"
-    data-1112="width:39.8%; background:hsl(195, 53%, 60%)" data-1113="width:40%; background:hsl(9, 85%, 59%);"-->
 
-  <div id="progress-items" data-100="opacity:0;" data-200="opacity:1;">
-    <div class="about item">Intro</div>
-    <div class="skills item">Skills</div>
-    <div class="exprience item">Experience</div>
-    <div class="education item">Education</div>
-    <div class="connect item">About me</div>
+
+  <div id="progress-items-container" data-100="opacity:0;" data-200="opacity:1;">
+    <div class="progress-item">Intro</div>
+    <div class="progress-item">Skills</div>
+    <div class="progress-item">Experience</div>
+    <div class="progress-item">Education</div>
+    <div class="progress-item">About me</div>
   </div>
+
+
 
 
 
   <!-- *********************************** 
-        About me 
+        Intro 
 ***********************************  -->
   <!-- Hello bg -->
   <div class="white" data-0="transform:translate(0,0);" data-100="transform:translate(0,-100%);"></div>
   <!-- about me bg -->
-  <div id="aboutme" class="scene" data-0="transform:translate(0%,100%); display:block;" data-200="transform:translate(0%,0%); display:block;"
+  <div id="aboutme" class="img-scene" data-0="transform:translate(0%,100%); display:block;" data-200="transform:translate(0%,0%); display:block;"
     data-1200="display:none;">
 
   </div>
-  <div id="me-png" class="scene" data-180="transform:translate(0%,70%); display:block; opacity:0.4;" data-300="transform:translate(0%,0%); opacity:1;"
+  <div id="me-png" class="img-scene" data-180="transform:translate(0%,70%); display:block; opacity:0.4;" data-300="transform:translate(0%,0%); opacity:1;"
     data-900="transform:translate(0%,0%);" data-1200="transform:translate(-50%,0%); display:none;">
   </div>
   <!-- decorator -->
-  <div class="scene" id="intro">
+  <div class="img-scene" id="intro">
     <div class="intro-content" data-0="transform:translate(0vw, 0vh); display:block; color:rgb(0,0,0);" data-200="transform:translate(30vw, -20vh); color:rgb(255,255,255);"
       data-800="top:0%;" data-1200="top:-150%; display:none;">
       <h1 id="hello">hello</h1>
       <br>
-      <div id="advice" data-0="opacity:1; z-index:9999;" data-10="opacity:0;">scroll down or&nbsp;<a style="color:#545454;" href="/cv">just view my resume</a></div>
+      <div id="advice" data-0="opacity:1; z-index:99999;" data-10="opacity:0;">scroll down or&nbsp;<a style="color:#545454;" href="/cv">just view my resume</a></div>
       <div id="myName">
         <h3 data-300="opacity:0;" data-350="opacity:1;">I am Nui Rattapon,</h3>
         <h4 data-330="opacity:0;" data-380="opacity:1;">a junior web developer.</h4>
@@ -52,14 +64,16 @@
   </div>
 
 
+
+
   <!-- *********************************** 
         Skills 
 ***********************************  -->
   <!-- bg -->
-  <div class="blue skill" data-1000="transform:translate(0vw,100vh) scale(1,1) rotate(0deg); display:block;" data-1200="transform:translate(0vw,0vh) scale(1,1) rotate(0deg); display:block;"
+  <div class="scene skill" data-1000="transform:translate(0vw,100vh) scale(1,1) rotate(0deg); display:block;" data-1200="transform:translate(0vw,0vh) scale(1,1) rotate(0deg); display:block;"
     data-1900="transform:translate(0vw,0vh) scale(1,1) rotate(0deg); display:block;" data-2000="transform:translate(0vw,40vh) scale(8,8) rotate(45deg); display:block;"
     data-2300="display:none;">
-    <h1>Skills, knowledge and ablities</h1>
+    <h1>Skills</h1>
     <div class="skill-container" data-1110="opacity:0;" data-1150="opacity:1;" data-1900="opacity:1;" data-1970="opacity:0;">
       <!--<div class="row">-->
 
@@ -72,7 +86,7 @@
             <div class="level-l">Beginer</div>
             <div class="level-r">Expert</div>
           </div>
-          <h6>Angular (2,4)</h6>
+          <h6>Angular</h6>
           <div class="skill-bar">
             <div class="percent" data-1220="width:0%; background:rgb(227, 233, 139);" data-1300="width:62%; background:rgb(203, 90, 0);"></div>
           </div>
@@ -231,65 +245,109 @@
 
 
 </div>
-  <img id="laptop" data-1150="top:-2vmax; right:-8vmax; opacity:0;" 
+  <!--<img id="laptop" data-1150="top:-2vmax; right:-8vmax; opacity:0;" 
                   data-1260="top:2vmax; right:-1vmax; opacity:1;" 
                   data-1850="top:2vmax; right:-1vmax; opacity:1;" 
                   data-1900="top:-10vmax; right:-20vmax; opacity:1;" 
-                  src="/assets/img/notebook.svg">
-  <img id="doc" data-1700="top:10%; right:25%; opacity:0;  transform:scale(8,8) rotate(-45deg); -webkit-transform:scale(8,8) rotate(-45deg);" 
+                  src="/assets/img/notebook.svg">-->
+  <img id="doc" data-0="display:none;" data-1700="top:10%; right:25%; opacity:0; display:block;  transform:scale(8,8) rotate(-45deg); -webkit-transform:scale(8,8) rotate(-45deg);" 
                   data-1750="top:40%; right:45%; opacity:1; transform:scale(1,1) rotate(-45de; -webkit-transform:scale(1,1) rotate(-45deg);" 
                   data-1900="top:40%; right:45%; opacity:1; transform:scale(1,1) rotate(-45deg); -webkit-transform:scale(1,1) rotate(-45deg);" 
-                  data-2000="top:70%; right:45%; opacity:1; transform:scale(8,8) rotate(0deg); -webkit-transform:scale(8,8) rotate(0deg);"
+                  data-2000="top:70%; right:45%; opacity:1; transform:scale(8,8) rotate(0deg); -webkit-transform:scale(8,8) rotate(0deg);" 
+                  data-3000="opacity:0; display:none;"
                   src="/assets/img/doc_exp2.svg">
   <!-- decorator -->
 
   
+
+
+
+
   <!-- *********************************** 
         Work 
 ***********************************  -->
   <!-- bg -->
-  <div class="red work" data-2100="opacity:0; transform:translateY(0%)" data-2150="opacity:1; transform:translateY(0%)" data-3000="opacity:1; transform:translateY(0%)"
-    data-3200="opacity:1; transform:translateY(-100%)">
+  <div class="scene work" data-2100="display:none; transform:translateY(0%)" data-2150="display:block; transform:translateY(0%)" data-3000="transform:translateY(0%)"
+    data-3200="transform:translateY(-100%)" data-3220="display:none;">
     <h1>Experience</h1>
     <div class="work-container">
-      <div class="workbox work1">
+      <div class="workbox work1" data-2200="box-shadow: 0px 0px 0px gray;" data-2300="box-shadow: 2px 3px 8px gray;" data-2900="position: relative; transform:translateX(0%);" data-3000="position: relative; transform:translateX(150%);">
         <div class="logo" data-2170="position:relative; opacity:0;" data-2280="opacity:1;">
           <img src="/assets/img/mvp.png" alt="">
         </div>
         <div class="des" data-2190="position:relative; opacity:0;" data-2280="opacity:1;">
-          <h3>MVP Studio</h3>
+          <h3>MVP Studio, Auckland</h3>
           <span>Mar 2017 - present</span>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, optio. Consectetur tenetur, non, minima assumenda
-            dolores esse dolorem nam perspiciatis aspernatur nisi ab ratione nesciunt illo ipsum, accusantium nihil eligendi.</p>
+          <p>Project : Alex Swift Emergency Contact Role: Full-stack web developer work in Agile & Scrum software environment. Main technologies:
+            C# Asp.Net MVC, AngularJS, MsSQL, HTML, CSS, UI-Bootstrap Responses : - Development of back-end Windows Service
+            to serve back-end geolocation functionality. - Redesign account and profile page . - Reorganise site's layout
+            and site's css file structure . - Demo's day presenter team.
+
+          </p>
         </div>
       </div>
-      <div class="workbox work2">
+      <div class="workbox work2" data-2250="box-shadow: 0px 0px 0px gray;" data-2380="box-shadow: 2px 3px 8px gray;" data-2900="position: relative; transform:translateX(0%);" data-3000="position: relative; transform:translateX(-150%);">
         <div class="logo"  data-2220="position:relative; opacity:0;" data-2300="opacity:1;">
           <img src="/assets/img/reuters.png" alt="">
         </div>
         <div class="des" data-2250="position:relative; opacity:0;" data-2300="opacity:1;">
-          <h3>Thomson Reuters</h3>
+          <h3>Thomson Reuters, Bangkok</h3>
           <span>Oct 2013 - Feb 2014</span>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, optio. Consectetur tenetur, non, minima assumenda
-            dolores esse dolorem nam perspiciatis aspernatur nisi ab ratione nesciunt illo ipsum, accusantium nihil eligendi.
+          <p>• Four-month full-time internship in one of great international software companies in Thailand • Developed automate testing
+            framework to fulfils Continuous Integration(CI) system (using C#, Selenium, NUnit, XML, HTML) • Embed Selenium2
+            into framework to drive test on web application • Researched for open source testing tool and select the right
+            tool to the testing tasks • Website: thomsonreuters.com | Product: EIKON
           </p>
         </div>
       </div>
     </div>
 
   </div>
+
+
+
+
+
   <!-- *********************************** 
        Education
 ***********************************  -->
-  <div class="green education" data-3000="transform:translate(0,100%);" data-3200="transform:translate(0,0);">
-    <h1>education</h1>
+  <div class="scene education" 
+        data-3000="transform:translate(0%,100%);" data-3200="transform:translate(0%,0%);" 
+        data-4000="transform:translate(0%,0%);" data-4200="transform:translate(0%,-100%);">
+    <h1>Education</h1>
+    <div class="edu-container">
+      <div class="edu-logo">
+        <img src="/assets/img/kku-no-border.png" alt="">
+      </div>
+      <div class="edu-des">
+        <h5>Bachelor Degree in Computer Science <span style="font-size:50%;">4ys</span></h5><h6><b>Khon Kaen University</b>, Thailand  2009 - 2013</h6>
+          <ul>
+            <li>Major in Computer Science GPA 2.87 (71.75%)
+            </li>
+            <li>Course Highlights: Programming in JAVA, Advance Programming in JAVA, Software Engineer, Database
+            </li>
+            <li>
+               Senior Project: Research on Mobility Model of Mobile Network using Network Simulator(NS-2)
+            </li>
+            <li>Internship: Reuters Software(Thailand) Limited and ThaiAirways International Public Limited
+            </li>
+          </ul>
+      
+      </div>
+      
+    </div>
   </div>
 
+
+
+
+
   <!-- *********************************** 
-        Connect
+        About me
 ***********************************  -->
-  <div class="yellow connect" data-4000="transform:translate(0,100%);" data-4200="transform:translate(0,0);">
-    <h1>connect</h1>
+  <div class="scene connect" data-4000="transform:translate(0,100%);" data-4200="transform:translate(0,0);">
+    <h1>I'm passonate about my job</h1>
+    
   </div>
 
 </div>

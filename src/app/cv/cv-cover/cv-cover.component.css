@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway');
 /************************************
     Debuging
 ************************************/
@@ -22,7 +23,9 @@
   padding: 0;
   margin: 0;
   overflow: hidden;
-  font-family: 'Roboto', sans-serif;
+  overflow-x: hidden;
+  /*font-family: 'Roboto', sans-serif;*/
+  font-family: 'Raleway', sans-serif;
 }
 
 
@@ -34,11 +37,7 @@ h1 {
   font-size: 3vmax;
 }
 
-.white,
-.red,
-.blue,
-.green,
-.yellow {
+.scene {
   background-color: white;
   position: fixed;
   top: 0;
@@ -49,29 +48,18 @@ h1 {
   background-size: cover;
   z-index: -1000;
 }
-
-.red {
-  background-color: skyblue;
+.scene h1{
+    position: absolute;
+  top: 7vh;
+  left: 5vw;
+  font-family: 'Raleway', sans-serif;
 }
-
-.green {
-  background-color: forestgreen;
-}
-
-.blue {
-  background-color: #e4ea8c;
-}
-
-.yellow {
-  background-color: gold;
-}
-
 
 /************************************
     Progress bar
 ************************************/
 
-#progress {
+#progress-bar {
   position: fixed;
   height: 5vh;
   /*background: #444;*/
@@ -80,7 +68,7 @@ h1 {
   margin: 0;
 }
 
-#progress-items {
+#progress-items-container {
   position: fixed;
   font-size: 3vmin;
   height: 5vh;
@@ -94,21 +82,22 @@ h1 {
   /*border: 1px solid black;*/
 }
 
-.item {
+.progress-item {
   text-align: center;
   padding: 0;
   margin: 0;
   width: 19vw;
+  text-shadow: 1px 1px 2px gray;
   /*border: 1px solid black;*/
   display: inline-block;
 }
 
 
 /************************************
-    About me
+    Intro
 ************************************/
 
-.scene {
+.img-scene {
   top: 0;
   left: 0;
   width: 130vw;
@@ -153,9 +142,9 @@ h1 {
   position: relative;
   /*border: 1px solid gray;*/
   font-size: 10vw;
-  font-weight: 900;
-  /*color: white;*/
+  font-weight: 900; 
   opacity: 0;
+  font-family: 'Roboto', sans-serif;
 }
 
 #advice {
@@ -173,7 +162,7 @@ h1 {
   z-index: 100;
   text-align: right;
   font-weight: 100;
-  font-family: 'Open Sans', sans-serif;
+  /*font-family: 'Open Sans', sans-serif;*/
   /*background: rgba(0,0,0,0.1);*/
 }
 
@@ -185,6 +174,8 @@ h1 {
 
 #myName a {
   color: white;
+   z-index: 10000 !important;
+
 }
 
 
@@ -192,14 +183,9 @@ h1 {
     Skills
 ************************************/
 
-.skill {
+.scene.skill {
   text-align: center;
-}
-
-.skill h1 {
-  position: absolute;
-  top: 7vh;
-  left: 5vw;
+   background-color: #e4ea8c;
 }
 
 #laptop {
@@ -303,8 +289,6 @@ h1 {
   /*border: 1px solid gray;*/
 }
 
-
-
   #drawing{
     position: absolute;
     bottom: 4vh;
@@ -321,35 +305,36 @@ h1 {
 /************************************
     Work
 ************************************/
+.scene.work{
+  background-color: skyblue;
+}
 .work-container{
  position: absolute;
- top: 0;
+ top: -5vh;
  left: 0;
  right: 0;
  bottom: 0;
  margin: auto;
  width: 60vw;
  height: 60vh;
- font-size: 1.3vmax;
+ font-size: 1.1vmax;
+ /*border: 1px solid;*/
 }
-.work h1 {
-  position: absolute;
-  top: 7vh;
-  left: 5vw;
-}
+
 .work1{
   position: relative;
-  margin-bottom: 10%;
+  margin-bottom: 5%;
 }
 .work2{
   position: relative;
 }
 .workbox{
+  position: relative;
   display: inline-flex;
   padding: 3% 2% 1% 0;
   border-radius: 3px;
   background: whitesmoke;
-  box-shadow: 2px 3px 8px gray;
+  /*box-shadow: 2px 3px 8px gray;*/
   /*border: solid 1px;*/
 }
 .workbox .des{
@@ -375,24 +360,62 @@ h1 {
 /************************************
     Education
 ************************************/
-
-.education h1 {
-  position: absolute;
-  top: 7vh;
-  left: 5vw;
+.scene.education {
+  background-color: #f9f9ff;
+} 
+.edu-container{
+ position: absolute;
+ display: inline-flex;
+ top: -5vh;
+ left: 0;
+ right: 0;
+ bottom: 0;
+ margin: auto;
+ width: 60vw;
+ height: 60vh;
+ font-size: 1.1vmax;
+ /*border: 1px solid;*/
 }
 
+.edu-logo{
+  position: relative;
+  width: 30%;
+  max-width: 250px;
+  min-width: 100px
+}
+.edu-logo img{
+  max-width: 100%;
+  max-height: 100%;
+}
+.edu-des{
+  position: relative;
+  width: 70%;
+  padding: 0 10px;
+}
+.edu-des li{
+  font-size: 80%;
+}
 
 /************************************
-    connect
+    about me
 ************************************/
 
-.connect h1 {
-  position: absolute;
-  top: 7vh;
-  left: 5vw;
+.scene.connect {
+  background-color: #896e69;
 }
-
+.edu-container{
+ position: absolute;
+ display: inline-flex;
+ top: -5vh;
+ left: 0;
+ right: 0;
+ bottom: 0;
+ margin: auto;
+ width: 60vw;
+ height: 60vh;
+ font-size: 1.1vmax;
+ /*border: 1px solid;*/
+}
 
 /*
  * This file is NOT needed in order to use skrollr.
@@ -455,7 +478,7 @@ h1 {
 
 @media (max-width: 768px) {
   /* progress bar */
-  .item {
+  .progress-item {
     width: 18.5vw;
     padding-top: 5px;
   }
@@ -483,13 +506,10 @@ h1 {
   .skill-container {
     top: 13vh;
   }
-  .skill h1,
-  .work h1,
-  .education h1,
-  .connect h1 {
-    top: 6vh;
+  .scene h1 {
+    top: 2.5vh;
     left: 7vw;
-    font-size: 4vw;
+    font-size: 6vw;
   }
   .skill-box h6 {
     font-size: 2vw;
@@ -518,12 +538,23 @@ h1 {
     padding-left: 10px;
   }
 
-  .logo > img{
-  max-width: 100%;
-  max-height: 100%;
-  min-width: 0;
-  min-height: 0;
+  .logo>img {
+    max-width: 100%;
+    max-height: 100%;
+    min-width: 0;
+    min-height: 0;
+  }
+
+  /* Education */
+  .edu-container{
+        top: -15vmax;
+    width: 90vw;
+    font-size: 70%;
+  }
+  .edu-des li{
+  font-size: 100%;
 }
+
 }
 
 @media (min-width: 1300px) {

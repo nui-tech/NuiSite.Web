@@ -34,7 +34,6 @@
     "rxjs": "^5.1.0",
     "scrollmagic": "^2.0.5",
     "skrollr": "^0.6.26",
-    "skrollr-css": "^0.1.1",
     "tether": "^1.4.0",
     "zone.js": "0.8.5"
   },
