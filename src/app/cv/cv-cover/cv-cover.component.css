@@ -321,14 +321,14 @@ h1 {
  /*border: 1px solid;*/
 }
 
-.work1{
+.mvp{
   position: relative;
   margin-bottom: 5%;
 }
-.work2{
+.reuters{
   position: relative;
 }
-.workbox{
+.work-box{
   position: relative;
   display: inline-flex;
   padding: 3% 2% 1% 0;
@@ -337,15 +337,18 @@ h1 {
   /*box-shadow: 2px 3px 8px gray;*/
   /*border: solid 1px;*/
 }
-.workbox .des{
+.work-des{
   width: 80%;
 }
-.workbox .logo{
+.work-des p{
+  font-size: 80%;
+}
+.work-logo{
   width: 20%;
   text-align: center;
     /*border: solid 1px;*/
 }
-.logo > img{
+.work-logo img{
   max-width: 70%;
   max-height: 70%;
 }
@@ -365,7 +368,6 @@ h1 {
 } 
 .edu-container{
  position: absolute;
- display: inline-flex;
  top: -5vh;
  left: 0;
  right: 0;
@@ -376,22 +378,34 @@ h1 {
  font-size: 1.1vmax;
  /*border: 1px solid;*/
 }
-
-.edu-logo{
+.edu-box{
   position: relative;
-  width: 30%;
-  max-width: 250px;
-  min-width: 100px
+  display: inline-flex;
+  padding: 3% 2% 1% 0;
+  border-radius: 3px;
+  width: 100%;
+  /*background: whitesmoke;*/
+  /*box-shadow: 2px 3px 8px gray;*/
+  /*border: solid 1px;*/
+}
+
+
+.edu-box .edu-des{
+  position: relative;
+  width: 80%;
+  padding: 0 10px;
+  /*border: 1px solid gray;*/
+}
+.edu-box .edu-logo{
+  width: 20%;
+text-align: center;
+  /*border: 1px solid gray;*/
 }
 .edu-logo img{
-  max-width: 100%;
-  max-height: 100%;
-}
-.edu-des{
-  position: relative;
-  width: 70%;
-  padding: 0 10px;
-}
+  max-width: 70%;
+  max-height: 70%;
+} 
+
 .edu-des li{
   font-size: 80%;
 }
@@ -403,19 +417,7 @@ h1 {
 .scene.connect {
   background-color: #896e69;
 }
-.edu-container{
- position: absolute;
- display: inline-flex;
- top: -5vh;
- left: 0;
- right: 0;
- bottom: 0;
- margin: auto;
- width: 60vw;
- height: 60vh;
- font-size: 1.1vmax;
- /*border: 1px solid;*/
-}
+
 
 /*
  * This file is NOT needed in order to use skrollr.
@@ -529,28 +531,38 @@ h1 {
   }
 
   /* Work */
-  .work-container{
-    top: -15vmax;
+  .work-container, .edu-container{
+    top: -25vmax;
     width: 90vw;
     font-size: 70%;
   }
-  .workbox .des{
+  .work-des, .edu-des{
     padding-left: 10px;
   }
+   .work-des h5{
+          font-size: 150%;
+   }
+   .work-des p{
+     font-size: 100%;
+   }
+   
+ 
 
-  .logo>img {
+  .work-logo img,.edu-logo img {
     max-width: 100%;
     max-height: 100%;
     min-width: 0;
     min-height: 0;
   }
 
-  /* Education */
-  .edu-container{
-        top: -15vmax;
-    width: 90vw;
-    font-size: 70%;
-  }
+  /* Education also share with work style above */
+  .edu-des h5{
+      font-size: 140%;
+   }
+   .edu-des h6{
+      font-size: 110%;
+      font-weight: bold;
+   }
   .edu-des li{
   font-size: 100%;
 }
