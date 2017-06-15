@@ -532,7 +532,7 @@ text-align: center;
 
   /* Work */
   .work-container, .edu-container{
-    top: -25vmax;
+    top: -18vmax;
     width: 90vw;
     font-size: 70%;
   }
