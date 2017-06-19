@@ -67,7 +67,7 @@ h1 {
 ************************************/
 
 .cover-nav{
-  position: absolute;
+  position: relative;
   right: 2vw;
   top: 2vh;
   z-index: 1000;
