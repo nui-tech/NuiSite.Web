@@ -1,8 +1,4 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway');
-/*@import url('https://fonts.googleapis.com/css?family=Dosis|Nunito');*/
-/*@import url('https://fonts.googleapis.com/css?family=Quicksand:300,400');*/
-/*@import url('/assets/fonts/quicksand/quicksand-light.ttf');*/
-/*@import url('https://fonts.googleapis.com/css?family=Muli:200,300,400,700');*/
 
 /************************************
     Debuging
@@ -65,6 +61,31 @@ h1 {
   left: 5vw;
   /*font-family: 'Raleway', sans-serif;*/
 }
+
+/************************************
+    Nav bar
+************************************/
+
+.cover-nav{
+  position: absolute;
+  right: 2vw;
+  top: 2vh;
+  z-index: 1000;
+}
+.nav a{  
+    font-weight: 400;
+    color: #66a5ad;
+}
+.nav a:hover{
+    background-color: rgba(0, 0, 0, 0.1);
+}
+.active{
+    background: rgba(0, 0, 0, 0.1);
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    font-weight: bold;
+    color: black;
+}
+
 
 /************************************
     Progress bar
@@ -136,12 +157,20 @@ h1 {
   background: radial-gradient(white, whitesmoke); /* Standard syntax */
   
 }
-#me-png {
+/*#me-png {
   background: url("/assets/img/NUI_9506.png");
   left: -40vh;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: right;
+}*/
+#me-png{
+  position: fixed;
+  bottom: -7vh;
+  left: 15vw;;
+  height: 45vmax;
+  z-index: 100;
+  display: none;
 }
 
 .intro-content {
@@ -480,10 +509,13 @@ text-align: center;
 }
 #chch{
   position: fixed;
-  bottom: 0;
+  bottom: 5%;
   left:0;
    z-index: 100;
    color:#113743;
+}
+#well-travel{
+  color: inherit;
 }
 
 /************************************
@@ -589,19 +621,13 @@ text-align: center;
 
 
 @media (max-width: 1024px) {
-  #me-png {
-    left: -10vmax;
-    background-size: 120vmax;
-  }
+
 }
 
 
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   /* STYLES GO HERE */
-  #me-png {
-    left: -35vw;
-    background-size: 120vmax;
-  }
+
 }
 
 @media (max-width: 768px) {
@@ -611,10 +637,12 @@ text-align: center;
     padding-top: 5px;
   }
   /* about me */
-  #me-png {
-    left: 5vw;
-    background-size: 110vmax;
-  }
+   #me-png{
+  bottom: -7vh;
+  left: 10vw;;
+  height: 55vmax;
+ 
+}
   #intro h1 {
     font-size: 14vw;
   }

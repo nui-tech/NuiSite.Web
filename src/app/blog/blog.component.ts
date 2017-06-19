@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Title } from '@angular/platform-browser';
 
 //Material
 import { MdDialog, MdDialogRef } from '@angular/material';
@@ -49,16 +50,17 @@ export class BlogComponent implements OnInit {
     public db: AngularFireDatabase,
     public loginService: LoginService,
     private fb: FormBuilder,
-    public bs: BlogService
+    public bs: BlogService,
+    private titleService: Title
   ) {
-
+    this.titleService.setTitle( 'Blog - Nui Rattapon' );
     this.user = this.afAuth.authState;
     this.post = this.db.list('/blog');
     // this.post = this.db.object('/blog');
     console.log(this.post.first);
   }
 
-
+  
 
   ngOnInit(): void {
     this.initAnimation();

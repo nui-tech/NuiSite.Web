@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { TweenLite } from 'gsap';
 // import { slideInOutAnimation } from '../../_animations/index'
 declare var $: any;
@@ -17,7 +18,9 @@ import * as skrollr from 'skrollr/src/skrollr';
 })
 export class CvCoverComponent implements OnInit {
 
-  constructor() { }
+  constructor(private titleService: Title) { 
+    this.titleService.setTitle('Cover - Nui Rattapon');
+  }
 
 
 
@@ -33,7 +36,7 @@ export class CvCoverComponent implements OnInit {
     });
     TweenLite.to('.intro-content h1', 1.3, { opacity: 1, y: 50 });
     TweenLite.from('#advice', 1.5, { opacity: 0, y: -20  });
-
+    TweenLite.from('.cover-nav', 1.5, { opacity: 1, x:50 });
   }
 
   // initScrollMagic() {

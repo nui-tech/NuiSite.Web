@@ -1,5 +1,5 @@
 // NG Modules
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, Title } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -59,6 +59,7 @@ export const firebaseconfig = {
     LoginService,
     AngularFireAuth,
     AngularFireDatabase,
+    Title
   ],
   bootstrap: [AppComponent]
 })

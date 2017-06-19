@@ -1,5 +1,10 @@
 <!-- scrolling debuger -->
 <!--<div class="scroll-info">0</div>-->
+<div class="nav cover-nav pull-right">
+  <a class="nav-link" routerLinkActive="active" id="link-resume" href="/resume">Resume</a>
+  <a class="nav-link active" routerLinkActive="active" id="link-cover" href="/cover">Cover</a>
+  <a class="nav-link" routerLinkActive="active" id="link-blog" href="/blog">Blog</a>
+</div>
 
 <!-- fixed page height for scrolling length-->
 <div class="full-screen">
@@ -45,16 +50,22 @@
     data-1200="display:none;">
 
   </div>
-  <div id="me-png" class="img-scene" data-180="transform:translate(0%,70%); display:block; opacity:0.4;" data-300="transform:translate(0%,0%); opacity:1;"
+  <!--<div id="me-png" class="img-scene" data-180="transform:translate(0%,70%); display:block; opacity:0.4;" data-300="transform:translate(0%,0%); opacity:1;"
     data-900="transform:translate(0%,0%);" data-1200="transform:translate(-50%,0%); display:none;">
-  </div>
+  </div>-->
+  <img id="me-png" src="/assets/img/me-png-sm.png" 
+    
+    data-180="transform:translate(0%,100%); display:block; opacity:0.4;" 
+    data-300="transform:translate(0%,0%); opacity:1;"
+    data-900="transform:translate(0%,0%);" 
+    data-1050="transform:translate(-110%,0%); display:none;">
   <!-- decorator -->
   <div class="img-scene" id="intro">
     <div class="intro-content" data-0="transform:translate(0vw, 0vh); display:block; color:rgb(0,0,0);" data-200="transform:translate(30vw, -20vh); color:rgb(255,255,255);"
       data-800="top:0%;" data-1200="top:-150%; display:none;">
       <h1 id="hello">hello</h1>
       <br>
-      <div id="advice" data-0="opacity:1; z-index:99999;" data-10="opacity:0;">scroll down or&nbsp;<a style="color:#545454;" href="/cv">just view my resume</a></div>
+      <div id="advice" data-0="opacity:1; z-index:99999;" data-10="opacity:0;">scroll down or&nbsp;<a style="color:#545454;" href="/resume">just view my resume</a></div>
       <div id="myName">
         <h3 data-300="opacity:0;" data-350="opacity:1;">My name is Nui Rattapon,</h3>
         <h4 data-330="opacity:0;" data-380="opacity:1;">a junior web developer.</h4>
@@ -428,16 +439,16 @@
       data-4650="transform:translate(0,0); background:rgb(228, 227, 219);" 
       >
     <h1>I'm a IT passionate, self learner, team player,
-      <h2>  well-travelled and culture blended</h2>
+      <h2>My job is to make people's life easier. I also  <a id="well-travel" target="_blank" href="https://www.inc.com/jessica-stillman/5-reasons-you-should-hire-the-well-traveled.html">well-travelled</a>  and culture blended.</h2>
       <br>
       <h2 data-4350="position:relative; opacity:0;" data-4400="opacity:1;" 
           data-4649="opacity:1;" data-4680="opacity:0;">I'm leaving Aucklnad and looking for a challenging permanent position</h2>
       <h2 data-4360="position:relative; opacity:0;" data-4410="opacity:1;" 
           data-4649="opacity:1;" data-4680="opacity:0;">in Christchurch with a forward thinking IT company</h2>
       <h2 data-4370="position:relative; opacity:0;" data-4420="opacity:1;" 
-          data-4649="opacity:1;" data-4680="opacity:0;" >where I can create awesome web application and grow my skills.</h2>
-      <h2 data-4650="position:relative; opacity:0; transform:translateY(-120px);" data-4660="opacity:1;" >Thank you for scrolling this far :)</h2>
-      <h2 data-4650="position:relative; opacity:0; transform:translateY(-120px);" data-4670="opacity:1;" >I hope we cound have a chance to work together.</h2>
+          data-4649="opacity:1;" data-4680="opacity:0;" >where I can create awesome application and grow my skills.</h2>
+      <h2 data-4650="position:relative; opacity:0; transform:translateY(-150px);" data-4660="opacity:1;" >Thank you for scrolling this far :)</h2>
+      <h2 data-4650="position:relative; opacity:0; transform:translateY(-150px);" data-4670="opacity:1;" >I hope we cound have a chance to work together.</h2>
 
 
     </h1>
@@ -483,7 +494,7 @@
               <br><a href="mailto:connect@NuiRattapon.com"><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp; connect@NuiRattapon.com</a>  
               <br><a href="https://linkedin.com/in/rattapon/" target="_blank"><i class="fa fa-linkedin-square" aria-hidden="true"></i>&nbsp;&nbsp; LinkedIn</a>
               <br><a href="https://github.com/nuirattapon" target="_blank"> <i class="fa fa-github-square" aria-hidden="true"></i>&nbsp;&nbsp; Github</a>
-              <br><a href="/cv"><i class="fa fa-file-text" aria-hidden="true"></i>&nbsp;&nbsp; View resume</a>
+              <br><a href="/resume"><i class="fa fa-file-text" aria-hidden="true"></i>&nbsp;&nbsp; View resume</a>
               <br><a href="/blog"><i class="fa fa-external-link-square" aria-hidden="true"></i>&nbsp;&nbsp; Blog</a>
 
           </div>

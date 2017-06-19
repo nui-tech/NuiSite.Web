@@ -17,10 +17,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   exports: [
     //CommonModule,
     FormsModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule
     //3rd party
     // MaterialModule
     
+  ],
+  providers:[
   ],
   entryComponents:[
 

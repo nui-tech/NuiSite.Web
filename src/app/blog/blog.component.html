@@ -22,7 +22,7 @@
             <!--Right nav-->
             <ul class="navbar-nav pull-right">
                 <li class="nav-item">
-                    <a class="nav-link" id="link-cv" [routerLink]="['/cv']">CV</a>
+                    <a class="nav-link" id="link-cv" [routerLink]="['/resume']">Resume</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" id="link-cover" [routerLink]="['/cover']">Cover</a>
@@ -89,7 +89,17 @@
         <div class="row">
             <div class="col-sm-9 blog-main">
                 <div class="post-wrapper">
-                    <blog-post>Logding posts..</blog-post>
+                    <div class="alert alert-info" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h4 class="alert-heading">Hello!</h4><span class="pull-right" style="font-size:80%;"> <i>20 June 2017</i> </span>
+                        <p>Blog is still under developing, however some feature are working,  so you can ...</p>
+                        <p class="mb-0">- Login safely with social account. <br>
+                            - Post article after you are loged in.</p> 
+                            
+                    </div>
+                    <blog-post>Loading posts..</blog-post>
                 </div>
             </div>
             <div class="col-sm-3  blog-sidebar">
