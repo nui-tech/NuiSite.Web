@@ -1,0 +1,61 @@
+[debug] [2017-06-21T05:17:07.337Z] ----------------------------------------------------------------------
+[debug] [2017-06-21T05:17:07.340Z] Command:      /usr/local/bin/node /usr/local/bin/firebase deploy
+[debug] [2017-06-21T05:17:07.340Z] CLI Version:  3.9.1
+[debug] [2017-06-21T05:17:07.340Z] Platform:     darwin
+[debug] [2017-06-21T05:17:07.340Z] Node Version: v6.10.3
+[debug] [2017-06-21T05:17:07.341Z] Time:         Wed Jun 21 2017 17:17:07 GMT+1200 (NZST)
+[debug] [2017-06-21T05:17:07.341Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2017-06-21T05:17:07.354Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2017-06-21T05:17:07.354Z] > authorizing via signed-in user
+[debug] [2017-06-21T05:17:07.357Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2017-06-21T05:17:07.357Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token { refresh_token: '1/vvVTcAXXqE8eMuPmCjJeflTH8MyQ7YNc9ITWQC1wXuE',
+  client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
+  client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
+  grant_type: 'refresh_token',
+  scope: 'email https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
+ Wed Jun 21 2017 17:17:07 GMT+1200 (NZST)
+[debug] [2017-06-21T05:17:08.028Z] <<< HTTP RESPONSE 200
+[debug] [2017-06-21T05:17:08.032Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/nuiweb-69916  
+ Wed Jun 21 2017 17:17:08 GMT+1200 (NZST)
+[debug] [2017-06-21T05:17:11.020Z] <<< HTTP RESPONSE 200
+[debug] [2017-06-21T05:17:11.021Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/nuiweb-69916/tokens  
+ Wed Jun 21 2017 17:17:11 GMT+1200 (NZST)
+[debug] [2017-06-21T05:17:12.086Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'nuiweb-69916'...
+[info] 
+[info] i  deploying database, functions, hosting
+[info] ✔  database: rules ready to deploy.
+[debug] [2017-06-21T05:17:15.530Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "dependencies": {
+    "firebase-admin": "~4.1.2",
+    "firebase-functions": "^0.5"
+  },
+  "private": true
+}
+[info] i  functions: ensuring necessary APIs are enabled...
+[info] i  runtimeconfig: ensuring necessary APIs are enabled...
+[debug] [2017-06-21T05:17:15.531Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/cloudfunctions.googleapis.com/projectSettings/nuiweb-69916?view=CONSUMER_VIEW  
+ Wed Jun 21 2017 17:17:15 GMT+1200 (NZST)
+[debug] [2017-06-21T05:17:15.532Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/runtimeconfig.googleapis.com/projectSettings/nuiweb-69916?view=CONSUMER_VIEW  
+ Wed Jun 21 2017 17:17:15 GMT+1200 (NZST)
+[debug] [2017-06-21T05:17:18.115Z] <<< HTTP RESPONSE 200
+[info] ✔  functions: all necessary APIs are enabled
+[debug] [2017-06-21T05:17:18.527Z] <<< HTTP RESPONSE 200
+[info] ✔  runtimeconfig: all necessary APIs are enabled
+[debug] [2017-06-21T05:17:18.528Z] >>> HTTP REQUEST GET https://appengine.googleapis.com/v1/apps/nuiweb-69916  
+ Wed Jun 21 2017 17:17:18 GMT+1200 (NZST)
+[debug] [2017-06-21T05:17:18.529Z] >>> HTTP REQUEST GET https://apikeys.googleapis.com/v1/projects/nuiweb-69916/apiKeys  
+ Wed Jun 21 2017 17:17:18 GMT+1200 (NZST)
+[debug] [2017-06-21T05:17:20.356Z] <<< HTTP RESPONSE 200
+[debug] [2017-06-21T05:17:20.534Z] <<< HTTP RESPONSE 200
+[info] i  functions: preparing functions directory for uploading...
+[debug] [2017-06-21T05:17:21.536Z] >>> HTTP REQUEST GET https://runtimeconfig.googleapis.com/v1beta1/projects/nuiweb-69916/configs  
+ Wed Jun 21 2017 17:17:21 GMT+1200 (NZST)
+[debug] [2017-06-21T05:17:22.832Z] <<< HTTP RESPONSE 200
+[info] i  hosting: preparing dist directory for upload...
+[debug] [2017-06-21T05:17:24.090Z] >>> HTTP REQUEST PUT https://deploy.firebase.com/v1/hosting/nuiweb-69916/uploads/-Kn84L07_xaCtpV19gIt?fileCount=41&message=  
+ Wed Jun 21 2017 17:17:24 GMT+1200 (NZST)

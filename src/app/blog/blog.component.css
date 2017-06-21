@@ -1,15 +1,19 @@
-/* Golbal */
+/************************************
+    Globle
+************************************/
 
 .modal-content, .btn, input, .dropdown-menu {
     border-radius: 0;
 }
 
-
-/* Layout */
+/************************************
+    Layout
+************************************/
 
 .container-fluid {
-    background-color: #e6ebef;
-    font-family: 'Open Sans', sans-serif;
+    background-color: #fff;
+    /*font-family: 'Open Sans', sans-serif;*/
+      font-family: 'Lato', sans-serif;
 }
 
 .container.body {
@@ -25,36 +29,53 @@
     }
 }
 
+@media (min-width: 1500px){
+    .container.body {
+    width: 78vw;
+}
+.container.nav{
+    width: 77vw;
+}
+}
 
-/*Nav bar*/
+/************************************
+    Nav bar
+************************************/
+
 
 .navbar {
-    background-color: white;
-    box-shadow: 0px 1px 4px darkgray;
+    background-color: #333;
+    height: 45px;
+    /*box-shadow: 0px 1px 4px gray;*/
 }
 
 .nav-item a:hover {
-    background-color: whitesmoke;
-    border-radius: 4px;
-    color: black;
+    /*background-color: rgba(0, 0, 0, .5);*/
+    border-radius: 2px;
+    color: #fff;
+    transition-delay:0.2s;
 }
 
 .active {
     font-weight: bold;
 }
 
-
-/*Footer*/
+/************************************
+    Footer
+************************************/
 
 footer {
     text-align: center;
     height: 60px;
     padding: 18px;
+    background: #f2f2f2;
     /*border-top: 1px solid;*/
 }
 
 
-/*Body*/
+/************************************
+    Body
+************************************/
 
 .post-wrapper {
     padding-top: 15px;
@@ -71,7 +92,9 @@ footer {
 }
 
 
-/* Side bar*/
+/************************************
+    Side bar
+************************************/
 
 .blog-sidebar {
     padding: 13px;
@@ -80,7 +103,7 @@ footer {
 
 .sidebar-module-header {
     padding: 14px;
-    background-color: white;
+    background-color: #fafafa;
     font-size: 14px;
 }
 
@@ -95,7 +118,9 @@ footer {
 }
 
 
-/* New Post*/
+/************************************
+    Post button
+************************************/
 
 .newpost-container {
     position: fixed;
@@ -124,7 +149,9 @@ footer {
 }
 
 
-/****** Login ********/
+/************************************
+    Login
+************************************/
 
 #login-dp {
     min-width: 255px;

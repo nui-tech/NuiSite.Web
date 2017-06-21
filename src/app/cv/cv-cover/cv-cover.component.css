@@ -67,7 +67,7 @@ h1 {
 ************************************/
 
 .cover-nav{
-  position: relative;
+  position: absolute;
   right: 2vw;
   top: 2vh;
   z-index: 1000;
@@ -174,7 +174,7 @@ h1 {
 }
 
 .intro-content {
-  width: 30vw;
+  width: 35vw;
   height: 30vmax;
   position: absolute;
   top: 0;
@@ -192,9 +192,13 @@ h1 {
   font-size: 10vw;
   font-weight: 900; 
   opacity: 0;
+  /*color: #333333;*/
   font-family: 'Roboto', sans-serif;
 }
-
+#txt2{
+  display: none;
+  opacity: 0;
+}
 #advice {
   font-size: 1vw;
   /*border: 1px solid gray;*/
@@ -377,7 +381,7 @@ h1 {
 
 .mvp{
   position: relative;
-  margin-bottom: 5%;
+  margin-bottom: 2%;
 }
 .reuters{
   position: relative;
@@ -466,6 +470,12 @@ text-align: center;
 
 .edu-des li{
   font-size: 80%;
+}
+
+#edu-dec{
+  position: absolute;
+  bottom: 2vh;
+  right: 0;
 }
 
 /************************************
@@ -636,6 +646,12 @@ text-align: center;
     width: 18.5vw;
     padding-top: 5px;
   }
+
+/* nav bar */
+.cover-nav{
+  display: none;
+}
+
   /* about me */
    #me-png{
   bottom: -7vh;
@@ -643,6 +659,10 @@ text-align: center;
   height: 55vmax;
  
 }
+.intro-content {
+  width: 50vw;
+}
+
   #intro h1 {
     font-size: 14vw;
   }
@@ -691,13 +711,16 @@ text-align: center;
   .work-container, .edu-container{
     top: -18vmax;
     width: 90vw;
-    font-size: 70%;
+    font-size: 55%;
   }
   .work-des, .edu-des{
     padding-left: 10px;
   }
    .work-des h5{
-          font-size: 150%;
+          font-size: 140%;
+   }
+   .work-des h6{
+          font-size: 130%;
    }
    .work-des p{
      font-size: 100%;
@@ -723,6 +746,7 @@ text-align: center;
   .edu-des li{
   font-size: 100%;
 }
+
 
 /* connect */
 .scene.connect h2{

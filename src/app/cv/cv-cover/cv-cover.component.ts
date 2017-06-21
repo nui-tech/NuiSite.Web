@@ -18,6 +18,8 @@ import * as skrollr from 'skrollr/src/skrollr';
 })
 export class CvCoverComponent implements OnInit {
 
+  
+
   constructor(private titleService: Title) { 
     this.titleService.setTitle('Cover - Nui Rattapon');
   }
@@ -27,6 +29,16 @@ export class CvCoverComponent implements OnInit {
   ngOnInit() {
     //test scrollmagic
     // this.initScrollMagic();
+    TweenLite.from('.cover-nav', 1.3, { x:50});
+    TweenLite.to('.intro-content h1', 1.3, { opacity: 1, y: 50 });
+    // TweenLite.from('#advice', 1.5, { opacity: 0, y: -20  });
+
+    TweenLite.to('#txt1', 1,{ display:'none' , delay:1});
+    TweenLite.to('#txt2', 1,{ display:'block' ,opacity:1 , delay:2});
+
+    TweenLite.from('#scrolldown', 1,{ opacity:0, delay:3});
+    TweenLite.from('#viewcv', 1,{ opacity:0, delay:3.8});
+
 
     var skr = skrollr.init({
       render: function (data) {
@@ -34,9 +46,7 @@ export class CvCoverComponent implements OnInit {
         $('.scroll-info').text(data.curTop);
       }
     });
-    TweenLite.to('.intro-content h1', 1.3, { opacity: 1, y: 50 });
-    TweenLite.from('#advice', 1.5, { opacity: 0, y: -20  });
-    TweenLite.from('.cover-nav', 1.5, { opacity: 1, x:50 });
+
   }
 
   // initScrollMagic() {
@@ -44,5 +54,6 @@ export class CvCoverComponent implements OnInit {
   //   // var photo = $('.intro-content h1');
   //   // TweenLite.to(photo, 1, { opacity: 0, y: 50 });
   // }
+
 
 }

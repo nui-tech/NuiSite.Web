@@ -73,8 +73,8 @@ export class BlogComponent implements OnInit {
       logoTxt = document.getElementById("logoTxt"),
       post = document.getElementById("post");
 
-    TweenLite.from(logo, 1, { autoAlpha: 0, delay: 0.7 });
-    TweenLite.from(logoTxt, 1, { autoAlpha: 0, x: 20, delay: 0.6 });
+    TweenLite.from(logo, 1, { autoAlpha: 0 , delay: 0.7 });
+    TweenLite.from(logoTxt, 1, { autoAlpha: 0, x: 20, delay: 1 });
 
 
     // let linkBlog = document.getElementById("link-blog");

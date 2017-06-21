@@ -70,6 +70,13 @@ aside a {
     color: white;
 }
 
+aside > section > p > a > i{
+      font-size: 80%;
+      font-weight: thin;
+  }
+aside #weblink{
+    display: none;
+}
 
 /* Article ==============================*/
 
@@ -175,7 +182,7 @@ section .exp-item h3 {
 .ref{
     float: left;
     margin-top: 3%;
-    width: 80vw;
+    width: 60vw;
 }
 
 .ref section{
@@ -221,4 +228,28 @@ section .exp-item h3 {
         font-size: 150%;
     }
 
+}
+@media print {
+  aside {
+    color: black;
+    margin-bottom: -50px;
+    margin-top: -20px;
+    text-align: right;
+  }
+  aside p{
+      margin: 0;
+  }
+  aside a{
+      color: black;
+  }
+aside > section > p >  a > i{
+      display: none;
+  }
+  article{
+      margin-top: -150px;
+      font-size: 14px;
+  }
+  aside #weblink{
+    display: block;
+}
 }
