@@ -44,7 +44,11 @@ export class CvCoverComponent implements OnInit {
       render: function (data) {
         //log the current scroll positino.
         $('.scroll-info').text(data.curTop);
-      }
+      },
+      constants:{
+          intro: 100
+      },
+      smoothScrolling:true
     });
 
   }
