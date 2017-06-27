@@ -101,16 +101,21 @@ footer {
     margin-top: 2px;
 }
 
+.blog-sidebar .card{
+    background: #fafafa;
+    border: none;
+}
 .sidebar-module-header {
-    padding: 14px;
+    /*padding: 14px;*/
     background-color: #fafafa;
     font-size: 14px;
 }
 
-.blog-sidebar .thumbnail {
-    max-width: 160px;
-    text-align: center;
+.card-img-top.thumpnail {
+  object-fit: cover;
+  width: 100%;
 }
+
 
 .sidebar-module-archive {
     margin-top: 10px;

@@ -97,25 +97,25 @@
                         <p>Blog is still under developing, however some features are working,  so you can ...</p>
                         <p class="mb-0">- Login safely with social accounts. <br>
                             - Post article after you are logged in.</p> 
-                            
                     </div>
                     <blog-post>Loading posts..</blog-post>
                 </div>
             </div>
             <div class="col-sm-3  blog-sidebar">
                 <div class="sidebar-module sidebar-module-header">
-                    <div class="thumbnail mx-auto d-block">
-                        <img class="img-thumbnail rounded-circle border-0" src="../assets/img/nui-thumbnail.jpg" alt="">
+
+                    <div class="card">
+                        <img class="card-img-top thumpnail" src="../assets/img/nui-thumbnail.jpg" alt="Card image cap">
+                        <div class="card-block">
+                            <p style="margin-top: 5px;  text-indent: 20px;">
+                                <b>Hello, my name is Nui Rattapon — a web developer. Currently work in Auckland for MVP Studio.</b>
+                            </p>
+                            <p>This blog was built from scratch, powered by Angular 4, Bootstrap 4, GSAP, Skrollr and many more.
+                                Use ASP.Net Core API and Firebase as a back-end.</p>
+                            <p>Thanks for visiting.</p>
+                        </div>
                     </div>
-                    <p style="margin-top: 5px;  text-indent: 20px;">
-                        <b>Hello, my name is Nui Rattapon — a web developer. Currently work in Auckland for MVP Studio.</b>
-                    </p>
-                    <p>This blog was built from scratch, powered by Angular 4, Bootstrap 4, GSAP, Skrollr and many more. Use ASP.Net Core API and
-                         Firebase as a back-end.
-                    </p>
-                    <p>
-                        Thanks for visiting.
-                    </p>
+                    
 
                 </div>
                 <div class="sidebar-module sidebar-module-archive">
@@ -163,7 +163,7 @@
 
 <!-- Modal -->
 <div class="modal fade" id="newPostModalLong" tabindex="-1" role="dialog" aria-labelledby="newPostModalLongTitle" aria-hidden="true">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
 
 
@@ -210,10 +210,12 @@
                     </div>-->
 
                     <!--Content-->
-                    <div class="form-group" [ngClass]="{'has-success': addPostForm.get('content').valid, 
+                    <div class="" [ngClass]="{'has-success': addPostForm.get('content').valid, 
                                         'has-danger': (addPostForm.get('content').touched || addPostForm.get('content').dirty) && !addPostForm.get('content').valid}">
                         <label for="content" class="form-label">Content</label>
-                        <textarea formControlName="content" class="form-control" rows="5"></textarea>
+                        <!--<textarea formControlName="content" class="form-control" rows="5"></textarea>-->
+                        <txt-editor [elementId]="'my-editor-id'" (onEditorKeyup)="keyupHandlerFunction($event)"></txt-editor>
+
                     </div>
 
                     <!--End model inner-->

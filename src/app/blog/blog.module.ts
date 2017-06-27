@@ -11,6 +11,7 @@ import { BlogComponent } from './blog.component';
 import { PostComponent } from './post/post.component';
 
 import { BlogService } from './blog.service';
+import { TxtEditorComponent } from './txt-editor/txt-editor.component';
 
 
 @NgModule({
@@ -27,6 +28,6 @@ import { BlogService } from './blog.service';
   ],
   providers: [BlogService],
   //exports:[BlogModule],
-  declarations: [BlogComponent, PostComponent]
+  declarations: [BlogComponent, PostComponent, TxtEditorComponent]
 })
 export class BlogModule { }

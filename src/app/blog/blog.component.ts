@@ -29,6 +29,7 @@ import { slideInOutAnimation } from '../_animations/index'
 import { Post } from './post';
 declare var jquery:any;
 declare var $ :any;
+declare var tinymce: any;
 
 @Component({
   moduleId: module.id,
@@ -42,6 +43,7 @@ export class BlogComponent implements OnInit {
   loginForm: FormGroup;
   addPostForm: FormGroup;
   post: FirebaseListObservable<any[]>;
+  postContent: any;
 
 
   // dependency inject 
@@ -65,6 +67,8 @@ export class BlogComponent implements OnInit {
   ngOnInit(): void {
     this.initAnimation();
     this.initFormGroup();
+    var xx =this.afAuth.auth.currentUser;
+
   }
 
   initAnimation() {
@@ -115,7 +119,7 @@ export class BlogComponent implements OnInit {
     mypost.title = this.addPostForm.value.title;
     mypost.author = this.addPostForm.value.author;
     mypost.createdon = Date.now().toString();
-    mypost.content = this.addPostForm.value.content;
+    mypost.content = this.postContent;
     mypost.picurl = this.addPostForm.value.picurl;
     mypost.tag = this.addPostForm.value.tag;
     this.post.push(mypost)
@@ -129,7 +133,10 @@ export class BlogComponent implements OnInit {
 
   editPost() { }
 
+ keyupHandlerFunction(event){
 
+    this.postContent = event;
+  }
 
 
 }
