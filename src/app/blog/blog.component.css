@@ -25,7 +25,7 @@
         width: 100%;
     }
     .navbar {
-        padding-left: 30px;
+        /*padding-left: 30px;*/
     }
 }
 
@@ -45,7 +45,6 @@
 
 .navbar {
     background-color: #333;
-    height: 45px;
     /*box-shadow: 0px 1px 4px gray;*/
 }
 
@@ -103,7 +102,7 @@ footer {
 
 .blog-sidebar .card{
     background: #fafafa;
-    border: none;
+    /*border: none;*/
 }
 .sidebar-module-header {
     /*padding: 14px;*/

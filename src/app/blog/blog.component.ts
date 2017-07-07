@@ -44,6 +44,7 @@ export class BlogComponent implements OnInit {
   addPostForm: FormGroup;
   post: FirebaseListObservable<any[]>;
   postContent: any;
+  postLoad: number = 10;
 
 
   // dependency inject 

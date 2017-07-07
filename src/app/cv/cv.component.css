@@ -252,4 +252,14 @@ aside > section > p >  a > i{
   aside #weblink{
     display: block;
 }
+.skills{
+    width: 100%;
+}
+.skill-set{
+        width: 100%;
+}
+.skill-list{
+    margin-right: 30px;
+        width: 33%;
+}
 }

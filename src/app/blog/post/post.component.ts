@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
@@ -14,8 +14,10 @@ import { BlogService } from '../blog.service';
   styleUrls: ['./post.component.css']
 })
 export class PostComponent implements OnInit {
+  @Input() postNumberLoad: number;
   user: Observable<firebase.User>;
   posts: FirebaseListObservable<any[]>;
+  
 
   constructor(public afAuth: AngularFireAuth, public db: AngularFireDatabase, public bs:BlogService) {
     this.user = this.afAuth.authState;
