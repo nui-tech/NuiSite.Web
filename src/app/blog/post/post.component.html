@@ -1,4 +1,4 @@
-<div *ngFor="let post of posts | async | reverse; let i = index ">
+﻿<div *ngFor="let post of posts | async | reverse; let i = index ">
     <div class="post-container" *ngIf="i<postNumberLoad">
 
     <section class="post-title">
@@ -25,7 +25,7 @@
     </section>
 
     <section class="post-pic">
-        <img [src]="post.picurl" alt="" width="50%">
+        <img [src]="post.picurl" alt="" width="50">
     </section>
     <!--<img src="../../assets/img/phone.jpg" alt="">-->
     <section class="post-content" [innerHTML]="post.content">

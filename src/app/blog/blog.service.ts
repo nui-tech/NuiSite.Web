@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+﻿import { Injectable } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 
 import { Observable } from 'rxjs/Observable';
@@ -39,8 +39,7 @@ export class BlogService {
         let options = new RequestOptions({ headers: _headers });    
         return this._http
                 .get(this._postUrl+'posts', options)
-                .map((response: Response) => <any[]>response.json());
-            
+                .map((response: Response) => <any[]>response.json());           
     }
 
 

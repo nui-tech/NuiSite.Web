@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+﻿import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 import { Http, Response } from '@angular/http';
@@ -50,6 +50,7 @@ export class BlogComponent implements OnInit {
   postLoad: number = 10;
   posts: any[];
   errorMessage: string;
+
 
 
 

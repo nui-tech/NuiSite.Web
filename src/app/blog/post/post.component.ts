@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
+﻿import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
@@ -26,6 +26,5 @@ export class PostComponent implements OnInit {
   ngOnInit() {
     this.posts = this.bs.getPosts();
   }
-
 
 }

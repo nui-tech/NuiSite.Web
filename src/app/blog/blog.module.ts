@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+﻿import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpModule, JsonpModule } from '@angular/http';
@@ -24,7 +24,6 @@ import { TxtEditorComponent } from './txt-editor/txt-editor.component';
     HttpModule,
     JsonpModule,
     NgPipesModule
-
   ],
   entryComponents: [
 
