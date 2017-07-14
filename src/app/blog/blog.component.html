@@ -1,5 +1,5 @@
 <!-- Nav bar-->
-<nav class="navbar navbar-toggleable-sm sticky-top navbar-inverse">
+<nav class="navbar navbar-toggleable-sm sticky-top">
     <div class="container nav">
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
             aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
@@ -8,19 +8,24 @@
 
         <a class="navbar-brand" [routerLink]="['/blog']">
             <img id="logo" src="/assets/img/n-icon.svg" width="30" height="30" class="d-inline-block align-top">
-           <div class="d-inline-block" id="logoTxt">BLOG</div>
+           <div class="d-inline-block" id="logoTxt">
+               <span class="color-blue">B</span>
+               <span class="color-red">L</span>
+               <span class="color-yellow">O</span>
+               <span class="color-green">G</span>
+               </div>
         </a>
 
         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
 
             <!--Left nav-->
             <ul class="navbar-nav mr-auto">
-
+              
             </ul>
 
 
             <!--Right nav-->
-            <ul class="navbar-nav pull-right">
+            <ul class="navbar-nav pull-right">      
                 <li class="nav-item">
                     <a class="nav-link" id="link-cv" [routerLink]="['/resume']">Resume</a>
                 </li>
@@ -78,6 +83,12 @@
                         </li>
                     </ul>
                 </li>
+                 <li class="nav-item hidden-sm-down" *ngIf="(afAuth.authState | async)">
+                    <div class="nav-link">|</div>
+                </li>
+                 <li class="nav-item" *ngIf="(afAuth.authState | async)">
+                    <button class="btn btn-success btn-newpost-nav" data-toggle="modal" data-target="#newPostModalLong"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                </li>
             </ul>
         </div>
     </div>
@@ -98,6 +109,8 @@
                         <p class="mb-0">- Login safely with social accounts. <br>
                             - Post article after you are logged in.</p> 
                     </div>
+                         <div class="alert alert-success">{{posts}}</div>
+                        <div class="alert alert-danger">{{errorMessage}}</div> 
                     <blog-post [postNumberLoad]="postLoad">Loading posts..</blog-post>
                 </div>
             </div>
@@ -118,7 +131,7 @@
                     
 
                 </div>
-                <div class="sidebar-module sidebar-module-archive">
+                <!--<div class="sidebar-module sidebar-module-archive">
                     <h4>Archives</h4>
                     <ol class="list-unstyled">
                         <li><a href="#">March 2014</a></li>
@@ -134,31 +147,45 @@
                         <li><a href="#">May 2013</a></li>
                         <li><a href="#">April 2013</a></li>
                     </ol>
-                </div>
+                </div>-->
             </div>
         </div>
     </div>
 
     <!--New Post Button-->
-    <div class="container newpost-container" *ngIf="(afAuth.authState | async)">
+    <!--<div class="container newpost-container" *ngIf="(afAuth.authState | async)">
         <div class="row">
             <div class="col-sm-9">
                 <div class="newpost pull-right">
                     <button class="btn btn-success btn-circle btn-newpost" data-toggle="modal" data-target="#newPostModalLong">new<br/>post</button>
                 </div>
             </div>
-            <!--<div class="col-sm-3" style="z-index: -1; display:none;"></div>-->
         </div>
 
-    </div>
+    </div>-->
 </div>
 
 
 <!--Footer-->
-<footer class="footer">
+<footer class="footer blog-footer">
     <div class="container">
-        ©2017 - nuirattapon.com
+        <div class="row">
+            <div class="col-sm-6">
+                About
+            </div>
+            <div class="col-sm-6">
+                Link
+            </div>
+        </div>
+        
+       
     </div>
+</footer>
+<footer class="copyright-footer">
+    <div class="container-fluid"> 
+        <div><b>Powered by</b> <span class="text-success">Nui Rattapon Wannaphat</span></div>
+        <h6 class="text-muted">©2017 NuiRattapon.com</h6>
+        </div>
 </footer>
 
 <!-- Modal -->

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpModule, JsonpModule } from '@angular/http';
 
 //3rd part
 import { NgPipesModule } from 'ngx-pipes';
@@ -20,6 +21,8 @@ import { TxtEditorComponent } from './txt-editor/txt-editor.component';
     BlogRoutingModule,
     CommonModule,
     ReactiveFormsModule,
+    HttpModule,
+    JsonpModule,
     NgPipesModule
 
   ],

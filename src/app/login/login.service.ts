@@ -49,6 +49,7 @@ export class LoginService {
             .then((success) => {
                 console.log(success);
                 this.user = this.afAuth.authState;
+                console.log(this.user);
                 alert("Welcome " + this.afAuth.auth.currentUser.email);
             })
             .catch((err) => {

@@ -1,6 +1,12 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
+import { Http, Response } from '@angular/http';
+
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/do';
+import 'rxjs/add/operator/catch';
 
 //Material
 import { MdDialog, MdDialogRef } from '@angular/material';
@@ -8,7 +14,6 @@ import { MdDialog, MdDialogRef } from '@angular/material';
 //Firebase
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
-import { Observable } from 'rxjs/Observable';
 import * as firebase from 'firebase/app';
 
 //GSAP
@@ -19,8 +24,6 @@ import * as skrollr from 'skrollr/src/skrollr';
 //Service
 import { BlogService } from './blog.service';
 import { LoginService } from '../login/login.service';
-
-//librally
 
 //custom
 import { slideInOutAnimation } from '../_animations/index'
@@ -45,6 +48,9 @@ export class BlogComponent implements OnInit {
   post: FirebaseListObservable<any[]>;
   postContent: any;
   postLoad: number = 10;
+  posts: any[];
+  errorMessage: string;
+
 
 
   // dependency inject 
@@ -53,14 +59,13 @@ export class BlogComponent implements OnInit {
     public db: AngularFireDatabase,
     public loginService: LoginService,
     private fb: FormBuilder,
-    public bs: BlogService,
-    private titleService: Title
+    private _blogService: BlogService,
+    private titleService: Title,
   ) {
     this.titleService.setTitle( 'Blog - Nui Rattapon' );
     this.user = this.afAuth.authState;
     this.post = this.db.list('/blog');
     // this.post = this.db.object('/blog');
-    console.log(this.post.first);
   }
 
   
@@ -68,9 +73,31 @@ export class BlogComponent implements OnInit {
   ngOnInit(): void {
     this.initAnimation();
     this.initFormGroup();
-    var xx =this.afAuth.auth.currentUser;
+    this._blogService.getTest()
+          .subscribe(
+            rPosts => this.posts = rPosts,
+            error => this.errorMessage = error
+          );
 
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   initAnimation() {
     let
@@ -78,7 +105,7 @@ export class BlogComponent implements OnInit {
       logoTxt = document.getElementById("logoTxt"),
       post = document.getElementById("post");
 
-    TweenLite.from(logo, 1, { autoAlpha: 0 , delay: 0.7 });
+    TweenLite.from(logo, 1, { autoAlpha: 0, delay: 0.7 });
     TweenLite.from(logoTxt, 1, { autoAlpha: 0, x: 20, delay: 1 });
 
 
@@ -109,11 +136,6 @@ export class BlogComponent implements OnInit {
     this.loginService.loginByEmail(this.loginForm.value.email, this.loginForm.value.password);
   }
 
-  getemail() {
-    // this.useremail = this.afAuth.auth.currentUser.email;
-
-  }
-
   addPost() {
 
     let mypost = new Post();
@@ -126,58 +148,15 @@ export class BlogComponent implements OnInit {
     this.post.push(mypost)
       .then(_ => {
         alert('Post Success!');
-        $('#newPostModalLong').modal('hide');       
+        $('#newPostModalLong').modal('hide');
       })
       .catch(err => console.log('You do not have access!', err));
     console.log('newpost fired');
   }
 
-  editPost() { }
-
- keyupHandlerFunction(event){
-
+  keyupHandlerFunction(event) {
     this.postContent = event;
   }
 
 
 }
-
-// class Post {
-//   author: string = '';
-//   content: string = '';
-//   createdon: string = '';
-//   id: number = 0;
-//   picurl: string = '';
-//   social: string = "";
-//   tag: string = "";
-//   title: string = '';
-// }
-
-  //To create ReactiveFrom 
-  // 1 import ReactiveFromModule in root module 
-  // 2 import FormBuilder to componenet and inject it
-  // 3 initialize it in life cycle hook oninit
-
-// interface IPost {
-//   id: number;
-//   title: string;
-//   createdOn: string;
-//   author: string;
-//   picurl: string;
-//   content: string;
-//   social: string;
-//   tag: string;
-// }
-
-
-      // {
-      //   "author": "Nui Rattapon",
-      //   "content": "Mount Hutt rises to the west of the Canterbury Plains in the South Island of New Zealand, above the braided upper reaches of the Rakaia River, and 80 kilometres west of Christchurch. Its summit is 2190 metres above sea level. ",
-      //   "createdon": "Jan, 12, 2017",
-      //   "id": 3,
-      //   "picurl": "http://snow.co.nz/media/cache/60/fe/60fe0a542ea729c536751a237cc27ac1.jpg",
-      //   "social": "",
-      //   "tag": "",
-      //   "title": "Mt.Hutt"
-      // }
-

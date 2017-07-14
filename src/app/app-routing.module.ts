@@ -1,3 +1,4 @@
+import { LoginComponent } from './login/login.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: 'resume', component: CvComponent },
   { path: 'blog', loadChildren: './blog/blog.module#BlogModule' },
   { path: 'blog/:id', loadChildren: './blog/blog.module#BlogModule' },
+  { path: 'login', component: LoginComponent},
   { path: '', component: CvCoverComponent },
   { path: '**', component: PagenotfoundComponent }
 
