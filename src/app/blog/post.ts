@@ -1,12 +1,12 @@
-
-
 export class Post {
-    author: string = '';
-    content: string = '';
-    createdon: string = '';
-    id: number = 0;
-    picurl: string = '';
-    social: string = "";
-    tag: string = "";
-    title: string = '';
+    id: number;
+    title: string;
+    content: string;
+    author: string;
+    createdBy: number;
+    createdOn: string;
+    updateBy: number;
+    updateOn: string;
+    isActive: boolean;
+
 }

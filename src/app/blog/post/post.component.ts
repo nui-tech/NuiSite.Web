@@ -16,7 +16,7 @@ import { BlogService } from '../blog.service';
 export class PostComponent implements OnInit {
   @Input() postNumberLoad: number;
   user: Observable<firebase.User>;
-  posts: FirebaseListObservable<any[]>;
+  //posts: FirebaseListObservable<any[]>;
   
 
   constructor(public afAuth: AngularFireAuth, public db: AngularFireDatabase, public bs:BlogService) {
@@ -24,7 +24,7 @@ export class PostComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.posts = this.bs.getPosts();
+    //this.posts = this.bs.getPosts();
   }
 
 }

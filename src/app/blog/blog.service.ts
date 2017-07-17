@@ -10,15 +10,19 @@ import 'rxjs/add/operator/toPromise';
 
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 import * as firebase from 'firebase/app';
+
+//Models class
 import { Post } from './post';
 
 
 @Injectable()
 export class BlogService {
-    private _postUrl = 'http://nuisite.azurewebsites.net/api/';
-    
-    posts: FirebaseListObservable<any[]>;
-
+    private _postAPIUrl = 'http://localhost:60506/api/';  
+            //'http://nuisite.azurewebsites.net/api/';  
+            
+    //posts: FirebaseListObservable<any[]>;
+    posts: Observable<Post[]>;
+    postOptions = {};
     constructor(
         public db: AngularFireDatabase,
         private _http: Http
@@ -26,23 +30,35 @@ export class BlogService {
           
         }
 
-    addPost(post: Post) {
-        return this.posts.push(post);
-    }
+    // addPost(post: Post) {
+    //     return this.posts.push(post);
+    // }
 
-    getPosts(): FirebaseListObservable<any[]> {
-        return this.db.list('/blog');
-    }
+    // getPosts(): FirebaseListObservable<any[]> {
+    //     return this.db.list('/blog');
+    // }
 
-    getTest(): Observable<any[]>{   
+    getPosts(): Observable<any[]>{   
         let _headers = new Headers({'Accept':'application/json'});
         let options = new RequestOptions({ headers: _headers });    
         return this._http
-                .get(this._postUrl+'posts', options)
-                .map((response: Response) => <any[]>response.json());           
+                .get(this._postAPIUrl+'posts', options)
+                .map(this.extractData);
+                
     }
 
+    // addPost(newPost: Post): Observable<Post[]>{        
+    //     return this._http
+    //             .post(this._postAPIUrl, newPost, this.postOptions)
+    //             .map((response: Response) => <Post[]>response.json());
+                
+    // }
 
+    private extractData(res: Response) {
+        let body = <Post[]>res.json();
+        debugger;
+        return body;
+    } 
 
 
 
