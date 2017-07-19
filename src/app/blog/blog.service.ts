@@ -18,7 +18,7 @@ import { Post } from './post';
 @Injectable()
 export class BlogService {
     //private _postAPIUrl = 'http://w10-2.shared:60506/api/posts';  
-    private _postAPIUrl = 'http://nuisite.azurewebsites.net/api/posts';  
+    private _postAPIUrl = 'https://nuisite.azurewebsites.net/api/posts';  
             
     //posts: FirebaseListObservable<any[]>;
     posts: Observable<Post[]>;
