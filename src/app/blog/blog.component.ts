@@ -1,4 +1,5 @@
 ﻿import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { AsyncPipe } from '@angular/common';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 import { Http, Response } from '@angular/http';
@@ -75,10 +76,9 @@ export class BlogComponent implements OnInit {
     this.initAnimation();
     this.initFormGroup();
     this._blogService.getPosts()
-          .subscribe(
-            rPosts => this.posts = rPosts, 
+          .subscribe(rPosts => this.posts = rPosts, 
             error => this.errorMessage = error
-          );
+           );
   }
 
 
@@ -117,17 +117,17 @@ export class BlogComponent implements OnInit {
   }
 
   addPost() {
-
     let mypost = new Post();
     mypost.title = this.addPostForm.value.title;
     mypost.content = this.postContent;
     mypost.author = this.addPostForm.value.author;
-    //mypost.createdBy,
-    mypost.createdOn, mypost.updateOn = Date.now().toString();
-    
-    //this._blogService.addPost(mypost)
-    
-    
+    mypost.createdOn, mypost.updatedOn = Date.now().toString();
+
+    this._blogService.addPost(mypost)
+      .subscribe(
+      rPosts => this.posts.unshift(rPosts),
+      error => this.errorMessage = error);
+
   }
 
   keyupHandlerFunction(event) {

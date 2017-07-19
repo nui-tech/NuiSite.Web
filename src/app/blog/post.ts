@@ -5,8 +5,8 @@ export class Post {
     author: string;
     createdBy: number;
     createdOn: string;
-    updateBy: number;
-    updateOn: string;
+    updatedBy: number;
+    updatedOn: string;
     isActive: boolean;
 
 }
