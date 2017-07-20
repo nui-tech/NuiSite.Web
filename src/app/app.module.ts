@@ -16,21 +16,14 @@ import { CvModule } from './cv/cv.module';
 
 //Custom Services
 import { LoginService } from './login/login.service';
+import { AuthenService } from './authen.service';
 
 //Custom Components
 import { AppComponent } from './app.component';
 import { PagenotfoundComponent } from './shared/pagenotfound/pagenotfound.component';
 import { LoginComponent } from './login/login.component';
 
-// Initialize Firebase
-export const firebaseconfig = {
-  apiKey: "AIzaSyDa9QKxbLE_MqZas7_8ObDSfL4ok30t-C4",
-  authDomain: "nuiweb-69916.firebaseapp.com",
-  databaseURL: "https://nuiweb-69916.firebaseio.com",
-  projectId: "nuiweb-69916",
-  storageBucket: "nuiweb-69916.appspot.com",
-  messagingSenderId: "1098485121444"
-};
+import { firebaseconfig } from '../environments/environment'
 
 
 @NgModule({
@@ -56,7 +49,7 @@ export const firebaseconfig = {
 
   ],
   providers: [
-    LoginService,
+    AuthenService,
     AngularFireAuth,
     AngularFireDatabase,
     Title
