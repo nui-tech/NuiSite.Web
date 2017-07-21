@@ -15,7 +15,6 @@ import { CvModule } from './cv/cv.module';
 //BlogModule is on lazy loading
 
 //Custom Services
-import { LoginService } from './login/login.service';
 import { AuthenService } from './authen.service';
 
 //Custom Components
