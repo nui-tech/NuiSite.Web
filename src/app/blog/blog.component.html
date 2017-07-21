@@ -25,7 +25,7 @@
 
 
             <!--Right nav-->
-            <ul class="navbar-nav pull-right">
+            <ul class="navbar-nav pull-right">                
                 <li class="nav-item">
                     <a class="nav-link" id="link-cv" [routerLink]="['/resume']">Resume</a>
                 </li>
@@ -39,7 +39,7 @@
                     <div class="nav-link">|</div>
                 </li>
                 <li class="nav-item">
-                    <a *ngIf="(afAuth.authState | async)" class="nav-link" (click)="loginService.logout()">Logout</a>
+                    <a *ngIf="(afAuth.authState | async)" class="nav-link" (click)="authenService.logout()">Logout</a>
                 </li>
                 <li *ngIf="!(afAuth.authState | async)" class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Login <span class="caret"></span></a>
@@ -49,8 +49,8 @@
                                 <div class="col-md-12">
                                     Login via
                                     <div class="social-buttons">
-                                        <button (click)="loginService.loginByFb()" class="btn btn-fb"><i class="fa fa-facebook"></i> </button>
-                                        <button (click)="loginService.loginByGoogle()" class="btn btn-gg"><i class="fa fa-google"></i> </button>
+                                        <button (click)="authenService.loginByFb()" class="btn btn-fb"><i class="fa fa-facebook"></i> </button>
+                                        <button (click)="authenService.loginByGoogle()" class="btn btn-gg"><i class="fa fa-google"></i> </button>
                                     </div>
                                     or
                                     <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav" novalidate (ngSubmit)="loginByEmail()"
@@ -100,58 +100,8 @@
         <div class="row">
             <div class="col-sm-9 blog-main">
                 <div class="post-wrapper">
-                    <div class="alert alert-info" role="alert">
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                        <h4 class="alert-heading">Hello!</h4><span class="pull-right" style="font-size:80%;"> <i>20 July 2017</i> </span>
-                        <p>Blog is still under developing, however some features are working, so you can ...</p>
-                        <p class="mb-0">- Login safely with social accounts. <br> - Post article after you are logged in.</p>
-                    </div>
 
-                    <div class="alert alert-danger" *ngIf="errorMessage != null">{{errorMessage}}</div>
-                    
-                    
-                    <!-- Posts  -->
-                    <div *ngFor="let post of posts | reverse">
-                        <div class="post-container">
-
-                            <section class="post-title">
-                                <div class="post-action pull-right">
-                                    <!-- HTML to write -->
-                                    <div class="btn-group" role="group" title="edit/delete post">
-                                        <a id="btnGroupDrop1" class="btn-postaction" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
-                                        </a>
-                                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="btnGroupDrop1">
-                                            <a class="dropdown-item dd-edit" *ngIf="(afAuth.authState | async)" (click)="editPost()"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</a>
-                                            <a class="dropdown-item dd-del" *ngIf="(afAuth.authState | async)" (click)="deletePost(post.id)"><i class="fa fa-trash" aria-hidden="true"></i> Delete</a>
-                                            <a class="dropdown-item"><i class="fa fa-exclamation" aria-hidden="true"></i> Report</a>
-                                        </div>
-                                    </div>
-                                </div>
-
-
-                                <h3>{{post.title}}</h3>
-                                <div class="date">{{post.createdOn | date: 'longDate'}}</div>
-                                <div class="author">
-                                    By: {{post.author}}
-                                </div>
-                            </section>
- 
-                            <section class="post-content" [innerHTML]="post.content">
-
-                            </section>
-
-                            <section class="post-social" style="margin-top:2%;">
-                                <!--<button data-toggle="modal" data-target="#exampleModalLong" md-raised-button>Share</button>-->
-  
-                            </section>
-                        </div>
-                    </div>
-
-
-                    <!-- <blog-post [postNumberLoad]="postLoad">Loading posts..</blog-post> -->
+                    <router-outlet></router-outlet>
                 </div>
             </div>
             <div class="col-sm-3  blog-sidebar">
@@ -171,43 +121,13 @@
 
 
                 </div>
-                <!--<div class="sidebar-module sidebar-module-archive">
-                    <h4>Archives</h4>
-                    <ol class="list-unstyled">
-                        <li><a href="#">March 2014</a></li>
-                        <li><a href="#">February 2014</a></li>
-                        <li><a href="#">January 2014</a></li>
-                        <li><a href="#">December 2013</a></li>
-                        <li><a href="#">November 2013</a></li>
-                        <li><a href="#">October 2013</a></li>
-                        <li><a href="#">September 2013</a></li>
-                        <li><a href="#">August 2013</a></li>
-                        <li><a href="#">July 2013</a></li>
-                        <li><a href="#">June 2013</a></li>
-                        <li><a href="#">May 2013</a></li>
-                        <li><a href="#">April 2013</a></li>
-                    </ol>
-                </div>-->
             </div>
         </div>
     </div>
-
-    <!--New Post Button-->
-    <!--<div class="container newpost-container" *ngIf="(afAuth.authState | async)">
-        <div class="row">
-            <div class="col-sm-9">
-                <div class="newpost pull-right">
-                    <button class="btn btn-success btn-circle btn-newpost" data-toggle="modal" data-target="#newPostModalLong">new<br/>post</button>
-                </div>
-            </div>
-        </div>
-
-    </div>-->
 </div>
 
-
 <!--Footer-->
-<footer class="footer blog-footer">
+<!-- <footer class="footer blog-footer">
     <div class="container">
         <div class="row">
             <div class="col-sm-6">
@@ -220,7 +140,7 @@
 
 
     </div>
-</footer>
+</footer> -->
 <footer class="copyright-footer">
     <div class="container-fluid">
         <div><b>Powered by</b> <span class="text-success">Nui Rattapon Wannaphat</span></div>
@@ -229,7 +149,7 @@
 </footer>
 
 <!-- Modal -->
-<div class="modal fade" id="newPostModalLong" tabindex="-1" role="dialog" aria-labelledby="newPostModalLongTitle" aria-hidden="true">
+<div class="modal fade" id="newPostModalLong" tabindex="-1" role="dialog" aria-labelledby="newPostModalLongTitle" aria-hidden="true" data-backdrop="static">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
 
