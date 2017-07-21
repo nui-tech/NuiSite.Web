@@ -1,5 +1,5 @@
 ﻿import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
-import { ActivatedRoute, Route } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { Observable } from 'rxjs/Observable';
 
@@ -28,32 +28,40 @@ import { Post, IPost } from '../Post';
 export class PostComponent implements OnInit {
   post: IPost;
   errorMessage: string;
-  
+
 
   constructor(
     private _acRoute: ActivatedRoute,
     public afAuth: AngularFireAuth,
     public authenService: AuthenService,
-    private _blogService: BlogService, 
+    public blogService: BlogService,
+    private _router: Router,
     private _pageTitle: Title) {
-     
+
   }
 
   ngOnInit() {
     this.post = new Post();
     let id = +this._acRoute.snapshot.params['id'];
-    this._pageTitle.setTitle("Post: "+id);
     this.getPost(id);
   }
 
   getPost(id: number) {
-    this._blogService.getPostById(id)
+    this.blogService.getObsPostById(id)
       .subscribe(
-        post => this.post = post,
-        error => this.errorMessage = error
+      post => this.post = post,
+      error => this.errorMessage = error,
+      () => this._pageTitle.setTitle(this.post.title + ' - ' + this.post.author)
       );
   }
 
+  deletePost(id: number) {
+    this.blogService.deleteObsPost(id)
+      .subscribe(rPosts => alert('Delete success'),
+      error => this.errorMessage = error,
+      () => this._router.navigate(['/blog'])
+      );
+  }
 
 
 

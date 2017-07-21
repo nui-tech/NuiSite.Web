@@ -8,9 +8,9 @@
 </div>
 
 <div class="alert alert-danger" *ngIf="errorMessage != null">{{errorMessage}}</div>
-
+<!-- <button type="button" class="btn btn-primary" (click)="test()">getlist</button> -->
 <!-- Posts  -->
-<div *ngFor="let post of posts | reverse">
+<div *ngFor="let post of blogService.posts | reverse">
   <div class="post-container">
 
     <section class="post-title">

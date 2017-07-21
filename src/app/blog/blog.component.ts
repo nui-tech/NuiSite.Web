@@ -46,8 +46,8 @@ export class BlogComponent implements OnInit {
   loginForm: FormGroup;
   addPostForm: FormGroup;
   postContent: any;
-  posts: IPost[];
-  errorMessage: string;
+  // posts = new Array<Post>();
+  // errorMessage: string;
 
 
 
@@ -56,7 +56,7 @@ export class BlogComponent implements OnInit {
     public afAuth: AngularFireAuth,
     public authenService: AuthenService,
     private fb: FormBuilder,
-    private _blogService: BlogService,
+    public blogService: BlogService,
     private titleService: Title,
   ) {
     this.user = this.afAuth.authState;
@@ -112,11 +112,11 @@ export class BlogComponent implements OnInit {
     mypost.author = this.addPostForm.value.author;
     mypost.createdOn, mypost.updatedOn = Date.now().toString();
     
-    this._blogService.addPost(mypost)
-      .subscribe(
-      rPosts => this.posts.unshift(rPosts),
-      error => this.errorMessage = error);
-
+    this.blogService.addPost(mypost);
+    // this.blogService.addObsPost(mypost)
+    //   .subscribe(
+    //   rPosts =>{console.log(this.posts); this.posts.unshift(rPosts); console.log(this.posts);} ,
+    //   error => this.errorMessage = error);
   }
 
 
