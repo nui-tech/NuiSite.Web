@@ -13,6 +13,7 @@ import { PostComponent } from './post/post.component';
 
 import { BlogService } from './blog.service';
 import { TxtEditorComponent } from './txt-editor/txt-editor.component';
+import { PostListComponent } from './post-list/post-list.component';
 
 
 @NgModule({
@@ -30,6 +31,10 @@ import { TxtEditorComponent } from './txt-editor/txt-editor.component';
   ],
   providers: [BlogService],
   //exports:[BlogModule],
-  declarations: [BlogComponent, PostComponent, TxtEditorComponent]
+  declarations: [
+    BlogComponent,
+    PostComponent,
+    TxtEditorComponent,
+    PostListComponent]
 })
 export class BlogModule { }

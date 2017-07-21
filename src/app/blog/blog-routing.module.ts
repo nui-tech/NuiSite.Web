@@ -4,14 +4,18 @@ import { Routes, RouterModule } from '@angular/router';
 
 //import { CvComponent } from 'app/cv/cv.component'
 import { BlogComponent } from './blog.component';
+import { PostComponent } from './post/post.component';
+import { PostListComponent } from './post-list/post-list.component';
+
 
 const routes: Routes = [
   {
-    path: '',
-    component: BlogComponent,
+    path: '', component: BlogComponent,
     children: [
-      { path: 'blog', component: BlogComponent },
-      { path: 'blog/:id', component: BlogComponent }]
+      { path: '', component: PostListComponent},
+      { path: ':id', component: PostComponent },
+     
+    ]
   }
 ];
 
