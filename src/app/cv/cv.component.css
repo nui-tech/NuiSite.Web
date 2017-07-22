@@ -4,6 +4,10 @@
     
 }
 
+ul{
+    margin-bottom: 0;
+}
+
 /* Nav bar ==========================*/
 .nav{
     margin-top: 15px;

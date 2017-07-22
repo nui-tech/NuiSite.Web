@@ -1,0 +1,23 @@
+{
+    "name": "",
+    "position":"",
+    "experiences":[{
+        "companyName":"",
+        "companyCity":"",
+        "workPeriod":"",
+        "role":"",
+        "detail":""
+    },{
+        "companyName":"",
+        "companyCity":"",
+        "workPeriod":"",
+        "role":"",
+        "detail":"" 
+    }],
+    "skills":{
+        "fontend":[],
+        "backend":[],
+        "knowledge":[],
+        "old":[]
+    }
+}
