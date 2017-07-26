@@ -1,221 +1,189 @@
 ﻿<!-- Nav bar-->
-<nav class="navbar navbar-toggleable-sm sticky-top">
-    <div class="container nav">
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
-            aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+<nav class="navbar navbar-toggleable-sm navbar-light">
+  <div class="container nav">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
+      aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
          </button>
 
-        <a class="navbar-brand" [routerLink]="['/blog']">
+    <a class="navbar-brand" [routerLink]="['/blog']">
             <img id="logo" src="/assets/img/n-icon.svg" width="30" height="30" class="d-inline-block align-top">
            <div class="d-inline-block" id="logoTxt">
-               <span class="color-blue">B</span>
-               <span class="color-red">L</span>
-               <span class="color-yellow">O</span>
-               <span class="color-green">G</span>
+               <span>blog</span>
                </div>
         </a>
 
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
 
-            <!--Left nav-->
-            <ul class="navbar-nav mr-auto">
+      <!--Left nav-->
+      <ul class="navbar-nav mr-auto">
 
-            </ul>
+      </ul>
 
 
-            <!--Right nav-->
-            <ul class="navbar-nav pull-right">                
-                <li class="nav-item">
-                    <a class="nav-link" id="link-cv" [routerLink]="['/resume']">Resume</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="link-cover" [routerLink]="['/cover']">Cover</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" routerLinkActive="active" id="link-blog" [routerLink]="['/blog']">Blog</a>
-                </li>
-                <li class="nav-item hidden-sm-down">
-                    <div class="nav-link">|</div>
-                </li>
-                <li class="nav-item">
-                    <a *ngIf="(afAuth.authState | async)" class="nav-link" (click)="authenService.logout()">Logout</a>
-                </li>
-                <li *ngIf="!(afAuth.authState | async)" class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Login <span class="caret"></span></a>
-                    <ul id="login-dp" class="dropdown-menu dropdown-menu-right">
-                        <li>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    Login via
-                                    <div class="social-buttons">
-                                        <button (click)="authenService.loginByFb()" class="btn btn-fb"><i class="fa fa-facebook"></i> </button>
-                                        <button (click)="authenService.loginByGoogle()" class="btn btn-gg"><i class="fa fa-google"></i> </button>
-                                    </div>
-                                    or
-                                    <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav" novalidate (ngSubmit)="loginByEmail()"
-                                        [formGroup]="loginForm">
-                                        <div class="form-group" [ngClass]="{'has-danger': (loginForm.get('email').touched || loginForm.get('email').dirty) && !loginForm.get('email').valid,
+      <!--Right nav-->
+      <ul class="navbar-nav pull-right">
+        <li class="nav-item">
+          <a class="nav-link" id="link-cv" [routerLink]="['/resume']">Resume</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="link-cover" [routerLink]="['/cover']">Cover</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLinkActive="active" id="link-blog" [routerLink]="['/blog']">Blog</a>
+        </li>
+        <li class="nav-item hidden-sm-down">
+          <div class="nav-link">|</div>
+        </li>
+        <li class="nav-item">
+          <a *ngIf="(afAuth.authState | async)" class="nav-link" (click)="authenService.logout()">Logout</a>
+        </li>
+        <li *ngIf="!(afAuth.authState | async)" class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Login <span class="caret"></span></a>
+          <ul id="login-dp" class="dropdown-menu dropdown-menu-right">
+            <li>
+              <div class="row">
+                <div class="col-md-12">
+                  Login via
+                  <div class="social-buttons">
+                    <button (click)="authenService.loginByFb()" class="btn btn-fb"><i class="fa fa-facebook"></i> </button>
+                    <button (click)="authenService.loginByGoogle()" class="btn btn-gg"><i class="fa fa-google"></i> </button>
+                  </div>
+                  or
+                  <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav" novalidate (ngSubmit)="loginByEmail()"
+                    [formGroup]="loginForm">
+                    <div class="form-group" [ngClass]="{'has-danger': (loginForm.get('email').touched || loginForm.get('email').dirty) && !loginForm.get('email').valid,
                                                     'has-success': loginForm.get('email').valid}">
-                                            <label class="sr-only" for="exampleInputEmail2">Email address</label>
-                                            <input formControlName="email" type="email" class="form-control" id="emailId" placeholder="Email address">
-                                        </div>
-                                        <div class="form-group" [ngClass]="{'has-danger': (loginForm.get('password').touched || loginForm.get('password').dirty) && !loginForm.get('password').valid,
+                      <label class="sr-only" for="exampleInputEmail2">Email address</label>
+                      <input formControlName="email" type="email" class="form-control" id="emailId" placeholder="Email address">
+                    </div>
+                    <div class="form-group" [ngClass]="{'has-danger': (loginForm.get('password').touched || loginForm.get('password').dirty) && !loginForm.get('password').valid,
                                                     'has-success': loginForm.get('password').valid}">
-                                            <label class="sr-only" for="exampleInputPassword2">Password</label>
-                                            <input formControlName="password" type="password" class="form-control" id="passwordId" placeholder="Password">
-                                            <div class="help-block text-right"><a href="">Forget the password ?</a></div>
-                                        </div>
-                                        <div class="form-group">
-                                            <button [disabled]="!loginForm.valid" type="submit" class="btn btn-primary btn-block">Sign in</button>
-                                        </div>
-                                        <div class="checkbox">
-                                            <label>
+                      <label class="sr-only" for="exampleInputPassword2">Password</label>
+                      <input formControlName="password" type="password" class="form-control" id="passwordId" placeholder="Password">
+                      <div class="help-block text-right"><a href="">Forget the password ?</a></div>
+                    </div>
+                    <div class="form-group">
+                      <button [disabled]="!loginForm.valid" type="submit" class="btn btn-primary btn-block">Sign in</button>
+                    </div>
+                    <div class="checkbox">
+                      <label>
 											 <input type="checkbox"> keep me logged-in
 											 </label>
-                                        </div>
-                                    </form>
-                                </div>
-                                <div class="bottom text-center">
-                                    New here ? <a href="#"><b>Sign Up</b></a>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </li>
-                <li class="nav-item hidden-sm-down" *ngIf="(afAuth.authState | async)">
-                    <div class="nav-link">|</div>
-                </li>
-                <li class="nav-item" *ngIf="(afAuth.authState | async)">
-                    <button class="btn btn-success btn-newpost-nav" data-toggle="modal" data-target="#newPostModalLong"><i class="fa fa-pencil" aria-hidden="true"></i></button>
-                </li>
-            </ul>
-        </div>
+                    </div>
+                  </form>
+                </div>
+                <div class="bottom text-center">
+                  New here ? <a href="#"><b>Sign Up</b></a>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item hidden-sm-down" *ngIf="(afAuth.authState | async)">
+          <div class="nav-link">|</div>
+        </li>
+        <li class="nav-item" *ngIf="(afAuth.authState | async)">
+          <button class="btn btn-success btn-newpost-nav" data-toggle="modal" data-target="#newPostModalLong"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+        </li>
+      </ul>
     </div>
+  </div>
 </nav>
 <!--End nav bar-->
+
+
+
+
+
 <!--Body-->
-<div class="container-fluid">
-    <div class="container body">
-        <div class="row">
-            <div class="col-sm-9 blog-main">
-                <div class="post-wrapper">
-
-                    <router-outlet></router-outlet>
-                </div>
-            </div>
-            <div class="col-sm-3  blog-sidebar">
-                <div class="sidebar-module sidebar-module-header">
-
-                    <div class="card">
-                        <img class="card-img-top thumpnail" src="../assets/img/nui-thumbnail.jpg" alt="Card image cap">
-                        <div class="card-block">
-                            <p style="margin-top: 5px;  text-indent: 20px;">
-                                <b>Hello, my name is Nui Rattapon — a web developer. Currently work in Auckland for MVP Studio.</b>
-                            </p>
-                            <p>This blog was built from scratch, powered by Angular 4, Bootstrap 4, GSAP, Skrollr and many more.
-                                Use ASP.Net Core API and Firebase as a back-end.</p>
-                            <p>Thanks for visiting.</p>
-                        </div>
-                    </div>
-
-
-                </div>
-            </div>
-        </div>
-    </div>
+<div class="container-fluid body">
+  <router-outlet></router-outlet>
 </div>
 
-<!--Footer-->
-<!-- <footer class="footer blog-footer">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-6">
-                About
-            </div>
-            <div class="col-sm-6">
-                Link
-            </div>
-        </div>
 
 
-    </div>
-</footer> -->
-<footer class="copyright-footer">
-    <div class="container-fluid">
-        <div><b>Powered by</b> <span class="text-success">Nui Rattapon Wannaphat</span></div>
-        <h6 class="text-muted">©2017 NuiRattapon.com</h6>
-    </div>
+
+<!-- Footer  -->
+<footer class="footer">
+  <div class="container">
+    <span class="text-muted">©2017 Nui Rattapon.</span>
+  </div>
 </footer>
 
+
+
+
+
 <!-- Modal -->
-<div class="modal fade" id="newPostModalLong" tabindex="-1" role="dialog" aria-labelledby="newPostModalLongTitle" aria-hidden="true" data-backdrop="static">
-    <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
+<div class="modal fade" id="newPostModalLong" tabindex="-1" role="dialog" aria-labelledby="newPostModalLongTitle" aria-hidden="true"
+  data-backdrop="static">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
 
 
-            <!-- Post Form -->
-            <form (ngSubmit)="addPost()" [formGroup]="addPostForm" novalidate>
+      <!-- Post Form -->
+      <form (ngSubmit)="addPost()" [formGroup]="addPostForm" novalidate>
 
-                <div class="modal-header">
-                    <h5 class="modal-title" id="newPostModalLongTitle">New Post</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <div class="modal-header">
+          <h5 class="modal-title" id="newPostModalLongTitle">New Post</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
-                </div>
-                <!--Model inner Start here-->
-                <div class="modal-body">
-                    <!--Title-->
-                    <div class="form-group row" [ngClass]="{'has-success': addPostForm.get('title').valid, 
+        </div>
+        <!--Model inner Start here-->
+        <div class="modal-body">
+          <!--Title-->
+          <div class="form-group row" [ngClass]="{'has-success': addPostForm.get('title').valid, 
                                         'has-danger': (addPostForm.get('title').touched || addPostForm.get('title').dirty) && !addPostForm.get('title').valid}">
-                        <label for="title" class="col-sm-2 col-form-label">Title</label>
-                        <div class="col-sm-10">
-                            <input formControlName="title" type="text" class="form-control" placeholder="required">
-                        </div>
-                    </div>
-                    <!--Author-->
-                    <div class="form-group row" [ngClass]="{'has-success': addPostForm.get('author').valid, 
+            <label for="title" class="col-sm-2 col-form-label">Title</label>
+            <div class="col-sm-10">
+              <input formControlName="title" type="text" class="form-control" placeholder="required">
+            </div>
+          </div>
+          <!--Author-->
+          <div class="form-group row" [ngClass]="{'has-success': addPostForm.get('author').valid, 
                                         'has-danger': (addPostForm.get('author').touched || addPostForm.get('author').dirty) && !addPostForm.get('author').valid}">
-                        <label for="author" class="col-sm-2 col-form-label">Author</label>
-                        <div class="col-sm-10">
-                            <input formControlName="author" type="text" class="form-control" placeholder="required">
-                        </div>
-                    </div>
-                    <!--Picture-->
-                    <!-- <div class="form-group row">
+            <label for="author" class="col-sm-2 col-form-label">Author</label>
+            <div class="col-sm-10">
+              <input formControlName="author" type="text" class="form-control" placeholder="required">
+            </div>
+          </div>
+          <!--Picture-->
+          <!-- <div class="form-group row">
                         <label for="picurl" class="col-sm-2 col-form-label">Picture</label>
                         <div class="col-sm-10">
                             <input formControlName="picurl" type="text" class="form-control">
                         </div>
                     </div> -->
-                    <!--Date-->
-                    <!--<div class="form-group row" [ngClass]="{'has-success': addPostForm.get('createdon').valid, 
+          <!--Date-->
+          <!--<div class="form-group row" [ngClass]="{'has-success': addPostForm.get('createdon').valid, 
                                         'has-danger': (addPostForm.get('createdon').touched || addPostForm.get('createdon').dirty) && !addPostForm.get('createdon').valid}">
                         <label for="createdon" class="col-sm-2 col-form-label">Date</label>
                         <div class="col-sm-10">
                             <input formControlName="createdon" class="form-control" type="date" placeholder="Date"> </div>
                     </div>-->
 
-                    <!--Content-->
-                    <div class="" [ngClass]="{'has-success': addPostForm.get('content').valid, 
+          <!--Content-->
+          <div class="" [ngClass]="{'has-success': addPostForm.get('content').valid, 
                                         'has-danger': (addPostForm.get('content').touched || addPostForm.get('content').dirty) && !addPostForm.get('content').valid}">
-                        <label for="content" class="form-label">Content</label>
-                        <!--<textarea formControlName="content" class="form-control" rows="5"></textarea>-->
-                        <txt-editor [elementId]="'my-editor-id'" (onEditorKeyup)="keyupHandlerFunction($event)"></txt-editor>
+            <label for="content" class="form-label">Content</label>
+            <!--<textarea formControlName="content" class="form-control" rows="5"></textarea>-->
+            <txt-editor [elementId]="'my-editor-id'" (onEditorKeyup)="keyupHandlerFunction($event)"></txt-editor>
 
-                    </div>
+          </div>
 
-                    <!--End model inner-->
-                </div>
-                <div class="modal-footer">
-                    <div class="form-group">
-                        <button [disabled]="!addPostForm.valid" type="submit" class="btn btn-primary">Post</button>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                    </div>
-                </div>
-
-            </form>
-
+          <!--End model inner-->
         </div>
+        <div class="modal-footer">
+          <div class="form-group">
+            <button [disabled]="!addPostForm.valid" type="submit" class="btn btn-primary">Post</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+          </div>
+        </div>
+
+      </form>
+
     </div>
+  </div>
 </div>

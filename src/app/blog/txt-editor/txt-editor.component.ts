@@ -1,5 +1,11 @@
 import { Component, OnInit, AfterViewInit, OnDestroy, Input, Output, EventEmitter } from '@angular/core';
+
 declare var tinymce: any;
+import 'tinymce/themes/modern';
+import 'tinymce/plugins/table';
+import 'tinymce/plugins/link';
+// import 'tinymce/plugins/codesample';
+
 @Component({
   selector: 'txt-editor',
   templateUrl: './txt-editor.component.html',
@@ -19,8 +25,9 @@ export class TxtEditorComponent implements OnInit, AfterViewInit, OnDestroy {
   ngAfterViewInit() {
     tinymce.init({
       selector: '#' + this.elementId,
-      plugins: ['link', 'paste', 'table'],   
+      plugins: ['link', 'paste', 'table'],
       skin_url: 'assets/skins/lightgray',
+
       height: 200,
       setup: editor => {
         this.editor = editor;
