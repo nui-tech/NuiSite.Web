@@ -24,7 +24,7 @@ import * as skrollr from 'skrollr/src/skrollr';
 //Service
 import { BlogService } from './blog.service';
 import { AuthenService } from '../authen.service';
-
+import { MarkdownService } from 'angular2-markdown';
 //custom
 import { slideInOutAnimation } from '../_animations/index'
 
@@ -58,6 +58,7 @@ export class BlogComponent implements OnInit {
     private fb: FormBuilder,
     public blogService: BlogService,
     private titleService: Title,
+    private _makdown: MarkdownService
   ) {
     this.user = this.afAuth.authState;
 
@@ -113,10 +114,6 @@ export class BlogComponent implements OnInit {
     mypost.createdOn, mypost.updatedOn = Date.now().toString();
     
     this.blogService.addPost(mypost);
-    // this.blogService.addObsPost(mypost)
-    //   .subscribe(
-    //   rPosts =>{console.log(this.posts); this.posts.unshift(rPosts); console.log(this.posts);} ,
-    //   error => this.errorMessage = error);
   }
 
 

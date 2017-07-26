@@ -44,6 +44,7 @@ ul{
     font-weight: 300;
     font-size: 220%;
     font-family: 'Source Sans Pro', sans-serif;
+    position: relative;
 }
 
 
@@ -125,7 +126,7 @@ article a:hover {
 
 section .exp-item {
     border-bottom: 1px solid gray;
-    margin-top: 2.5%;
+    margin-top: 15px;
     margin-left: 4%;
 }
 
@@ -270,11 +271,15 @@ aside > section > p >  a > i{
       display: none;
   }
   article{
-      margin-top: -150px;
+      margin-top: -190px;
       font-size: 14px;
   }
   aside #weblink{
     display: block;
+}
+
+.name {
+    margin-top: -100px;
 }
 .skills{
     width: 100%;

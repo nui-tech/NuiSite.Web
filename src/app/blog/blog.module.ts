@@ -5,6 +5,7 @@ import { HttpModule, JsonpModule } from '@angular/http';
 
 //3rd part
 import { NgPipesModule } from 'ngx-pipes';
+import { MarkdownModule } from 'angular2-markdown';
 
 import { SharedModule } from '../shared/shared.module';
 import { BlogRoutingModule } from './blog-routing.module';
@@ -24,7 +25,8 @@ import { PostListComponent } from './post-list/post-list.component';
     ReactiveFormsModule,
     HttpModule,
     JsonpModule,
-    NgPipesModule
+    NgPipesModule,
+    MarkdownModule.forRoot()
   ],
   entryComponents: [
 

@@ -9,6 +9,7 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabaseModule, AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 
+
 // Custom Modules
 import { AppRoutingModule } from './app-routing.module'
 import { CvModule } from './cv/cv.module';
@@ -23,7 +24,7 @@ import { PagenotfoundComponent } from './shared/pagenotfound/pagenotfound.compon
 import { LoginComponent } from './login/login.component';
 
 import { firebaseconfig } from '../environments/environment'
-
+import 'hammerjs';
 
 @NgModule({
   declarations: [
@@ -42,8 +43,8 @@ import { firebaseconfig } from '../environments/environment'
     AppRoutingModule,
     // MaterialModule,
     BrowserAnimationsModule
-
   ],
+
   entryComponents: [
 
   ],

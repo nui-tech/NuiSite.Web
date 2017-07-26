@@ -6,8 +6,10 @@
   <p>Blog is still on upgrading process, to use a new stack of web technologies.</p>
   <p class="mb-0">Such as ASP.NET Core MVC, Angular4 and Bootsrap4</p>
 </div>
+<markdown [path]="markdown1">
 
-<div class="alert alert-danger" *ngIf="errorMessage != null">{{errorMessage}}</div>
+</markdown>
+<div class="alert alert-danger" *ngIf="blogService.errorMessage != null">{{blogService.errorMessage}}</div>
 <!-- <button type="button" class="btn btn-primary" (click)="test()">getlist</button> -->
 <!-- Posts  -->
 <div *ngFor="let post of blogService.posts | reverse">
