@@ -23,23 +23,23 @@ export class TxtEditorComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngAfterViewInit() {
-    tinymce.init({
-      selector: '#' + this.elementId,
-      plugins: ['link', 'paste', 'table'],
-      skin_url: 'assets/skins/lightgray',
-      height: 200,
-      setup: editor => {
-        this.editor = editor;
-        editor.on('keyup', () => {
-          const content = editor.getContent();
-          this.onEditorKeyup.emit(content);
-        });
-      },
-    });
+    // tinymce.init({
+    //   selector: '#' + this.elementId,
+    //   plugins: ['link', 'paste', 'table'],
+    //   skin_url: '../../assets/skins/lightgray',
+    //   height: 200,
+    //   setup: editor => {
+    //     this.editor = editor;
+    //     editor.on('keyup', () => {
+    //       const content = editor.getContent();
+    //       this.onEditorKeyup.emit(content);
+    //     });
+    //   },
+    // });
   }
 
   ngOnDestroy() {
-    tinymce.remove(this.editor);
+    // tinymce.remove(this.editor);
   }
 
 
