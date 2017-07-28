@@ -23,8 +23,7 @@
         "../node_modules/bootstrap/dist/css/bootstrap.css",
         "../node_modules/font-awesome/css/font-awesome.css",
         "../node_modules/prismjs/themes/prism-okaidia.css",
-        "../node_modules/tinymce/plugins/codesample/css/prism.css",
-        "../plugins/codesample/css/prism.css"
+        "../node_modules/tinymce/plugins/codesample/css/prism.css"
       ],
       "scripts": [
         "../node_modules/jquery/dist/jquery.min.js",
@@ -36,7 +35,6 @@
         "../node_modules/tinymce/plugins/link/plugin.js",
         "../node_modules/tinymce/plugins/paste/plugin.js",
         "../node_modules/tinymce/plugins/table/plugin.js",
-        "../node_modules/prismjs/prism.js",
         "../node_modules/tinymce/plugins/code/plugin.js"
 
 

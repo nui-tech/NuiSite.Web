@@ -27,7 +27,6 @@ export class TxtEditorComponent implements OnInit, AfterViewInit, OnDestroy {
       selector: '#' + this.elementId,
       plugins: ['link', 'paste', 'table'],
       skin_url: 'assets/skins/lightgray',
-
       height: 200,
       setup: editor => {
         this.editor = editor;

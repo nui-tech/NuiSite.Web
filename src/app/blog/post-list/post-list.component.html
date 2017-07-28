@@ -1,72 +1,84 @@
 <div class="container body">
 
-<div class="row justify-content-center">
+  <div class="row justify-content-center">
 
 
-      <div class="col-lg-7 col-xs-12 col-sm-9 post-wrapper">
+    <div class="col-lg-7 col-xs-12 col-sm-9 post-wrapper">
 
 
 
-        <div class="alert alert-info" role="alert">
-          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <div class="alert alert-info" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
-          <h4 class="alert-heading">Hello!</h4><span class="pull-right" style="font-size:80%;"> <i>20 July 2017</i> </span>
-          <p>Blog is still on upgrading process, to use a new stack of web technologies.</p>
-          <p class="mb-0">Such as ASP.NET Core MVC, Angular4 and Bootsrap4</p>
-          <p>Has been redesigned blog to minimal and clean read style.</p>
-        </div>
+        <h4 class="alert-heading">Hello!</h4><span class="pull-right" style="font-size:80%;"> <i>20 July 2017</i> </span>
+        <p>Blog is still on upgrading process, to use a new stack of web technologies.</p>
+        <p class="mb-0">Such as ASP.NET Core MVC, Angular4 and Bootsrap4</p>
+        <p>Has been redesigned blog to minimal and clean read style.</p>
+      </div>
 
-        <div class="alert alert-danger" *ngIf="blogService.errorMessage != null">{{blogService.errorMessage}}</div>
+      <div class="alert alert-danger" *ngIf="blogService.errorMessage != null">{{blogService.errorMessage}}</div>
 
 
-        <div *ngFor="let post of blogService.posts | reverse">
+      <div *ngFor="let post of blogService.posts | reverse">
 
-          <div class="post-action pull-right">
-            <!-- HTML to write -->
-            <div class="btn-group" role="group" title="edit/delete post">
-              <a id="btnGroupDrop1" class="btn-postaction" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <div class="post-action pull-right">
+          <!-- HTML to write -->
+          <div class="btn-group" role="group" title="edit/delete post">
+            <a id="btnGroupDrop1" class="btn-postaction" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
                                         </a>
-              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="btnGroupDrop1">
-                <a class="dropdown-item dd-edit" *ngIf="(afAuth.authState | async)" (click)="editPost()"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</a>
-                <a class="dropdown-item dd-del" *ngIf="(afAuth.authState | async)" (click)="deletePost(post.id)"><i class="fa fa-trash" aria-hidden="true"></i> Delete</a>
-                <a class="dropdown-item"><i class="fa fa-comments" aria-hidden="true"></i> Comment</a>
-              </div>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="btnGroupDrop1">
+              <a class="dropdown-item dd-edit" *ngIf="(afAuth.authState | async)" (click)="editPost()"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</a>
+              <a class="dropdown-item dd-del" *ngIf="(afAuth.authState | async)" (click)="deletePost(post.id)"><i class="fa fa-trash" aria-hidden="true"></i> Delete</a>
+              <a class="dropdown-item"><i class="fa fa-comments" aria-hidden="true"></i> Comment</a>
             </div>
           </div>
-
-          <a [routerLink]="['/blog', post.id]">
-            <div class="post-container">
-
-              <section class="post-title">
-
-
-
-                <h3>{{post.title}}</h3>
-                <span class="author"> <b>By: {{post.author}}</b> </span>
-                <span class="date"> {{post.createdOn | date: 'longDate'}}</span>
-
-              </section>
-
-              <!-- <section class="post-content" [innerHTML]="post.content"></section> -->
-
-              <section class="post-social" style="margin-top:2%;">
-                <!--<button data-toggle="modal" data-target="#exampleModalLong" md-raised-button>Share</button>-->
-
-              </section>
-
-            </div>
-          </a>
         </div>
 
+        <a [routerLink]="['/blog', post.id]">
+          <div class="post-container">
+
+            <section class="post-title">
 
 
 
+              <h3>{{post.title}}</h3>
+              <span class="author"> <b>By: {{post.author}}</b> </span>
+              <span class="date"> {{post.createdOn | date: 'longDate'}}</span>
+
+            </section>
+
+            <!-- <section class="post-content" [innerHTML]="post.content"></section> -->
+
+            <section class="post-social" style="margin-top:2%;">
+              <!--<button data-toggle="modal" data-target="#exampleModalLong" md-raised-button>Share</button>-->
+
+            </section>
+
+          </div>
+        </a>
+      </div>
+
+
+      <div class="list-pagination">
+        <span class="list-pagination-previous pull-left">
+      
+          <a href="/Kiko-plus/page2/" class="previous text-muted"> <i class="fa fa-chevron-left" aria-hidden="true"></i> older</a>
+      
+        </span>
+
+        <span class="list-pagination-next pull-right ">
+      
+        <a href="/Kiko-plus/page2/" class="next text-muted">newer <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+      
+        </span>
 
       </div>
-    
-     <div class="col-lg-3 col-xs-12 col-sm-3 blog-sidebar">
+
+    </div>
+
+    <div class="col-lg-3 col-xs-12 col-sm-3 blog-sidebar">
       <div class="sidebar-module sidebar-module-header">
 
         <div class="card">
@@ -83,9 +95,9 @@
 
 
       </div>
-    </div> 
+    </div>
 
 
-</div>
+  </div>
 
 </div>

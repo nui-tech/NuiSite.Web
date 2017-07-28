@@ -5,18 +5,9 @@
   position: relative;
   min-height: 100%;
   /* Margin bottom by footer height */
-  margin-bottom: 60px;
+  margin-bottom: 80px;
 }
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  /* Set the fixed height of the footer here */
-  height: 60px;
-  line-height: 60px; /* Vertically center the text there */
-  background-color: #fafafa;
-  text-align: center;
-}
+
 
 .modal-content, .btn, input, .dropdown-menu {
     border-radius: 0;
@@ -102,18 +93,20 @@ a.btn-newpost-nav :hover{
 /************************************
     Footer
 ************************************/
-
-/* .blog-footer{
-    height: 260px;
-    padding: 18px;
-    background: #333333;
-    color: #fff;
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 80px;
+  /* Vertically center the text there */
+  line-height: 80px; 
+  /* background-color: #fafafa; */
+  text-align: center;
 }
-
-.copyright-footer{
-    height: 30px;
-    text-align: center;
-} */
+.footer > .container{
+        border-top: 1px solid #eaeaea;
+}
 
 /************************************
     Body
@@ -215,6 +208,14 @@ a.btn-newpost-nav :hover{
     padding: 10px;
 }
 
+/************************************
+    Pagination
+************************************/
+.list-pagination {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
 
 /************************************
     Post button
