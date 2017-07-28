@@ -15,6 +15,7 @@ import { PostComponent } from './post/post.component';
 import { BlogService } from './blog.service';
 import { TxtEditorComponent } from './txt-editor/txt-editor.component';
 import { PostListComponent } from './post-list/post-list.component';
+import { NewpostComponent } from './newpost/newpost.component';
 
 
 @NgModule({
@@ -37,6 +38,8 @@ import { PostListComponent } from './post-list/post-list.component';
     BlogComponent,
     PostComponent,
     TxtEditorComponent,
-    PostListComponent]
+    PostListComponent,
+    NewpostComponent
+  ]
 })
 export class BlogModule { }
