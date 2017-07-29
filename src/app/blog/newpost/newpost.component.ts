@@ -38,9 +38,9 @@ export class NewpostComponent implements OnInit, AfterViewInit, OnDestroy {
       .subscribe(
       res => this.user = res,
       error => alert(error)
-    );
+      );
     this.initFormGroup();
-    
+
   }
 
   initFormGroup() {
@@ -52,33 +52,45 @@ export class NewpostComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   addNewPost() {
-    
+
     this.newPost = new Post();
     this.newPost.title = this.newPostForm.value.title;
     this.newPost.description = this.newPostForm.value.description;
     this.newPost.content = this.newPostForm.value.content;
+    this.newPost.author = this.user.displayName == null ? 'undefined' : this.user.displayName;
     this.newPost.createdOn, this.newPost.updatedOn = Date.now().toString();
     this._blogService.addObsPost(this.newPost)
       .subscribe(
-      res => {alert('New post added.'); this._router.navigate(['/blog'])},
+      res => { alert('New post added.'); this._router.navigate(['/blog']) },
       error => alert('Add post failed.'));
-      
+
   }
 
   ngAfterViewInit() {
     tinymce.init({
       selector: '#tinymceEditor',
-      plugins: ['link', 'paste', 'table'],
+      plugins: ['advlist','link', 'paste', 'table', 'codesample', 'image','textcolor','colorpicker','preview'],
+      
+      toolbar1: 'undo redo | insert | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent',
+      toolbar2: 'forecolor backcolor | link image codesample preview',
       skin_url: '../../assets/skins/lightgray',
-      height: '400',
+      height: '250',
+      codesample_languages: [
+        { text: 'HTML/XML', value: 'markup' },
+        { text: 'JavaScript', value: 'javascript' },
+        { text: 'CSS', value: 'css' },
+        { text: 'Java', value: 'java' },
+        { text: 'C#', value: 'csharp' },
+        { text: 'Typescript', value: 'typescript' },
+        { text: "SQL", value: "sql" },
+      ],
+      codesample_content_css: '../../../assets/plugins/prism-vs.css',
+      codesample_dialog_width: 650,
       setup: editor => {
         this.editor = editor;
         editor.on('keyup', () => {
           this.content = editor.getContent();
           this.newPostForm.patchValue({ content: editor.getContent() });
-          this.user.displayName;
-          debugger;
-
         });
       },
     });

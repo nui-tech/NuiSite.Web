@@ -25,6 +25,7 @@ import { LoginComponent } from './login/login.component';
 
 import { firebaseconfig } from '../environments/environment'
 import 'hammerjs';
+import 'prismjs';
 
 @NgModule({
   declarations: [

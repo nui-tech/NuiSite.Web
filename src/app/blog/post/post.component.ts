@@ -10,15 +10,15 @@ import * as firebase from 'firebase/app';
 
 import { BlogService } from '../blog.service';
 import { AuthenService } from '../../authen.service';
-//import { IPost } from '../IPost';
+
 import { Post, IPost } from '../Post';
 
-
-
+import 'prismjs';
+declare var Prism: any;
 
 @Component({
   templateUrl: './post.component.html',
-  styleUrls: ['./post.component.css']
+  styleUrls: [ './post.component.css', './prism-vs.css']
 })
 
 
@@ -49,7 +49,7 @@ export class PostComponent implements OnInit {
   getPost(id: number) {
     this.blogService.getObsPostById(id)
       .subscribe(
-      post => this.post = post,
+      post => {this.post = post; console.log(post)},
       error => this.errorMessage = error,
       () => this._pageTitle.setTitle(this.post.title + ' - ' + this.post.author)
       );
