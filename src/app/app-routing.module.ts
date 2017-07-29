@@ -1,11 +1,13 @@
-import { LoginComponent } from './login/login.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 
 
 import { CvComponent } from './cv/cv.component';
 import { CvCoverComponent } from '../app/cv/cv-cover/cv-cover.component';
-import { PagenotfoundComponent} from './shared/pagenotfound/pagenotfound.component'
+import { BlogComponent } from './blog/blog.component';
+import { LoginComponent } from './login/login.component';
+import { PagenotfoundComponent} from './shared/pagenotfound/pagenotfound.component';
+
 
 const routes: Routes = [
 
@@ -14,7 +16,7 @@ const routes: Routes = [
   { path: 'blog', loadChildren: './blog/blog.module#BlogModule' },
   //{ path: 'blog/:id', loadChildren: './blog/blog.module#BlogModule' },
   { path: 'login', component: LoginComponent},
-  { path: '', component: CvCoverComponent },
+  { path: '', loadChildren: './blog/blog.module#BlogModule' },
   { path: '**', component: PagenotfoundComponent }
 
 ];

@@ -39,7 +39,7 @@ export class BlogService {
             .get(this._postAPIUrl, options)
             .map(this.extractDatas)
             .subscribe(
-            res => this.posts = res,
+            res => this.posts = res.reverse(),
             error => this.errorMessage = error
             );
     }

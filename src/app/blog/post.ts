@@ -1,6 +1,7 @@
 export class Post {
     id: number;
     title: string;
+    description: string;
     content: string;
     author: string;
     createdBy: number;
@@ -14,6 +15,7 @@ export class Post {
 export interface IPost {
     id: number;
     title: string;
+    description: string;
     content: string;
     author: string;
     createdBy: number;

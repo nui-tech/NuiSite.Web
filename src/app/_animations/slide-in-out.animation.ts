@@ -6,7 +6,7 @@ export const slideInOutAnimation =
         // end state styles for route container (host)
         state('*', style({
             // the view covers the whole screen with a semi tranparent background
-            position: 'fixed',
+            position: 'absolute',
             top: 0,
             left: 0,
             right: 0,

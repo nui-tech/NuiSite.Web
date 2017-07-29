@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
+import { Router } from '@angular/router';
 
 //Firebase
 import { AngularFireAuth } from 'angularfire2/auth';
@@ -21,7 +22,9 @@ export class PostListComponent implements OnInit {
     public blogService: BlogService,
     private _pageTitle: Title,
     public afAuth: AngularFireAuth,
-    public authenService: AuthenService) { }
+    public authenService: AuthenService,
+    private _router: Router
+  ) { }
 
   ngOnInit() {
     this._pageTitle.setTitle('Blog - Nui Rattapon');
@@ -29,9 +32,12 @@ export class PostListComponent implements OnInit {
     this.markdown1 = "../../../assets/test.java";
   }
 
-  deletePost(id:number){
+  deletePost(id: number) {
     this.blogService.deletePost(id);
   }
 
+  goToNewpost() {
+    this._router.navigate(['/blog/newpost']);
+  }
 
 }

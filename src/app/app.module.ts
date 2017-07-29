@@ -35,14 +35,16 @@ import 'hammerjs';
   imports: [
     //Ng modules 
     BrowserModule,
+    BrowserAnimationsModule,
+
     //3rd party modules
     AngularFireModule.initializeApp(firebaseconfig),
 
     //Custom modules
     CvModule,
-    AppRoutingModule,
+    AppRoutingModule
     // MaterialModule,
-    BrowserAnimationsModule
+
   ],
 
   entryComponents: [

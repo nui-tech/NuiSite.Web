@@ -26,12 +26,12 @@ import { BlogService } from './blog.service';
 import { AuthenService } from '../authen.service';
 import { MarkdownService } from 'angular2-markdown';
 //custom
-import { slideInOutAnimation } from '../_animations/index'
+// import { slideInOutAnimation } from '../_animations/index'
 
 //interface
 import { Post, IPost } from './Post';
-declare var jquery:any;
-declare var $ :any;
+declare var jquery: any;
+declare var $: any;
 declare var tinymce: any;
 
 @Component({
@@ -42,7 +42,7 @@ declare var tinymce: any;
 
 })
 export class BlogComponent implements OnInit {
-  user: Observable<firebase.User>;
+  user:firebase.User;
   loginForm: FormGroup;
   addPostForm: FormGroup;
   postContent: any;
@@ -60,15 +60,20 @@ export class BlogComponent implements OnInit {
     private titleService: Title,
     private _makdown: MarkdownService
   ) {
-    this.user = this.afAuth.authState;
+  
 
 
   }
 
-  
+
 
   ngOnInit(): void {
-    this.titleService.setTitle( 'Blog - Nui Rattapon' );
+    this.titleService.setTitle('Blog - Nui Rattapon');
+        this.authenService.user
+      .subscribe(
+      res => this.user = res,
+      error => alert(error)
+    );
     this.initAnimation();
     this.initFormGroup();
   }
@@ -106,13 +111,13 @@ export class BlogComponent implements OnInit {
   }
 
   addPost() {
-  
+
     let mypost = new Post();
     mypost.title = this.addPostForm.value.title;
     mypost.content = this.postContent;
     mypost.author = this.addPostForm.value.author;
     mypost.createdOn, mypost.updatedOn = Date.now().toString();
-    
+
     this.blogService.addPost(mypost);
   }
 

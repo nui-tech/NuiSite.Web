@@ -4,7 +4,7 @@
 <div class="container post-container">
 
   <section class="post-title">
-    <div class="post-action pull-right">
+    <!-- <div class="post-action pull-right">
 
       <div class="btn-group" role="group" title="edit/delete post">
         <a id="btnGroupDrop1" class="btn-postaction" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -16,7 +16,28 @@
           <a class="dropdown-item"><i class="fa fa-comments" aria-hidden="true"></i> Comment</a>
         </div>
       </div>
-    </div>
+    </div> -->
+
+    <button class="post-action pull-right" md-icon-button [mdMenuTriggerFor]="menu" title="edit/delete post">
+          <md-icon>more_horiz</md-icon>
+        </button>
+
+    <md-menu #menu="mdMenu" xPosition="before">
+
+      <button md-menu-item disabled>
+            <md-icon>mode_comment</md-icon>
+            <span>Comment</span>
+          </button>
+      <button md-menu-item *ngIf="(afAuth.authState | async)" (click)="editPost()">
+            <md-icon>mode_edit</md-icon>
+            <span>Edit</span>
+          </button>
+      <button md-menu-item *ngIf="(afAuth.authState | async)" (click)="deletePost(post.id)">
+            <md-icon style="color:tomato;">delete_forever</md-icon>
+            <span style="color:tomato;">Delete</span>
+          </button>
+
+    </md-menu>
 
 
     <h3>{{post.title}}</h3>

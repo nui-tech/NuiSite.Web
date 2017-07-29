@@ -6,13 +6,15 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { Observable } from 'rxjs/Observable';
 import * as firebase from 'firebase/app';
 
+import { BehaviorSubject } from "rxjs/BehaviorSubject";
+
 
 @Injectable()
 export class AuthenService {
 
     //Observable monitor your application's authentication State.
     public user: Observable<firebase.User>;
-
+     
 
     constructor(public afAuth: AngularFireAuth) {
         this.user = this.afAuth.authState;

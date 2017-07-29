@@ -20,10 +20,10 @@
       <div class="alert alert-danger" *ngIf="blogService.errorMessage != null">{{blogService.errorMessage}}</div>
 
 
-      <div *ngFor="let post of blogService.posts | reverse">
+      <div *ngFor="let post of blogService.posts">
 
-        <div class="post-action pull-right">
-          <!-- HTML to write -->
+        <!-- <div class="post-action pull-right">
+        
           <div class="btn-group" role="group" title="edit/delete post">
             <a id="btnGroupDrop1" class="btn-postaction" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
@@ -34,7 +34,29 @@
               <a class="dropdown-item"><i class="fa fa-comments" aria-hidden="true"></i> Comment</a>
             </div>
           </div>
-        </div>
+
+        </div> -->
+
+
+        <button class="post-action pull-right" md-icon-button [mdMenuTriggerFor]="menu" title="edit/delete post">
+          <md-icon>more_horiz</md-icon>
+        </button>
+
+        <md-menu #menu="mdMenu" xPosition="before"  yPosition="below">
+
+          <button md-menu-item disabled>
+            <md-icon>mode_comment</md-icon>
+            <span>Comment</span>
+          </button>
+          <button md-menu-item *ngIf="(afAuth.authState | async)" (click)="editPost()">
+            <md-icon>mode_edit</md-icon>
+            <span>Edit</span>
+          </button>
+          <button md-menu-item *ngIf="(afAuth.authState | async)" (click)="deletePost(post.id)">
+            <md-icon style="color:tomato;">delete_forever</md-icon>
+            <span style="color:tomato;">Delete</span>
+          </button>
+        </md-menu>
 
         <a [routerLink]="['/blog', post.id]">
           <div class="post-container">
@@ -46,7 +68,7 @@
               <h3>{{post.title}}</h3>
               <span class="author"> <b>By: {{post.author}}</b> </span>
               <span class="date"> {{post.createdOn | date: 'longDate'}}</span>
-
+              <div class="description">{{post.description}}</div>
             </section>
 
             <!-- <section class="post-content" [innerHTML]="post.content"></section> -->
@@ -79,8 +101,10 @@
     </div>
 
     <div class="col-lg-3 col-xs-12 col-sm-3 blog-sidebar">
-      <div class="sidebar-module sidebar-module-header">
+      <button type="button" class="btn btn-outline-primary btn-newpost" (click)="goToNewpost()">
+        <i class="fa fa-pencil" aria-hidden="true" style="margin-right: 3px; font-size:28px;"></i>  Write</button>
 
+      <div class="sidebar-module sidebar-module-header">
         <div class="card">
           <img class="card-img-top thumpnail" src="../assets/img/nui-thumbnail.jpg" alt="Card image cap">
           <div class="card-block">

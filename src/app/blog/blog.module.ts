@@ -3,6 +3,10 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpModule, JsonpModule } from '@angular/http';
 
+
+// Material
+import { MdSidenavModule, MdButtonModule, MdMenuModule, MdIconModule } from '@angular/material';
+
 //3rd part
 import { NgPipesModule } from 'ngx-pipes';
 import { MarkdownModule } from 'angular2-markdown';
@@ -27,7 +31,12 @@ import { NewpostComponent } from './newpost/newpost.component';
     HttpModule,
     JsonpModule,
     NgPipesModule,
-    MarkdownModule.forRoot()
+    MarkdownModule.forRoot(),
+    //material
+    MdSidenavModule,
+    MdButtonModule,
+    MdMenuModule,
+    MdIconModule
   ],
   entryComponents: [
 
