@@ -5,11 +5,11 @@ import { HttpModule, JsonpModule } from '@angular/http';
 
 
 // Material
-import { MdSidenavModule, MdButtonModule, MdMenuModule, MdIconModule } from '@angular/material';
+import { MdSidenavModule, MdButtonModule, MdMenuModule, MdIconModule, MdProgressSpinnerModule } from '@angular/material';
 
 //3rd part
 import { NgPipesModule } from 'ngx-pipes';
-import { MarkdownModule } from 'angular2-markdown';
+//import { MarkdownModule } from 'angular2-markdown';
 
 import { SharedModule } from '../shared/shared.module';
 import { BlogRoutingModule } from './blog-routing.module';
@@ -31,12 +31,13 @@ import { NewpostComponent } from './newpost/newpost.component';
     HttpModule,
     JsonpModule,
     NgPipesModule,
-    MarkdownModule.forRoot(),
+    //MarkdownModule.forRoot(),
     //material
     MdSidenavModule,
     MdButtonModule,
     MdMenuModule,
-    MdIconModule
+    MdIconModule,
+    MdProgressSpinnerModule
   ],
   entryComponents: [
 

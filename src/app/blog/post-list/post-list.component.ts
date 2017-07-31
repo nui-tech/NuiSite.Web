@@ -6,18 +6,24 @@ import { Router } from '@angular/router';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
 
-import { MarkdownComponent } from 'angular2-markdown';
+//import { MarkdownComponent } from 'angular2-markdown';
 
 import { BlogService } from '../blog.service';
 import { AuthenService } from '../../authen.service';
 import { Post, IPost } from '../Post';
+
+
+
+
 
 @Component({
   templateUrl: './post-list.component.html',
   styleUrls: ['../blog.component.css']
 })
 export class PostListComponent implements OnInit {
-  markdown1: string;
+  //markdown1: string;
+
+
   constructor(
     public blogService: BlogService,
     private _pageTitle: Title,
@@ -29,7 +35,7 @@ export class PostListComponent implements OnInit {
   ngOnInit() {
     this._pageTitle.setTitle('Blog - Nui Rattapon');
     this.blogService.getPosts();
-    this.markdown1 = "../../../assets/test.java";
+    //this.markdown1 = "../../../assets/test.java";
   }
 
   deletePost(id: number) {

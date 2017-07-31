@@ -1,4 +1,4 @@
-﻿import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
+﻿import { Component, OnInit, EventEmitter, Output, Input, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { Observable } from 'rxjs/Observable';
@@ -25,7 +25,7 @@ declare var Prism: any;
 
 
 
-export class PostComponent implements OnInit {
+export class PostComponent implements OnInit, OnDestroy {
   post: IPost;
   errorMessage: string;
 
@@ -47,20 +47,29 @@ export class PostComponent implements OnInit {
   }
 
   getPost(id: number) {
+    this.blogService.showLoading = true;
     this.blogService.getObsPostById(id)
       .subscribe(
       post => {this.post = post; console.log(post)},
       error => this.errorMessage = error,
-      () => this._pageTitle.setTitle(this.post.title + ' - ' + this.post.author)
+      () => {this._pageTitle.setTitle(this.post.title + ' - ' + this.post.author);
+             this.blogService.showLoading = false;}
       );
   }
 
   deletePost(id: number) {
+    this.blogService.showLoading = true;
     this.blogService.deleteObsPost(id)
       .subscribe(rPosts => alert('Delete success'),
       error => this.errorMessage = error,
-      () => this._router.navigate(['/blog'])
+      () => {this.blogService.showLoading = false;
+             this._router.navigate(['/blog']);}
       );
+  }
+
+
+  ngOnDestroy(){
+    this.blogService.showLoading = false;
   }
 
 

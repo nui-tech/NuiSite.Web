@@ -43,16 +43,16 @@
            <span>{{user.displayName == null? 'No name' : user.displayName}}</span> 
         </button>
 
-           <md-menu #menu="mdMenu" yPosition="below" xPosition="before" [overlapTrigger]="false"> 
+          <md-menu #menu="mdMenu" yPosition="below" xPosition="before" [overlapTrigger]="false">
             <button md-menu-item>
             <md-icon>settings</md-icon>
             <span>Setting</span>
             </button>
-             <button md-menu-item (click)="authenService.logout()">
+            <button md-menu-item (click)="authenService.logout()">
             <md-icon style="color:tomato;">exit_to_app</md-icon>
             <span style="color:tomato;">Log out</span>
             </button>
-          </md-menu> 
+          </md-menu>
 
         </li>
 
@@ -135,6 +135,8 @@
 
 <!--Body-->
 <div class="container-fluid body">
+  <md-progress-spinner class="loading-spinner" *ngIf="blogService.showLoading" color="primary" mode="indeterminate"></md-progress-spinner>
+
   <router-outlet></router-outlet>
 </div>
 

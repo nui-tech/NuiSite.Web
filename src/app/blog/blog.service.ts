@@ -23,6 +23,7 @@ export class BlogService {
     public posts: IPost[];
     public post: IPost;
     public errorMessage: string;
+    public showLoading: boolean = false;
 
     constructor(
         private _http: Http
@@ -33,6 +34,7 @@ export class BlogService {
 
 
     getPosts() {
+        this.showLoading = true;
         let _headers = new Headers({ 'Accept': 'application/json' });
         let options = new RequestOptions({ headers: _headers });
         this._http
@@ -40,11 +42,13 @@ export class BlogService {
             .map(this.extractDatas)
             .subscribe(
             res => this.posts = res.reverse(),
-            error => this.errorMessage = error
+            error => this.errorMessage = error,
+            () => this.showLoading = false
             );
     }
 
     getPost(id: number) {
+        this.showLoading = true;
         let _headers = new Headers();
         _headers.append('Accept', 'application/json');
         _headers.append('Content-Type', 'application/json');
@@ -52,10 +56,13 @@ export class BlogService {
             .map(this.extractData)
             .subscribe(
             res => this.post = res,
-            error => this.errorMessage = error);
+            error => this.errorMessage = error,
+            () => this.showLoading = false
+            );
     }
 
     deletePost(id: number) {
+        this.showLoading = true;        
         let headers = new Headers();
         headers.append('Accept', 'application/json');
         headers.append('Content-Type', 'application/json');
@@ -63,11 +70,13 @@ export class BlogService {
             .map(this.extractData)
             .subscribe(
             res => this.posts.splice(this.posts.findIndex(obj => obj.id === res.id), 1),
-            error => this.errorMessage = error
+            error => this.errorMessage = error,
+            () => this.showLoading = false
             );
     }
 
     addPost(newPost: IPost) {
+        this.showLoading = true;
         let _headers = new Headers();
         _headers.append('Accept', 'application/json');
         _headers.append('Content-Type', 'application/json');
@@ -76,7 +85,9 @@ export class BlogService {
             .map(this.extractData)
             .subscribe(
             res => this.posts.unshift(res),
-            error => this.errorMessage = error);
+            error => this.errorMessage = error,
+            () => this.showLoading = false
+            );
     }
 
 

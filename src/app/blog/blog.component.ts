@@ -24,7 +24,7 @@ import * as skrollr from 'skrollr/src/skrollr';
 //Service
 import { BlogService } from './blog.service';
 import { AuthenService } from '../authen.service';
-import { MarkdownService } from 'angular2-markdown';
+//import { MarkdownService } from 'angular2-markdown';
 //custom
 // import { slideInOutAnimation } from '../_animations/index'
 
@@ -57,8 +57,8 @@ export class BlogComponent implements OnInit {
     public authenService: AuthenService,
     private fb: FormBuilder,
     public blogService: BlogService,
-    private titleService: Title,
-    private _makdown: MarkdownService
+    private titleService: Title
+    //private _makdown: MarkdownService
   ) {
   
 
