@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 //import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 
+import { SafeHtmlPipe } from './safe-html';
 // 3rd party modules
 // import { MaterialModule } from '@angular/material';
 
@@ -17,7 +18,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   exports: [
     //CommonModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    //custompipe
+    SafeHtmlPipe
     //3rd party
     // MaterialModule
     
@@ -28,6 +31,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
   ],
   declarations: [
+    SafeHtmlPipe
     ]
 })
 export class SharedModule { }

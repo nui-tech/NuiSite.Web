@@ -47,7 +47,7 @@
   </section>
 
   <section class="post-content" >
-    <div [innerHTML]="post.content"></div>
+    <div [innerHTML]="post.content | safeHtml"></div>
   </section>
 
   <section class="post-social" style="margin-top:2%;">

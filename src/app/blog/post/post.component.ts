@@ -50,7 +50,7 @@ export class PostComponent implements OnInit, OnDestroy {
     this.blogService.showLoading = true;
     this.blogService.getObsPostById(id)
       .subscribe(
-      post => {this.post = post; console.log(post)},
+      post => {this.post = post;},
       error => this.errorMessage = error,
       () => {this._pageTitle.setTitle(this.post.title + ' - ' + this.post.author);
              this.blogService.showLoading = false;}
