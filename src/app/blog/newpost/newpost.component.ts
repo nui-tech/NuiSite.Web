@@ -52,7 +52,7 @@ export class NewpostComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   addNewPost() {
-
+    this._blogService.showLoading = true;
     this.newPost = new Post();
     this.newPost.title = this.newPostForm.value.title;
     this.newPost.description = this.newPostForm.value.description;
@@ -61,8 +61,17 @@ export class NewpostComponent implements OnInit, AfterViewInit, OnDestroy {
     this.newPost.createdOn, this.newPost.updatedOn = Date.now().toString();
     this._blogService.addObsPost(this.newPost)
       .subscribe(
-      res => { alert('New post added.'); this._router.navigate(['/blog']) },
-      error => alert('Add post failed.'));
+      res => this._blogService.posts.unshift(res),
+      error => {
+        alert('Add post failed.');
+        this._blogService.onError(error);
+      },
+      () => {
+        this._blogService.onComplete();
+        
+        this._router.navigate(['/blog']);
+      }
+    );
 
   }
 

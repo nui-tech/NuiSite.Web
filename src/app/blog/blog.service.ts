@@ -42,8 +42,8 @@ export class BlogService {
             .map(this.extractDatas)
             .subscribe(
             res => this.posts = res.reverse(),
-            error => this.errorMessage = error,
-            () => this.showLoading = false
+            error => this.onError(error),
+            () => this.onComplete()
             );
     }
 
@@ -56,13 +56,13 @@ export class BlogService {
             .map(this.extractData)
             .subscribe(
             res => this.post = res,
-            error => this.errorMessage = error,
-            () => this.showLoading = false
+            error => this.onError(error),
+            () => this.onComplete()
             );
     }
 
     deletePost(id: number) {
-        this.showLoading = true;        
+        this.showLoading = true;
         let headers = new Headers();
         headers.append('Accept', 'application/json');
         headers.append('Content-Type', 'application/json');
@@ -70,8 +70,8 @@ export class BlogService {
             .map(this.extractData)
             .subscribe(
             res => this.posts.splice(this.posts.findIndex(obj => obj.id === res.id), 1),
-            error => this.errorMessage = error,
-            () => this.showLoading = false
+            error => this.onError(error),
+            () => this.onComplete()
             );
     }
 
@@ -85,8 +85,8 @@ export class BlogService {
             .map(this.extractData)
             .subscribe(
             res => this.posts.unshift(res),
-            error => this.errorMessage = error,
-            () => this.showLoading = false
+            error => this.onError(error),
+            () => this.onComplete()
             );
     }
 
@@ -139,7 +139,14 @@ export class BlogService {
         return body;
     }
 
+    public onError(error) {
+        this.errorMessage = error;
+        this.showLoading = false;
+    }
 
+    public onComplete() {
+        this.showLoading = false;
+    }
 
 
 }

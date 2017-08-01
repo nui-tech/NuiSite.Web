@@ -67,8 +67,8 @@
     margin-top: 30px;
 }
 
-p {
-    text-indent: 35px;
+.disqus-comment{
+    margin: 45px 0;
 }
 
 @media(max-width:768px) {

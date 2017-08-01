@@ -5,10 +5,11 @@ import { HttpModule, JsonpModule } from '@angular/http';
 
 
 // Material
-import { MdSidenavModule, MdButtonModule, MdMenuModule, MdIconModule, MdProgressSpinnerModule } from '@angular/material';
+import { MdSidenavModule, MdButtonModule, MdMenuModule, MdIconModule, MdProgressSpinnerModule, MdProgressBarModule } from '@angular/material';
 
 //3rd part
 import { NgPipesModule } from 'ngx-pipes';
+import { DisqusModule } from 'angular2-disqus';
 //import { MarkdownModule } from 'angular2-markdown';
 
 import { SharedModule } from '../shared/shared.module';
@@ -31,13 +32,15 @@ import { NewpostComponent } from './newpost/newpost.component';
     HttpModule,
     JsonpModule,
     NgPipesModule,
+    DisqusModule,
     //MarkdownModule.forRoot(),
     //material
     MdSidenavModule,
     MdButtonModule,
     MdMenuModule,
     MdIconModule,
-    MdProgressSpinnerModule
+    MdProgressSpinnerModule,
+    MdProgressBarModule
   ],
   entryComponents: [
 

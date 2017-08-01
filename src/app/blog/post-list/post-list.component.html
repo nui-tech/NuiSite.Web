@@ -43,10 +43,10 @@
 
         <md-menu #menu="mdMenu" xPosition="before"  yPosition="below">
 
-          <button md-menu-item disabled>
+          <!-- <button md-menu-item disabled>
             <md-icon>mode_comment</md-icon>
             <span>Comment</span>
-          </button>
+          </button> -->
           <button md-menu-item *ngIf="(afAuth.authState | async)" (click)="editPost()">
             <md-icon>mode_edit</md-icon>
             <span>Edit</span>
@@ -64,21 +64,24 @@
 
 
 
-              <h3>{{post.title}}</h3>
-              <span class="author"> <b>By: {{post.author}}</b> </span>
-              <span class="date"> {{post.createdOn | date: 'longDate'}}</span>
-              <div class="description">{{post.description}}</div>
+              <h4>{{post.title}}</h4>
+              <i class="text-muted">
+              <span class="author">Posted by <b>{{post.author}}</b> </span>
+              <span class="date">on {{post.createdOn | date: 'longDate'}}</span>
+              </i>
+              <div class="description text-muted">{{post.description}}</div>
+              
             </section>
-
+            
             <!-- <section class="post-content" [innerHTML]="post.content"></section> -->
 
             <section class="post-social" style="margin-top:2%;">
               <!--<button data-toggle="modal" data-target="#exampleModalLong" md-raised-button>Share</button>-->
-
             </section>
 
           </div>
         </a>
+        <!-- <span><a [href]="blogUrl+post.id+'#disqus_thread'"> comments</a></span> -->
       </div>
 
 

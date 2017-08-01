@@ -1,6 +1,6 @@
-﻿import { Component, OnInit, EventEmitter, Output, Input, OnDestroy } from '@angular/core';
+﻿import { Component, OnInit, EventEmitter, Output, Input, OnDestroy, Inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Title } from '@angular/platform-browser';
+import { Title, DOCUMENT } from '@angular/platform-browser';
 import { Observable } from 'rxjs/Observable';
 
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
@@ -18,7 +18,7 @@ declare var Prism: any;
 
 @Component({
   templateUrl: './post.component.html',
-  styleUrls: [ './post.component.css', './prism-vs.css']
+  styleUrls: ['./post.component.css', './prism-vs.css']
 })
 
 
@@ -28,9 +28,12 @@ declare var Prism: any;
 export class PostComponent implements OnInit, OnDestroy {
   post: IPost;
   errorMessage: string;
-
+  blogUrl = 'https://nuirattapon.com/blog/';
+  pageUrl: string;
+  pageIdentifier;
 
   constructor(
+    @Inject(DOCUMENT) private document: any,
     private _acRoute: ActivatedRoute,
     public afAuth: AngularFireAuth,
     public authenService: AuthenService,
@@ -40,38 +43,51 @@ export class PostComponent implements OnInit, OnDestroy {
 
   }
 
-  ngOnInit() {
+  ngOnInit() {   
+    this.pageIdentifier = this._acRoute.snapshot.params['id'];
+    this.pageUrl = this.blogUrl+this.pageIdentifier;
     this.post = new Post();
     let id = +this._acRoute.snapshot.params['id'];
     this.getPost(id);
+
   }
 
   getPost(id: number) {
     this.blogService.showLoading = true;
     this.blogService.getObsPostById(id)
       .subscribe(
-      post => {this.post = post;},
-      error => this.errorMessage = error,
-      () => {this._pageTitle.setTitle(this.post.title + ' - ' + this.post.author);
-             this.blogService.showLoading = false;}
+      post => { this.post = post; },
+      error => {
+        this.errorMessage = error;
+        this.blogService.showLoading = false;
+      },
+      () => {
+        this._pageTitle.setTitle(this.post.title + ' - ' + this.post.author);
+        this.blogService.showLoading = false;
+      }
       );
   }
 
   deletePost(id: number) {
     this.blogService.showLoading = true;
     this.blogService.deleteObsPost(id)
-      .subscribe(rPosts => alert('Delete success'),
-      error => this.errorMessage = error,
-      () => {this.blogService.showLoading = false;
-             this._router.navigate(['/blog']);}
+      .subscribe(
+      res => this.blogService.posts.splice(this.blogService.posts.findIndex(obj => obj.id === res.id), 1),
+      error => {
+        this.errorMessage = error;
+        this.blogService.showLoading = false;
+      },
+      () => {
+        this.blogService.showLoading = false;
+        this._router.navigate(['/blog']);
+      }
       );
   }
 
 
-  ngOnDestroy(){
+  ngOnDestroy() {
     this.blogService.showLoading = false;
   }
-
 
 
 }

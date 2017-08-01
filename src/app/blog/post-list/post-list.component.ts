@@ -22,7 +22,7 @@ import { Post, IPost } from '../Post';
 })
 export class PostListComponent implements OnInit {
   //markdown1: string;
-
+  blogUrl = 'https://nuirattapon.com/blog/';
 
   constructor(
     public blogService: BlogService,
@@ -34,8 +34,10 @@ export class PostListComponent implements OnInit {
 
   ngOnInit() {
     this._pageTitle.setTitle('Blog - Nui Rattapon');
-    this.blogService.getPosts();
-    //this.markdown1 = "../../../assets/test.java";
+    if(this.blogService.posts == null || this.blogService.posts.length == 0){
+      this.blogService.getPosts();
+    }
+    
   }
 
   deletePost(id: number) {

@@ -1,4 +1,5 @@
-﻿<!-- Nav bar-->
+﻿<md-progress-bar class="loading-bar" *ngIf="blogService.showLoading" mode="indeterminate"></md-progress-bar>
+<!-- Nav bar-->
 <nav class="navbar navbar-toggleable-sm navbar-light">
   <div class="container nav">
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
@@ -38,9 +39,9 @@
 
         <li class="nav-item" *ngIf="(afAuth.authState | async)">
 
-          <button class="nav-link" md-icon-button [mdMenuTriggerFor]="menu">
-          <md-icon>perm_identity</md-icon>
-           <span>{{user.displayName == null? 'No name' : user.displayName}}</span> 
+          <button class="nav-link" md-button [mdMenuTriggerFor]="menu">            
+          <md-icon>perm_identity</md-icon>         
+          <span>{{user.displayName == null? 'No name' : user.displayName}}</span>
         </button>
 
           <md-menu #menu="mdMenu" yPosition="below" xPosition="before" [overlapTrigger]="false">
@@ -135,7 +136,7 @@
 
 <!--Body-->
 <div class="container-fluid body">
-  <md-progress-spinner class="loading-spinner" *ngIf="blogService.showLoading" color="primary" mode="indeterminate"></md-progress-spinner>
+  <!-- <md-progress-spinner class="loading-spinner" *ngIf="blogService.showLoading" color="primary" mode="indeterminate"></md-progress-spinner> -->
 
   <router-outlet></router-outlet>
 </div>
