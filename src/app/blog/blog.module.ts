@@ -5,7 +5,7 @@ import { HttpModule, JsonpModule } from '@angular/http';
 
 
 // Material
-import { MdSidenavModule, MdButtonModule, MdMenuModule, MdIconModule, MdProgressSpinnerModule, MdProgressBarModule } from '@angular/material';
+import { MdSidenavModule, MdButtonModule, MdMenuModule, MdIconModule, MdProgressSpinnerModule, MdProgressBarModule, MdInputModule } from '@angular/material';
 
 //3rd part
 import { NgPipesModule } from 'ngx-pipes';
@@ -40,7 +40,8 @@ import { NewpostComponent } from './newpost/newpost.component';
     MdMenuModule,
     MdIconModule,
     MdProgressSpinnerModule,
-    MdProgressBarModule
+    MdProgressBarModule,
+    MdInputModule
   ],
   entryComponents: [
 

@@ -1,3 +1,16 @@
+.newpost-container{
+    margin-top: 25px;
+}
 .emptybox-50{
     height: 55px;  
+}
+.md-form-control{
+    width: 100%;
+}
+.mce-panel{
+    border: none;
+}
+
+.custom-editor{
+    border: none;
 }
