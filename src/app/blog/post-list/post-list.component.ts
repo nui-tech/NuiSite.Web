@@ -34,7 +34,7 @@ export class PostListComponent implements OnInit {
 
   ngOnInit() {
     this._pageTitle.setTitle('Blog - Nui Rattapon');
-    if(this.blogService.posts == null || this.blogService.posts.length == 0){
+    if(this.blogService.posts == null || this.blogService.posts.length <= 1){
       this.blogService.getPosts();
     }
     

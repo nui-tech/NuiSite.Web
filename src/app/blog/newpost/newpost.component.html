@@ -1,14 +1,16 @@
 <div class="container newpost-container">
-
   <form (ngSubmit)="addNewPost()" [formGroup]="newPostForm" novalidate>
     <h2 class="pull-left">New post</h2>
-    <button [disabled]="!newPostForm.valid" type="submit" class="btn btn-lg btn-primary pull-right">Submit</button>
-
+    <button [disabled]="!(afAuth.authState | async) || newPostForm.invalid" type="submit" class="btn btn-lg btn-primary pull-right">
+      <span *ngIf="(afAuth.authState | async)">Submit</span>
+      <span *ngIf="!(afAuth.authState | async)">Please login before submit</span>
+    </button>
+     
     <div class="form-group" [ngClass]="{'has-success': newPostForm.get('title').valid, 
                                         'has-danger': (newPostForm.get('title').touched || newPostForm.get('title').dirty) && !newPostForm.get('title').valid}">
       <!-- <label for="title">Title</label> -->
       <md-input-container class="md-form-control">
-       <input formControlName="title" mdInput placeholder="Title">
+       <input formControlName="title" mdInput placeholder="Title *">
       </md-input-container>
       <!-- <input formControlName="title" type="text" class="form-control" placeholder="required"> -->
     </div>
@@ -23,7 +25,7 @@
 
     <!-- <textarea id="tinymceEditor"></textarea> -->
     <div class="form-group">
-      <label for="inputDescription" class="text-muted">Content</label>
+      <label for="inputDescription" class="text-muted">Content *</label>
       <textarea formControlName="content" class="custom-editor" id="tinymceEditor"></textarea>
     </div>
 

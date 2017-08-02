@@ -13,10 +13,10 @@
 
     <md-menu #menu="mdMenu" xPosition="before">
 
-      <!-- <button md-menu-item disabled>
-            <md-icon>mode_comment</md-icon>
-            <span>Comment</span>
-          </button> -->
+       <button md-menu-item disabled>
+            <md-icon>feedback</md-icon>
+            <span>Report post</span>
+          </button> 
       <button md-menu-item *ngIf="(afAuth.authState | async)" (click)="editPost()">
             <md-icon>mode_edit</md-icon>
             <span>Edit</span>

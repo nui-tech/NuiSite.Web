@@ -5,11 +5,12 @@ import { Router } from '@angular/router';
 import { BlogService } from './../blog.service';
 import { AuthenService } from './../../authen.service';
 
+import { AngularFireAuth } from 'angularfire2/auth';
+import * as firebase from 'firebase/app';
 //custom
 // import { slideInOutAnimation } from '../../_animations/index'
 
 import { IPost, Post } from './../Post';
-import * as firebase from 'firebase/app';
 
 import 'rxjs/add/operator/map';
 declare var tinymce: any;
@@ -31,10 +32,13 @@ export class NewpostComponent implements OnInit, AfterViewInit, OnDestroy {
     private _formBuilder: FormBuilder,
     private _blogService: BlogService,
     private _router: Router,
-    private _authenService: AuthenService) { }
+    public afAuth: AngularFireAuth,
+    public authenService: AuthenService) { 
+
+    }
 
   ngOnInit() {
-    this._authenService.user
+    this.authenService.user
       .subscribe(
       res => this.user = res,
       error => alert(error)
@@ -67,8 +71,7 @@ export class NewpostComponent implements OnInit, AfterViewInit, OnDestroy {
         this._blogService.onError(error);
       },
       () => {
-        this._blogService.onComplete();
-        
+        this._blogService.onComplete();       
         this._router.navigate(['/blog']);
       }
     );
