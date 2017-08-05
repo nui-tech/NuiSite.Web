@@ -69,7 +69,7 @@ export class BlogComponent implements OnInit {
 
   ngOnInit(): void {
     this.titleService.setTitle('Blog - Nui Rattapon');
-        this.authenService.user
+    this.authenService.user
       .subscribe(
       res => this.user = res,
       error => alert(error)

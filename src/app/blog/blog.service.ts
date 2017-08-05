@@ -8,15 +8,18 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/throw';
 import 'rxjs/add/operator/toPromise';
 
+import { AuthenService } from './../authen.service';
 
 //Models class
 import { IPost, Post } from './Post';
+import { AngularFireAuth } from "angularfire2/auth";
+import * as firebase from 'firebase/app';
 
 
 
 @Injectable()
 export class BlogService {
-    //private _postAPIUrl = 'http://w10-2.shared:60506/api/posts/';  
+    //private _postAPIUrl = 'http://w10-2.shared:60507/api/posts/';  
     private _postAPIUrl = 'https://nuisite.azurewebsites.net/api/posts/';
     private _token: any;
     private _posts: IPost[];
@@ -24,12 +27,18 @@ export class BlogService {
     public post: IPost;
     public errorMessage: string;
     public showLoading: boolean = false;
-
+    user: any;
     constructor(
-        private _http: Http
+        private _http: Http,
+        private _afAuth: AngularFireAuth,
+        private _af: AuthenService
     ) {
         this.post = new Post();
         this.posts = new Array<Post>();
+        _af.user.subscribe(
+            res => {this.user = res; this._token = this.user.Yd;},
+            error => this.errorMessage = error
+        )
     }
 
 
@@ -66,6 +75,7 @@ export class BlogService {
         let headers = new Headers();
         headers.append('Accept', 'application/json');
         headers.append('Content-Type', 'application/json');
+        headers.append('Authorization','Bearer '+this._token);
         this._http.delete(this._postAPIUrl + id, { headers: headers })
             .map(this.extractData)
             .subscribe(
@@ -80,6 +90,7 @@ export class BlogService {
         let _headers = new Headers();
         _headers.append('Accept', 'application/json');
         _headers.append('Content-Type', 'application/json');
+        _headers.append('Authorization','Bearer '+this._token);
         this._http
             .post(this._postAPIUrl, newPost, { headers: _headers })
             .map(this.extractData)
@@ -105,7 +116,7 @@ export class BlogService {
     getObsPostById(id: number): Observable<IPost> {
         let _headers = new Headers();
         _headers.append('Accept', 'application/json');
-        _headers.append('Content-Type', 'application/json');
+        _headers.append('Content-Type', 'application/json');        
         return this._http.get(this._postAPIUrl + id, { headers: _headers })
             .map(this.extractData);
     }
@@ -114,6 +125,7 @@ export class BlogService {
         let _headers = new Headers();
         _headers.append('Accept', 'application/json');
         _headers.append('Content-Type', 'application/json');
+        _headers.append('Authorization','Bearer '+this._token);
         return this._http
             .post(this._postAPIUrl, newPost, { headers: _headers })
             .map(this.extractData);
@@ -124,6 +136,7 @@ export class BlogService {
         let _headers = new Headers();
         _headers.append('Accept', 'application/json');
         _headers.append('Content-Type', 'application/json');
+        _headers.append('Authorization','Bearer '+this._token);
         return this._http.delete(this._postAPIUrl + id, { headers: _headers })
             .map(this.extractData);
 
