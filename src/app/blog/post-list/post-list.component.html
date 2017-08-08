@@ -71,7 +71,7 @@
       </div>
 
 
-      <div class="list-pagination">
+      <div class="list-pagination" *ngIf="blogService.posts.length != 0">
         <span class="list-pagination-previous pull-left">
       
           <a href="/Kiko-plus/page2/" class="previous text-muted"> <i class="fa fa-chevron-left" aria-hidden="true"></i> older</a>
