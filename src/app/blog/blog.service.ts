@@ -21,6 +21,7 @@ import * as firebase from 'firebase/app';
 export class BlogService {
     //private _postAPIUrl = 'http://w10-2.shared:60507/api/posts/';  
     private _postAPIUrl = 'https://nuisite.azurewebsites.net/api/posts/';
+    private _tagsAPIUrl = 'https://nuisite.azurewebsites.net/api/tags/';
     private _token: any;
     private _posts: IPost[];
     public posts: IPost[];
@@ -28,6 +29,8 @@ export class BlogService {
     public errorMessage: string;
     public showLoading: boolean = false;
     user: any;
+    public tags: any[];
+
     constructor(
         private _http: Http,
         private _afAuth: AngularFireAuth,
@@ -150,6 +153,21 @@ export class BlogService {
     private extractDatas(res: Response) {
         let body = <IPost[]>res.json();
         return body;
+    }
+
+
+    getTags() {
+        this.showLoading = true;
+        let _headers = new Headers({ 'Accept': 'application/json' });
+        let options = new RequestOptions({ headers: _headers });
+        this._http
+            .get(this._tagsAPIUrl, options)
+            .map(this.extractDatas)
+            .subscribe(
+            res => this.tags = res,
+            error => this.onError(error),
+            () => this.onComplete()
+            );
     }
 
     public onError(error) {

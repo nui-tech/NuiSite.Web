@@ -9,7 +9,9 @@ import { MdSidenavModule, MdButtonModule, MdMenuModule, MdIconModule, MdProgress
 
 //3rd part
 import { NgPipesModule } from 'ngx-pipes';
+import { TagInputModule } from 'ngx-chips';
 import { DisqusModule } from 'angular2-disqus';
+
 //import { MarkdownModule } from 'angular2-markdown';
 
 import { SharedModule } from '../shared/shared.module';
@@ -31,7 +33,9 @@ import { NewpostComponent } from './newpost/newpost.component';
     ReactiveFormsModule,
     HttpModule,
     JsonpModule,
+    TagInputModule,
     NgPipesModule,
+    
     DisqusModule,
     //MarkdownModule.forRoot(),
     //material

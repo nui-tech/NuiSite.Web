@@ -10,7 +10,8 @@
                                         'has-danger': (newPostForm.get('title').touched || newPostForm.get('title').dirty) && !newPostForm.get('title').valid}">
       <!-- <label for="title">Title</label> -->
       <md-input-container class="md-form-control">
-       <input formControlName="title" mdInput placeholder="Title *">
+       <input formControlName="title" mdInput placeholder="Title *" #title maxlength="150">
+       <md-hint align="end">{{title.value.length}} / 150</md-hint> 
       </md-input-container>
       <!-- <input formControlName="title" type="text" class="form-control" placeholder="required"> -->
     </div>
@@ -18,10 +19,14 @@
     <div class="form-group">
       <!-- <label for="inputDescription">Description</label> -->
       <md-input-container class="md-form-control">
-        <textarea mdInput formControlName="description" rows="2" placeholder="Description"></textarea>
+        <textarea mdInput formControlName="description" #description maxlength="400" rows="2" placeholder="Description"></textarea>
+       <md-hint align="start">Short description explain the title.</md-hint>
+       <md-hint align="end">{{description.value.length}} / 400</md-hint> 
       </md-input-container>
       <!-- <textarea formControlName="description" class="form-control" id="inputDescription" rows="3" placeholder="optional"></textarea> -->
     </div>
+
+
 
     <!-- <textarea id="tinymceEditor"></textarea> -->
     <div class="form-group">
@@ -33,6 +38,11 @@
 
 
   </form>
+
+
+
+
+
 </div>
 <div class="emptybox-50"></div>
 

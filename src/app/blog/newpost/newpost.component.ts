@@ -27,10 +27,26 @@ export class NewpostComponent implements OnInit, AfterViewInit, OnDestroy {
   newPostForm: FormGroup;
   content: any;
   user: firebase.User;
+  postTags: any;
+
+    items = ['Javascript', 'Typescript'];
+
+    inputText = 'text';
+
+    itemsAsObjects = [{id: 0, name: 'Angular', readonly: true}, {id: 1, name: 'React'}];
+
+    autocompleteItems = ['Item1', 'item2', 'item3'];
+
+    autocompleteItemsAsObjects = [
+        {value: 'Item1', id: 0, extra: 0},
+        {value: 'item2', id: 1, extra: 1},
+        'item3'
+    ];
+
 
   constructor(
     private _formBuilder: FormBuilder,
-    private _blogService: BlogService,
+    public blogService: BlogService,
     private _router: Router,
     public afAuth: AngularFireAuth,
     public authenService: AuthenService) { 
@@ -44,34 +60,34 @@ export class NewpostComponent implements OnInit, AfterViewInit, OnDestroy {
       error => alert(error)
       );
     this.initFormGroup();
-
+    this.blogService.getTags();
   }
 
   initFormGroup() {
     this.newPostForm = this._formBuilder.group({
-      title: ['', Validators.required],
-      description: [''],
+      title: ['', Validators.required, Validators.maxLength(150)],
+      description: ['', Validators.maxLength(400)],
       content: [this.content, Validators.required]
     });
   }
 
   addNewPost() {
-    this._blogService.showLoading = true;
+    this.blogService.showLoading = true;
     this.newPost = new Post();
     this.newPost.title = this.newPostForm.value.title;
     this.newPost.description = this.newPostForm.value.description;
     this.newPost.content = this.newPostForm.value.content;
     this.newPost.author = this.user.displayName == null ? 'undefined' : this.user.displayName;
     this.newPost.createdOn, this.newPost.updatedOn = Date.now().toString();
-    this._blogService.addObsPost(this.newPost)
+    this.blogService.addObsPost(this.newPost)
       .subscribe(
-      res => this._blogService.posts.unshift(res),
+      res => this.blogService.posts.unshift(res),
       error => {
         alert('Add post failed.');
-        this._blogService.onError(error);
+        this.blogService.onError(error);
       },
       () => {
-        this._blogService.onComplete();       
+        this.blogService.onComplete();       
         this._router.navigate(['/blog']);
       }
     );
