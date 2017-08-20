@@ -84,6 +84,9 @@ export class PostComponent implements OnInit, OnDestroy {
       );
   }
 
+  editPost(post: Post){
+    this._router.navigate(['/blog',post.id,'edit']);
+  }
 
   ngOnDestroy() {
     this.blogService.showLoading = false;

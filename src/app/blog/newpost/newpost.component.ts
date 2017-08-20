@@ -1,6 +1,7 @@
 import { Component, OnInit, AfterViewInit, OnDestroy } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
+import { Router, ActivatedRoute } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 
 import { BlogService } from './../blog.service';
 import { AuthenService } from './../../authen.service';
@@ -22,36 +23,26 @@ declare var tinymce: any;
 
 })
 export class NewpostComponent implements OnInit, AfterViewInit, OnDestroy {
-  editor;
   private newPost: IPost;
+  editor;
   newPostForm: FormGroup;
   content: any;
   user: firebase.User;
   postTags: any;
-
-    items = ['Javascript', 'Typescript'];
-
-    inputText = 'text';
-
-    itemsAsObjects = [{id: 0, name: 'Angular', readonly: true}, {id: 1, name: 'React'}];
-
-    autocompleteItems = ['Item1', 'item2', 'item3'];
-
-    autocompleteItemsAsObjects = [
-        {value: 'Item1', id: 0, extra: 0},
-        {value: 'item2', id: 1, extra: 1},
-        'item3'
-    ];
-
+  pageIdentifier;
+  formHeader: string;
 
   constructor(
     private _formBuilder: FormBuilder,
+    private _acRoute: ActivatedRoute,
     public blogService: BlogService,
     private _router: Router,
     public afAuth: AngularFireAuth,
-    public authenService: AuthenService) { 
+    public authenService: AuthenService,
+    public pageTitle: Title
+  ) {
 
-    }
+  }
 
   ngOnInit() {
     this.authenService.user
@@ -60,15 +51,52 @@ export class NewpostComponent implements OnInit, AfterViewInit, OnDestroy {
       error => alert(error)
       );
     this.initFormGroup();
+    this.initTinyMCE();
     this.blogService.getTags();
+    this.pageIdentifier = this._acRoute.snapshot.params['id'];
+    if (this.pageIdentifier == '0') this.initForNewPost();
+    else this.initForEdit();
+  }
+
+  initForNewPost() {
+    this.formHeader = "New post";
+    this.pageTitle.setTitle(this.formHeader);
+  }
+
+  initForEdit() {
+    this.formHeader = "Edit post";
+    this.pageTitle.setTitle(this.formHeader);
+    if (this.blogService.posts.length != 0) {
+      //if there are posts exist, find from local and use it
+      this.blogService.post = this.blogService.posts.find(x => x.id == this.pageIdentifier);
+      tinymce.activeEditor.setContent(this.blogService.post.content);
+      this.setFormValue();
+    }
+    else {
+      //if no posts exist, get one from server
+      this.blogService.getObsPostById(this.pageIdentifier)
+        .subscribe(
+        post => { this.blogService.post = post; },
+        error => console.log(error),
+        () => {
+          tinymce.activeEditor.setContent(this.blogService.post.content);
+          this.setFormValue();
+        }
+        );
+    }
+
   }
 
   initFormGroup() {
     this.newPostForm = this._formBuilder.group({
-      title: ['', Validators.required, Validators.maxLength(150)],
-      description: ['', Validators.maxLength(400)],
+      title: [''],
+      description: [''],
       content: [this.content, Validators.required]
     });
+  }
+
+  postSubmit() {
+    this.pageIdentifier == 0 ? this.addNewPost() : this.editPost();
   }
 
   addNewPost() {
@@ -87,18 +115,53 @@ export class NewpostComponent implements OnInit, AfterViewInit, OnDestroy {
         this.blogService.onError(error);
       },
       () => {
-        this.blogService.onComplete();       
+        this.blogService.onComplete();
         this._router.navigate(['/blog']);
       }
-    );
+      );
 
   }
 
-  ngAfterViewInit() {
+  editPost() {
+    this.blogService.showLoading = true;
+    this.newPost = new Post();
+    this.newPost.id = this.pageIdentifier;
+    this.newPost.title = this.newPostForm.value.title;
+    this.newPost.description = this.newPostForm.value.description;
+    this.newPost.content = this.newPostForm.value.content;
+    this.newPost.author = this.user.displayName == null ? 'undefined' : this.user.displayName;
+    this.newPost.createdOn = this.blogService.post.createdOn;
+    this.newPost.updatedOn = Date.now().toString();
+    this.blogService.editObsPost(this.newPost)
+      .subscribe(
+      res => this.blogService.getPosts(),
+      error => {
+        alert('Edit post failed.');
+        this.blogService.onError(error);
+      },
+      () => {
+        this.blogService.onComplete();
+        this._router.navigate(['/blog',this.pageIdentifier]);
+      }
+      );
+  }
+
+  setFormValue() {
+    this.newPostForm.patchValue({
+      title: this.blogService.post.title,
+      description: this.blogService.post.description
+    });
+    // this.newPostForm.patchValue({description:this.blogService.post.description});
+    // debugger;
+  }
+
+  ngAfterViewInit() { }
+
+  initTinyMCE() {
     tinymce.init({
       selector: '#tinymceEditor',
-      plugins: ['advlist','link', 'paste', 'table', 'codesample', 'image','textcolor','colorpicker','preview'],
-      
+      plugins: ['advlist', 'link', 'paste', 'table', 'codesample', 'image', 'textcolor', 'colorpicker', 'preview'],
+
       toolbar1: 'undo redo | insert | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent',
       toolbar2: 'forecolor backcolor | link image codesample preview',
       skin_url: '../../assets/skins/lightgray',

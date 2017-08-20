@@ -33,7 +33,7 @@
             <md-icon>feedback</md-icon>
             <span>Report post</span>
           </button> 
-          <button md-menu-item *ngIf="(afAuth.authState | async)" (click)="editPost()">
+          <button md-menu-item *ngIf="(afAuth.authState | async)" (click)="editPost(post)">
             <md-icon>mode_edit</md-icon>
             <span>Edit</span>
           </button>

@@ -39,7 +39,7 @@ export class BlogService {
         this.post = new Post();
         this.posts = new Array<Post>();
         _af.user.subscribe(
-            res => {this.user = res; this._token = this.user.Yd;},
+            res => { this.user = res; this._token = this.user.Yd; },
             error => this.errorMessage = error
         )
     }
@@ -78,7 +78,7 @@ export class BlogService {
         let headers = new Headers();
         headers.append('Accept', 'application/json');
         headers.append('Content-Type', 'application/json');
-        headers.append('Authorization','Bearer '+this._token);
+        headers.append('Authorization', 'Bearer ' + this._token);
         this._http.delete(this._postAPIUrl + id, { headers: headers })
             .map(this.extractData)
             .subscribe(
@@ -93,9 +93,25 @@ export class BlogService {
         let _headers = new Headers();
         _headers.append('Accept', 'application/json');
         _headers.append('Content-Type', 'application/json');
-        _headers.append('Authorization','Bearer '+this._token);
+        _headers.append('Authorization', 'Bearer ' + this._token);
         this._http
             .post(this._postAPIUrl, newPost, { headers: _headers })
+            .map(this.extractData)
+            .subscribe(
+            res => this.posts.unshift(res),
+            error => this.onError(error),
+            () => this.onComplete()
+            );
+    }
+
+    editPost(post: IPost) {
+        this.showLoading = true;
+        let _headers = new Headers();
+        _headers.append('Accept', 'application/json');
+        _headers.append('Content-Type', 'application/json');
+        _headers.append('Authorization', 'Bearer ' + this._token);
+        this._http
+            .put(this._postAPIUrl + post.id, post, { headers: _headers })
             .map(this.extractData)
             .subscribe(
             res => this.posts.unshift(res),
@@ -119,7 +135,7 @@ export class BlogService {
     getObsPostById(id: number): Observable<IPost> {
         let _headers = new Headers();
         _headers.append('Accept', 'application/json');
-        _headers.append('Content-Type', 'application/json');        
+        _headers.append('Content-Type', 'application/json');
         return this._http.get(this._postAPIUrl + id, { headers: _headers })
             .map(this.extractData);
     }
@@ -128,7 +144,7 @@ export class BlogService {
         let _headers = new Headers();
         _headers.append('Accept', 'application/json');
         _headers.append('Content-Type', 'application/json');
-        _headers.append('Authorization','Bearer '+this._token);
+        _headers.append('Authorization', 'Bearer ' + this._token);
         return this._http
             .post(this._postAPIUrl, newPost, { headers: _headers })
             .map(this.extractData);
@@ -139,10 +155,22 @@ export class BlogService {
         let _headers = new Headers();
         _headers.append('Accept', 'application/json');
         _headers.append('Content-Type', 'application/json');
-        _headers.append('Authorization','Bearer '+this._token);
+        _headers.append('Authorization', 'Bearer ' + this._token);
         return this._http.delete(this._postAPIUrl + id, { headers: _headers })
             .map(this.extractData);
 
+    }
+
+    editObsPost(post: IPost): Observable<IPost> {
+        this.showLoading = true;
+        let _headers = new Headers();
+        _headers.append('Accept', 'application/json');
+        _headers.append('Content-Type', 'application/json');
+        _headers.append('Authorization', 'Bearer ' + this._token);
+        return this._http
+            .put(this._postAPIUrl + post.id, post, { headers: _headers })
+            .map(this.extractData);
+            
     }
 
     private extractData(res: Response) {

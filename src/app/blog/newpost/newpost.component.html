@@ -1,6 +1,6 @@
 <div class="container newpost-container">
-  <form (ngSubmit)="addNewPost()" [formGroup]="newPostForm" novalidate>
-    <h2 class="pull-left">New post</h2>
+  <form (ngSubmit)="postSubmit()" [formGroup]="newPostForm" novalidate>
+    <h2 class="pull-left">{{formHeader}}</h2>
     <button [disabled]="!(afAuth.authState | async) || newPostForm.invalid" type="submit" class="btn btn-lg btn-primary pull-right">
       <span *ngIf="(afAuth.authState | async)">Submit</span>
       <span *ngIf="!(afAuth.authState | async)">Please login before submit</span>
@@ -10,7 +10,7 @@
                                         'has-danger': (newPostForm.get('title').touched || newPostForm.get('title').dirty) && !newPostForm.get('title').valid}">
       <!-- <label for="title">Title</label> -->
       <md-input-container class="md-form-control">
-       <input formControlName="title" mdInput placeholder="Title *" #title maxlength="150">
+       <input formControlName="title" mdInput placeholder="Title" #title maxlength="150" required>
        <md-hint align="end">{{title.value.length}} / 150</md-hint> 
       </md-input-container>
       <!-- <input formControlName="title" type="text" class="form-control" placeholder="required"> -->
@@ -38,8 +38,6 @@
 
 
   </form>
-
-
 
 
 

@@ -45,7 +45,11 @@ export class PostListComponent implements OnInit {
   }
 
   goToNewpost() {
-    this._router.navigate(['/blog/newpost']);
+    this._router.navigate(['/blog/0/edit']);
+  }
+
+  editPost(post: Post){
+    this._router.navigate(['/blog',post.id,'edit']);
   }
 
 }
