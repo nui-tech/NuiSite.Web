@@ -3,7 +3,7 @@
   <div class="row justify-content-center">
 
 
-    <div class="col-lg-7 col-xs-12 col-sm-9 post-wrapper">
+    <section class="col-lg-7 col-xs-12 col-sm-9 post-wrapper">
 
 
       <div class="alert alert-info" role="alert">
@@ -27,12 +27,12 @@
           <md-icon>more_horiz</md-icon>
         </button>
 
-        <md-menu #menu="mdMenu" xPosition="before"  yPosition="below">
+        <md-menu #menu="mdMenu" xPosition="before" yPosition="below">
 
-           <button md-menu-item disabled>
+          <button md-menu-item disabled>
             <md-icon>feedback</md-icon>
             <span>Report post</span>
-          </button> 
+          </button>
           <button md-menu-item *ngIf="(afAuth.authState | async)" (click)="editPost(post)">
             <md-icon>mode_edit</md-icon>
             <span>Edit</span>
@@ -48,17 +48,19 @@
 
             <section class="post-title">
 
+              <header>
+                <h4>{{post.title}}</h4>
+                <i class="text-muted">
+                  <span class="author">Posted by <b>{{post.author}}</b> </span>
+                  <span class="date">on {{post.createdOn | date: 'longDate'}}</span>
+                </i>
+              </header>
 
 
-              <h4>{{post.title}}</h4>
-              <i class="text-muted">
-              <span class="author">Posted by <b>{{post.author}}</b> </span>
-              <span class="date">on {{post.createdOn | date: 'longDate'}}</span>
-              </i>
-              <div class="description text-muted">{{post.description}}</div>
-              
+              <article class="description text-muted">{{post.description}}</article>
+
             </section>
-            
+
             <!-- <section class="post-content" [innerHTML]="post.content"></section> -->
 
             <section class="post-social" style="margin-top:2%;">
@@ -86,12 +88,10 @@
 
       </div>
 
-    </div>
+    </section>
 
-    <div class="col-lg-3 col-xs-12 col-sm-3 blog-sidebar">
+    <aside class="col-lg-3 col-xs-12 col-sm-3 blog-sidebar">
       <button type="button" class="btn btn-primary btn-newpost" (click)="goToNewpost()">
-        <!-- <i class="fa fa-pencil" aria-hidden="true" style="margin-right: 3px; font-size:28px;"></i>  
-        Write -->
         <md-icon>create</md-icon>
         <span>Write</span>
       </button>
@@ -111,7 +111,7 @@
 
 
       </div>
-    </div>
+    </aside>
 
 
   </div>
