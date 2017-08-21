@@ -1,53 +1,54 @@
-﻿
-
-<div class="container post-container">
+﻿<div class="container post-container">
 
   <div class="alert alert-danger" *ngIf="errorMessage != null">
-  {{errorMessage}}</div>
+    {{errorMessage}}</div>
 
   <section class="post-title">
 
     <button class="post-action pull-right" md-icon-button [mdMenuTriggerFor]="menu" title="edit/delete post">
           <md-icon>more_horiz</md-icon>
-        </button>
+    </button>
 
+ 
     <md-menu #menu="mdMenu" xPosition="before">
 
-       <button md-menu-item disabled>
+      <button md-menu-item disabled>
             <md-icon>feedback</md-icon>
             <span>Report post</span>
-          </button> 
+      </button>
       <button md-menu-item *ngIf="(afAuth.authState | async)" (click)="editPost(post)">
             <md-icon>mode_edit</md-icon>
             <span>Edit</span>
-          </button>
+      </button>
       <button md-menu-item *ngIf="(afAuth.authState | async)" (click)="deletePost(post.id)">
             <md-icon style="color:tomato;">delete_forever</md-icon>
             <span style="color:tomato;">Delete</span>
-          </button>
+      </button>
 
     </md-menu>
 
+    <header>
+      <h1>{{post.title}}</h1>
+      <i class="text-muted">
+        <span class="author">Posted by <b>{{post.author}}</b> </span>
+        <span class="date">on {{post.createdOn | date: 'longDate'}}</span>
+        <!-- <span class="date" *ngIf="post.updatedOn != post.createdOn"> (updateed on {{post.updatedOn | date: 'shortDate'}})</span> -->
+      </i>
+    </header>
 
-    <h1>{{post.title}}</h1>
-    <i class="text-muted">
-      <span class="author">Posted by <b>{{post.author}}</b> </span>
-      <span class="date">on {{post.createdOn | date: 'longDate'}}</span>
-      <!-- <span class="date" *ngIf="post.updatedOn != post.createdOn"> (updateed on {{post.updatedOn | date: 'shortDate'}})</span> -->
-    </i>
 
   </section>
 
   <section class="post-content">
-    <div [innerHTML]="post.content | safeHtml"></div>
+    <article [innerHTML]="post.content | safeHtml"></article>
   </section>
 
   <section class="post-social" style="margin-top:2%;">
 
   </section>
-  
+
   <section class="disqus-comment">
-  <disqus-thread [page-identifier]="pageIdentifier" [page-url]="pageUrl"></disqus-thread>
-    
+    <disqus-thread [page-identifier]="pageIdentifier" [page-url]="pageUrl"></disqus-thread>
   </section>
+
 </div>
