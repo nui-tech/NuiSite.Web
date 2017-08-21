@@ -56,26 +56,6 @@
           </md-menu>
 
         </li>
-
-
-
-
-        <!-- <li class="nav-item dropdown" *ngIf="(afAuth.authState | async)">
-          <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
-            aria-expanded="false">
-         Login as {{user.displayName == null? 'No name' : user.displayName}}
-        </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" (click)="authenService.logout()">Logout</a>
-
-          </div>
-        </li> -->
-        <!-- <li class="nav-item">
-          <a *ngIf="(afAuth.authState | async)" class="nav-link">{{user.displayName}}</a>
-        </li>
-        <li class="nav-item">
-          <a *ngIf="(afAuth.authState | async)" class="nav-link" (click)="authenService.logout()"> Logout</a>
-        </li> -->
         <li *ngIf="!(afAuth.authState | async)" class="nav-item dropdown">
           <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Login <span class="caret"></span></a>
           <ul id="login-dp" class="dropdown-menu dropdown-menu-right">
@@ -118,12 +98,6 @@
             </li>
           </ul>
         </li>
-        <!-- <li class="nav-item hidden-sm-down" *ngIf="(afAuth.authState | async)">
-          <div class="nav-link">|</div>
-        </li> 
-         <li class="nav-item" *ngIf="(afAuth.authState | async)">
-          <button class="btn btn-success btn-newpost-nav" data-toggle="modal" data-target="#newPostModalLong"><i class="fa fa-pencil" aria-hidden="true"></i></button>
-        </li>  -->
       </ul>
     </div>
   </div>
@@ -136,7 +110,6 @@
 
 <!--Body-->
 <div class="container-fluid body">
-  <!-- <md-progress-spinner class="loading-spinner" *ngIf="blogService.showLoading" color="primary" mode="indeterminate"></md-progress-spinner> -->
   <router-outlet></router-outlet>
 </div>
 
@@ -164,80 +137,3 @@
 
   </div>
 </footer>
-
-
-
-
-
-<!-- Modal -->
-<div class="modal fade" id="newPostModalLong" tabindex="-1" role="dialog" aria-labelledby="newPostModalLongTitle" aria-hidden="true"
-  data-backdrop="static">
-  <div class="modal-dialog modal-lg" role="document">
-    <div class="modal-content">
-
-
-      <!-- Post Form -->
-      <form (ngSubmit)="addPost()" [formGroup]="addPostForm" novalidate>
-
-        <div class="modal-header">
-          <h5 class="modal-title" id="newPostModalLongTitle">New Post</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-        </div>
-        <!--Model inner Start here-->
-        <div class="modal-body">
-          <!--Title-->
-          <div class="form-group row" [ngClass]="{'has-success': addPostForm.get('title').valid, 
-                                        'has-danger': (addPostForm.get('title').touched || addPostForm.get('title').dirty) && !addPostForm.get('title').valid}">
-            <label for="title" class="col-sm-2 col-form-label">Title</label>
-            <div class="col-sm-10">
-              <input formControlName="title" type="text" class="form-control" placeholder="required">
-            </div>
-          </div>
-          <!--Author-->
-          <div class="form-group row" [ngClass]="{'has-success': addPostForm.get('author').valid, 
-                                        'has-danger': (addPostForm.get('author').touched || addPostForm.get('author').dirty) && !addPostForm.get('author').valid}">
-            <label for="author" class="col-sm-2 col-form-label">Author</label>
-            <div class="col-sm-10">
-              <input formControlName="author" type="text" class="form-control" placeholder="required">
-            </div>
-          </div>
-          <!--Picture-->
-          <!-- <div class="form-group row">
-                        <label for="picurl" class="col-sm-2 col-form-label">Picture</label>
-                        <div class="col-sm-10">
-                            <input formControlName="picurl" type="text" class="form-control">
-                        </div>
-                    </div> -->
-          <!--Date-->
-          <!--<div class="form-group row" [ngClass]="{'has-success': addPostForm.get('createdon').valid, 
-                                        'has-danger': (addPostForm.get('createdon').touched || addPostForm.get('createdon').dirty) && !addPostForm.get('createdon').valid}">
-                        <label for="createdon" class="col-sm-2 col-form-label">Date</label>
-                        <div class="col-sm-10">
-                            <input formControlName="createdon" class="form-control" type="date" placeholder="Date"> </div>
-                    </div>-->
-
-          <!--Content-->
-          <div class="" [ngClass]="{'has-success': addPostForm.get('content').valid, 
-                                        'has-danger': (addPostForm.get('content').touched || addPostForm.get('content').dirty) && !addPostForm.get('content').valid}">
-            <label for="content" class="form-label">Content</label>
-            <!--<textarea formControlName="content" class="form-control" rows="5"></textarea>-->
-            <!-- <txt-editor [elementId]="'my-editor-id'" (onEditorKeyup)="keyupHandlerFunction($event)"></txt-editor>  -->
-
-          </div>
-
-          <!--End model inner-->
-        </div>
-        <div class="modal-footer">
-          <div class="form-group">
-            <button [disabled]="!addPostForm.valid" type="submit" class="btn btn-primary">Post</button>
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-          </div>
-        </div>
-
-      </form>
-
-    </div>
-  </div>
-</div>
