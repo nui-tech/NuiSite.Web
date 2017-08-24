@@ -241,8 +241,8 @@ a.btn-newpost-nav :hover {
 ************************************/
 
 .list-pagination {
-  margin-top: 4rem;
-  padding-top: 2rem;
+  /* margin-top: 4rem; */
+  padding-top: 0.5rem;
   padding-bottom: 2rem;
 }
 

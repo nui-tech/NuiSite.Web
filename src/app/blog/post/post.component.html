@@ -3,7 +3,7 @@
   <div class="alert alert-danger" *ngIf="errorMessage != null">
     {{errorMessage}}</div>
 
-  <section class="post-title">
+  <section class="post-title" *ngIf="blogService.post.id == undefined">
 
     <button class="post-action pull-right" md-icon-button [mdMenuTriggerFor]="menu" title="edit/delete post">
           <md-icon>more_horiz</md-icon>
