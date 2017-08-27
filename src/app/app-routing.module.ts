@@ -16,7 +16,7 @@ const routes: Routes = [
   { path: 'blog', loadChildren: './blog/blog.module#BlogModule' },
   //{ path: 'blog/:id', loadChildren: './blog/blog.module#BlogModule' },
   { path: 'login', component: LoginComponent},
-  { path: '', loadChildren: './blog/blog.module#BlogModule' },
+  { path: '', component: CvCoverComponent },
   { path: '**', component: PagenotfoundComponent }
 
 ];

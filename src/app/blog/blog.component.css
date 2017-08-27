@@ -235,6 +235,16 @@ a.btn-newpost-nav :hover {
   padding: 10px;
 }
 
+/* badges section  */
+section.badges{
+  margin-top: 15px;
+}
+article.badges{
+  text-align: center;
+}
+.mta{
+  width: 150px;
+}
 
 /************************************
     Pagination
