@@ -191,11 +191,12 @@ section .exp-item h3 {
     margin: 0 2px; 
     }
 
+
 /* Education ======================= */
 .education{
     float: left;
     width: 60%;
-    margin-top: 3%;
+    margin-top: 15px;
     display: block;
     /* width: 100%; */
 }
@@ -203,14 +204,31 @@ section .exp-item h3 {
 .kku{
     margin-left: 4%;
 }
+/* Certification =================== */
+.certification{
+    float: left;
+    margin-top: 10px;
+    width: 60vw;
+}
+.certification > main{
+    margin-left: 4%; 
+}
+.mta > header > a > img{
+    width: 100px;
+    margin-right: 10px;
+}
+.mta > div{
+   padding-top: 22px;
+}
 
+/* Reference ======================= */
 .ref{
     float: left;
-    margin-top: 3%;
+    margin-top: 10px;
     width: 60vw;
 }
 
-.ref section{
+.ref main{
     margin-left: 4%;
 }
 
@@ -243,6 +261,16 @@ section .exp-item h3 {
     section .exp-item {
         margin-top: 4%;
     }
+    section.skills{
+        width: 100%;
+    }
+    section.education{
+        width: 100%;
+    }
+    section.certification{
+        width: 100%;
+    }   
+
     article {
         margin-top: 6%;
     }
@@ -252,6 +280,7 @@ section .exp-item h3 {
     h3{
         font-size: 150%;
     }
+
 
 }
 @media print {
@@ -285,7 +314,7 @@ aside > section > p >  a > i{
     width: 100%;
 }
 .skill-set{
-        width: 100%;
+    width: 100%;
 }
 .skill-list{
     margin-right: 30px;
