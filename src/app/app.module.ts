@@ -22,6 +22,7 @@ import { AuthenService } from './authen.service';
 import { AppComponent } from './app.component';
 import { PagenotfoundComponent } from './shared/pagenotfound/pagenotfound.component';
 import { LoginComponent } from './login/login.component';
+import { PortfolioComponent } from './portfolio/portfolio.component';
 
 import { firebaseconfig } from '../environments/environment'
 import 'hammerjs';
@@ -31,7 +32,8 @@ import 'prismjs';
   declarations: [
     AppComponent,
     PagenotfoundComponent,
-    LoginComponent
+    LoginComponent,
+    PortfolioComponent
   ],
   imports: [
     //Ng modules 
