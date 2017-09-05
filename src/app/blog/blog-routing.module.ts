@@ -11,11 +11,10 @@ import { NewpostComponent } from "./newpost/newpost.component";
 const routes: Routes = [
   {
     path: '', component: BlogComponent,
-    children: [      
-      { path: '', component: PostListComponent},
+    children: [
       { path: ':id', component: PostComponent },
-      { path: ':id/edit', component: NewpostComponent}
-      
+      { path: ':id/edit', component: NewpostComponent },
+      { path: '', component: PostListComponent },
     ]
   }
 ];

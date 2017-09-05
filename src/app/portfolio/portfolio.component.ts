@@ -1,3 +1,5 @@
+import { TweenLite } from 'gsap';
+import { Title } from '@angular/platform-browser';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PortfolioComponent implements OnInit {
 
-  constructor() { }
+  constructor( private titleService: Title) { 
+    this.titleService.setTitle('Portfolio - Nui Rattapon');
+  }
 
   ngOnInit() {
+        TweenLite.from('.nav', 1.5, { opacity: 1, x:50 });
   }
 
 }

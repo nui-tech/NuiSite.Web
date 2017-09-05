@@ -1,0 +1,18 @@
+/* Nav bar ==========================*/
+.nav{
+    margin-top: 15px;
+    margin-right: 30px;   
+}
+.nav a{  
+    font-weight: 400;
+    color: #66a5ad;
+}
+.nav a:hover{
+    background-color: rgba(0, 0, 0, 0.1);
+}
+.active{
+    background: rgba(0, 0, 0, 0.1);
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    font-weight: bold;
+    color: black;
+}

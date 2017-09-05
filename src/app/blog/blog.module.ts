@@ -18,6 +18,7 @@ import { SharedModule } from '../shared/shared.module';
 import { BlogRoutingModule } from './blog-routing.module';
 import { BlogComponent } from './blog.component';
 import { PostComponent } from './post/post.component';
+// import { PortfolioComponent } from './../portfolio/portfolio.component';
 
 import { BlogService } from './blog.service';
 import { TxtEditorComponent } from './txt-editor/txt-editor.component';

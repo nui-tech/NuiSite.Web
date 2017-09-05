@@ -11,14 +11,13 @@ import { PagenotfoundComponent} from './shared/pagenotfound/pagenotfound.compone
 
 
 const routes: Routes = [
-
   { path: 'cover', component: CvCoverComponent },
   { path: 'resume', component: CvComponent },
-  { path: 'portfolio', component: PortfolioComponent},
   { path: 'blog', loadChildren: './blog/blog.module#BlogModule' },
+  { path: 'portfolio', component: PortfolioComponent},
   //{ path: 'blog/:id', loadChildren: './blog/blog.module#BlogModule' },
   { path: 'login', component: LoginComponent},
-  { path: '', component: CvCoverComponent },
+  { path: '', loadChildren: './blog/blog.module#BlogModule' },
   { path: '**', component: PagenotfoundComponent }
 
 ];
