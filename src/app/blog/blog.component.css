@@ -70,7 +70,7 @@ a:hover {
 .navbar {
   background-color: #fafafa;
   border-bottom: 1px solid #e4e4e4;
-  min-height: 80px;
+  min-height: 70px;
   margin-bottom: 10px;
   /* box-shadow: 0 0 4px rgba(103, 103, 103, 0.14), 0 4px 8px rgba(56, 56, 56, 0.28); */
 }
@@ -150,8 +150,8 @@ a.btn-newpost-nav :hover {
   border-radius: 4px;
   border: 1px solid rgba(230, 230, 230, 0);
   /* box-shadow: 0 1px 8px 0 rgba(0,0,0,.2), 0 3px 4px 0 rgba(0,0,0,.14), 0 3px 3px -2px rgba(0,0,0,.12); */
-   min-height: 200px; 
-   /* max-height: 300px; */
+  min-height: 200px;
+  /* max-height: 300px; */
 }
 
 .post-container:hover {
@@ -197,7 +197,7 @@ a.btn-newpost-nav :hover {
   font-weight: 500;
 }
 
-.description{
+.description {
   margin-top: 15px;
 }
 
@@ -235,16 +235,21 @@ a.btn-newpost-nav :hover {
   padding: 10px;
 }
 
+
 /* badges section  */
-section.badges{
+
+section.badges {
   margin-top: 15px;
 }
-article.badges{
+
+article.badges {
   text-align: center;
 }
-.mta{
+
+.mta {
   width: 150px;
 }
+
 
 /************************************
     Pagination
@@ -337,9 +342,11 @@ article.badges{
   }
 }
 
+
 /************************************
     Loading bar
 ************************************/
+
 .loading-spinner {
   position: absolute;
   left: 40vw;
@@ -347,7 +354,7 @@ article.badges{
   z-index: 1;
 }
 
-.loading-bar{
+.loading-bar {
   position: fixed;
   top: 0;
   height: 3px;
@@ -374,9 +381,8 @@ article.badges{
 }
 
 @media(max-width:576px) {
-  .newpost {
-    margin-right: 0px;
-    margin-bottom: 15px;
+  .navbar {
+    min-height: 60px;
   }
   .blog-main,
   .blog-sidebar {
