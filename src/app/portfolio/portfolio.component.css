@@ -1,18 +1,92 @@
 /* Nav bar ==========================*/
-.nav{
-    margin-top: 15px;
-    margin-right: 30px;   
+
+.nav {
+  margin-top: 15px;
+  margin-right: 30px;
 }
-.nav a{  
-    font-weight: 400;
-    color: #66a5ad;
+
+.nav a {
+  font-weight: 400;
+  color: #66a5ad;
 }
-.nav a:hover{
-    background-color: rgba(0, 0, 0, 0.1);
+
+.nav a:hover {
+  background-color: rgba(0, 0, 0, 0.1);
 }
-.active{
-    background: rgba(0, 0, 0, 0.1);
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-    font-weight: bold;
-    color: black;
+
+.active {
+  background: rgba(0, 0, 0, 0.1);
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  font-weight: bold;
+  color: black;
+}
+
+section {
+  font-weight: 500;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+header.page {
+  padding: 65px 0;
+  text-align: center;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 300;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+h4{
+    color: #07575b;
+}
+
+img {
+  width: 100%;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  float: left;
+  margin-left: 8px;
+}
+
+li>img {
+  width: 100px;
+}
+
+a:hover{
+  text-decoration-line: none;
+}
+a:focus{
+   text-decoration-line: none; 
+}
+
+.view-work {
+  position: relative;
+  bottom: 0;
+  left: 0;
+  margin: 15px 0px 0px;
+}
+
+
+.twiss-b {
+  background-color: #efeded;
+  -webkit-clip-path: polygon(0 0%, 100% 4%, 100% 96%, 0% 100%);
+  clip-path: polygon(0 0%, 100% 4%, 100% 96%, 0% 100%);
+  padding: 65px 10px;
+}
+
+.twiss-f {
+  -webkit-clip-path: polygon(0% 4%, 100% 0%, 100% 100%, 0% 96%);
+  clip-path: polygon(0% 4%, 100% 0%, 100% 100%, 0% 96%);
+  padding: 65px 10px;
+  /* background-color: gray; */
 }
