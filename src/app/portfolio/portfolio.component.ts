@@ -15,8 +15,8 @@ export class PortfolioComponent implements OnInit {
 
   ngOnInit() {
         TweenLite.from('.nav', 1.5, { opacity: 1, x:50 });
-        TweenLite.from('.slide-left',0.5, { opacity: 1, x:-100, deley: 5 });
-        TweenLite.from('.slide-right',0.5, { opacity: 1, x:100, deley: 10 });
+        TweenLite.from('.slide-left',0.7, { opacity: 1, x:-100, deley: 5 });
+        TweenLite.from('.slide-right',0.7, { opacity: 1, x:100, deley: 10 });
         
   }
 
