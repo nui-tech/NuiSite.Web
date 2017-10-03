@@ -1,4 +1,5 @@
-﻿import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+﻿import { AppService } from './../app.service';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { AsyncPipe } from '@angular/common';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
@@ -42,7 +43,7 @@ declare var tinymce: any;
 
 })
 export class BlogComponent implements OnInit {
-  user:firebase.User;
+  user: firebase.User;
   loginForm: FormGroup;
   addPostForm: FormGroup;
   postContent: any;
@@ -57,10 +58,11 @@ export class BlogComponent implements OnInit {
     public authenService: AuthenService,
     private fb: FormBuilder,
     public blogService: BlogService,
-    private titleService: Title
+    private titleService: Title,
+    private appservice: AppService
     //private _makdown: MarkdownService
   ) {
-  
+
 
 
   }
@@ -73,9 +75,10 @@ export class BlogComponent implements OnInit {
       .subscribe(
       res => this.user = res,
       error => alert(error)
-    );
+      );
     this.initAnimation();
     this.initFormGroup();
+    this.getIP();
   }
 
 
@@ -125,6 +128,17 @@ export class BlogComponent implements OnInit {
 
   keyupHandlerFunction(event) {
     this.postContent = event;
+  }
+
+  IppDetails:any;
+  errorMessage: any;
+  getIP() {
+    // this.loading = true;
+    this.appservice.getIP()
+      .subscribe(
+      res => {console.log(res); this.IppDetails = res;},
+      error => this.errorMessage = <any>error
+      );
   }
 
 }

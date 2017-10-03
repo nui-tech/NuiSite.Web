@@ -20,6 +20,7 @@ import { BlogComponent } from './blog.component';
 import { PostComponent } from './post/post.component';
 // import { PortfolioComponent } from './../portfolio/portfolio.component';
 
+import { AppService } from './../app.service';
 import { BlogService } from './blog.service';
 import { TxtEditorComponent } from './txt-editor/txt-editor.component';
 import { PostListComponent } from './post-list/post-list.component';
@@ -51,7 +52,7 @@ import { NewpostComponent } from './newpost/newpost.component';
   entryComponents: [
 
   ],
-  providers: [BlogService],
+  providers: [BlogService,AppService],
   //exports:[BlogModule],
   declarations: [
     BlogComponent,

@@ -1,4 +1,6 @@
 ﻿import { Component, OnInit, Input } from '@angular/core';
+import { AppService } from './app.service';
+
 
 @Component({
   moduleId: module.id,
@@ -7,13 +9,21 @@
   styleUrls: ['app.component.css']
 })
 export class AppComponent implements OnInit {
-loadingBar = false;
+  loadingBar = false;
+  IppDetails: any;
+  errorMessage: any;
+
 
   ngOnInit() {
-    this.loadingBar = true;
+    // this.loadingBar = true;
+
   }
 
-  constructor() {}
+  constructor(
+    
+  ) { }
+
+
 
 }
 
