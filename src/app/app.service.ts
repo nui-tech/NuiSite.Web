@@ -13,7 +13,7 @@ export class AppService {
     ) { }
 
     public getIP(): Observable<any[]> {
-        return this.http.get('http://ipinfo.io') // ...using post request
+        return this.http.get('https://ipapi.co/json/') // ...using post request
             .map((res: Response) => res.json()) // ...and calling .json() on the response to return data
             .catch((error: any) => Observable.throw(error.json().error || 'Server error')); //...errors if any
     }

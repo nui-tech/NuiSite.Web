@@ -136,7 +136,7 @@ export class BlogComponent implements OnInit {
     // this.loading = true;
     this.appservice.getIP()
       .subscribe(
-      res => {console.log(res); this.IppDetails = res;},
+      res => {this.IppDetails = res;},
       error => this.errorMessage = <any>error
       );
   }

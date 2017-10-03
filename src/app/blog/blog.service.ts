@@ -39,7 +39,7 @@ export class BlogService {
         this.post = new Post();
         this.posts = new Array<Post>();
         _af.user.subscribe(
-            res => { this.user = res; this._token = this.user.Yd; },
+            res => { this.user = res; this._token = this.user.He; },
             error => this.errorMessage = error
         )
     }
