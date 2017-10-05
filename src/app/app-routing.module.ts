@@ -7,6 +7,7 @@ import { CvCoverComponent } from '../app/cv/cv-cover/cv-cover.component';
 import { PortfolioComponent } from './portfolio/portfolio.component';
 import { BlogComponent } from './blog/blog.component';
 import { LoginComponent } from './login/login.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 import { PagenotfoundComponent} from './shared/pagenotfound/pagenotfound.component';
 
 
@@ -15,8 +16,8 @@ const routes: Routes = [
   { path: 'resume', component: CvComponent },
   { path: 'blog', loadChildren: './blog/blog.module#BlogModule' },
   { path: 'portfolio', component: PortfolioComponent},
-  //{ path: 'blog/:id', loadChildren: './blog/blog.module#BlogModule' },
   { path: 'login', component: LoginComponent},
+  { path: 'dashboard', component: DashboardComponent},
   { path: '', loadChildren: './blog/blog.module#BlogModule' },
   { path: '**', component: PagenotfoundComponent }
 

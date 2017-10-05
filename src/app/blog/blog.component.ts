@@ -59,11 +59,9 @@ export class BlogComponent implements OnInit {
     private fb: FormBuilder,
     public blogService: BlogService,
     private titleService: Title,
-    private appservice: AppService
+    public appservice: AppService
     //private _makdown: MarkdownService
   ) {
-
-
 
   }
 
@@ -78,7 +76,6 @@ export class BlogComponent implements OnInit {
       );
     this.initAnimation();
     this.initFormGroup();
-    this.getIP();
   }
 
 
@@ -130,15 +127,5 @@ export class BlogComponent implements OnInit {
     this.postContent = event;
   }
 
-  IppDetails:any;
-  errorMessage: any;
-  getIP() {
-    // this.loading = true;
-    this.appservice.getIP()
-      .subscribe(
-      res => {this.IppDetails = res;},
-      error => this.errorMessage = <any>error
-      );
-  }
 
 }

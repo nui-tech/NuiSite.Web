@@ -139,7 +139,7 @@
     </span>
     <span class="text-muted pull-left">©2017 Nui Rattapon.</span>
 
-    <span class="text-muted"  *ngIf="IppDetails != null">Your IP: {{IppDetails.ip}} | City:{{IppDetails.city}} | Region:{{IppDetails.region}} </span>
+    <span class="text-muted"  *ngIf="appservice.ipDetails != null">Your IP: {{appservice.ipDetails.ip}} | {{appservice.ipDetails.city}} </span>
     
   </div>
 </footer>

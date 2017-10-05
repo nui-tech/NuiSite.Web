@@ -2,6 +2,7 @@
 import { BrowserModule, Title } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpModule } from '@angular/http';
 
 //3rd party
 import { MdButtonModule, MdIconModule } from '@angular/material';
@@ -17,28 +18,33 @@ import { CvModule } from './cv/cv.module';
 
 //Custom Services
 import { AuthenService } from './authen.service';
+import { AppService } from './app.service';
 
 //Custom Components
 import { AppComponent } from './app.component';
 import { PagenotfoundComponent } from './shared/pagenotfound/pagenotfound.component';
 import { LoginComponent } from './login/login.component';
 import { PortfolioComponent } from './portfolio/portfolio.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 import { firebaseconfig } from '../environments/environment'
 import 'hammerjs';
 import 'prismjs';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     PagenotfoundComponent,
     LoginComponent,
-    PortfolioComponent
+    PortfolioComponent,
+    DashboardComponent
   ],
   imports: [
     //Ng modules 
     BrowserModule,
     BrowserAnimationsModule,
+    HttpModule,
 
     //3rd party modules
     AngularFireModule.initializeApp(firebaseconfig),
@@ -59,7 +65,8 @@ import 'prismjs';
     AuthenService,
     AngularFireAuth,
     AngularFireDatabase,
-    Title
+    Title,
+    AppService
   ],
   bootstrap: [AppComponent]
 })

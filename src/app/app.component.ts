@@ -1,6 +1,8 @@
 ﻿import { Component, OnInit, Input } from '@angular/core';
-import { AppService } from './app.service';
+import { Observable } from 'rxjs/Observable';
+import { AsyncPipe } from '@angular/common';
 
+import { AppService } from './app.service';
 
 @Component({
   moduleId: module.id,
@@ -9,19 +11,18 @@ import { AppService } from './app.service';
   styleUrls: ['app.component.css']
 })
 export class AppComponent implements OnInit {
-  loadingBar = false;
-  IppDetails: any;
-  errorMessage: any;
-
+  visitors;
+  constructor(
+    public appservice: AppService,
+  ) { }
 
   ngOnInit() {
-    // this.loadingBar = true;
-
+    
   }
 
-  constructor(
-    
-  ) { }
+
+
+
 
 
 
