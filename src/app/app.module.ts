@@ -1,3 +1,4 @@
+import { MdProgressBarModule } from '@angular/material';
 // NG Modules
 import { BrowserModule, Title } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -5,7 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpModule } from '@angular/http';
 
 //3rd party
-import { MdButtonModule, MdIconModule, MdToolbarModule } from '@angular/material';
+import { MdButtonModule, MdIconModule, MdToolbarModule, MdTableModule } from '@angular/material';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabaseModule, AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
@@ -55,7 +56,9 @@ import 'prismjs';
     //material
     MdButtonModule,
     MdIconModule,
-    MdToolbarModule
+    MdToolbarModule,
+    MdProgressBarModule,
+    MdTableModule
 
   ],
 
