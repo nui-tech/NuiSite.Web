@@ -5,7 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpModule } from '@angular/http';
 
 //3rd party
-import { MdButtonModule, MdIconModule } from '@angular/material';
+import { MdButtonModule, MdIconModule, MdToolbarModule } from '@angular/material';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabaseModule, AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
@@ -54,7 +54,8 @@ import 'prismjs';
     AppRoutingModule,
     //material
     MdButtonModule,
-    MdIconModule
+    MdIconModule,
+    MdToolbarModule
 
   ],
 
