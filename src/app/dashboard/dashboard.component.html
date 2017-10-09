@@ -9,7 +9,7 @@
 </md-toolbar>
 <md-progress-bar *ngIf="progressBar" mode="indeterminate"></md-progress-bar>
 
-Views: 20
+Views: {{views}}
 <br>
 Visitors:<br>
 Today | This Week | Month | Year
@@ -25,26 +25,26 @@ Today | This Week | Month | Year
             The actual rendered columns are set as a property on the row definition" -->
   
       <!-- Position Column -->
-      <ng-container mdColumnDef="position">
+      <ng-container mdColumnDef="no">
         <md-header-cell *mdHeaderCellDef> No. </md-header-cell>
         <md-cell *mdCellDef="let element"> {{element.position}} </md-cell>
       </ng-container>
   
       <!-- Name Column -->
-      <ng-container mdColumnDef="name">
-        <md-header-cell *mdHeaderCellDef> Name </md-header-cell>
+      <ng-container mdColumnDef="ip">
+        <md-header-cell *mdHeaderCellDef> IP </md-header-cell>
         <md-cell *mdCellDef="let element"> {{element.name}} </md-cell>
       </ng-container>
   
       <!-- Weight Column -->
-      <ng-container mdColumnDef="weight">
-        <md-header-cell *mdHeaderCellDef> Weight </md-header-cell>
+      <ng-container mdColumnDef="city">
+        <md-header-cell *mdHeaderCellDef> City </md-header-cell>
         <md-cell *mdCellDef="let element"> {{element.weight}} </md-cell>
       </ng-container>
   
       <!-- Color Column -->
-      <ng-container mdColumnDef="symbol">
-        <md-header-cell *mdHeaderCellDef> Symbol </md-header-cell>
+      <ng-container mdColumnDef="time">
+        <md-header-cell *mdHeaderCellDef> Time </md-header-cell>
         <md-cell *mdCellDef="let element"> {{element.symbol}} </md-cell>
       </ng-container>
   

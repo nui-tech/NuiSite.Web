@@ -15,10 +15,11 @@ export class AppService {
 
     visitors: FirebaseListObservable<any[]> = null;
     visitor: FirebaseObjectObservable<any> = null;
-    ipDetails: any ;
+    ipDetails: any;
     errorMessage: any;
+    visits:any;
 
-    private basePath: string = '/visitors';
+    private basePath: string = '/visits';
 
 
     constructor(
@@ -26,7 +27,7 @@ export class AppService {
         private db: AngularFireDatabase
     ) {
         this.visitors = this.getItemsList();
-        this.ipDetails = this.getIP();
+        this.ipDetails = this.getIP();   
     }
 
     public getIP() {
