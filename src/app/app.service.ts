@@ -17,7 +17,7 @@ export class AppService {
     visitor: FirebaseObjectObservable<any> = null;
     ipDetails: any;
     errorMessage: any;
-    visits:any;
+    visits: any;
 
     private basePath: string = '/visits';
 
@@ -27,7 +27,7 @@ export class AppService {
         private db: AngularFireDatabase
     ) {
         this.visitors = this.getItemsList();
-        this.ipDetails = this.getIP();   
+        this.ipDetails = this.getIP();
     }
 
     public getIP() {
