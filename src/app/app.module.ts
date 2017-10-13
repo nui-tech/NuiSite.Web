@@ -59,7 +59,6 @@ import 'prismjs';
     MdToolbarModule,
     MdProgressBarModule,
     MdTableModule
-
   ],
 
   entryComponents: [
