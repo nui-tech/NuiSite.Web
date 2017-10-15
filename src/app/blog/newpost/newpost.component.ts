@@ -8,8 +8,6 @@ import { AuthenService } from './../../authen.service';
 
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
-//custom
-// import { slideInOutAnimation } from '../../_animations/index'
 
 import { IPost, Post } from './../Post';
 
