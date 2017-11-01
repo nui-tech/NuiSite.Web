@@ -125,13 +125,17 @@ article a:hover {
 }
 
 section .exp-item {
-    border-bottom: 1px solid gray;
     margin-top: 15px;
     margin-left: 4%;
 }
 
 section .exp-item h3 {
     color: #07575b;
+}
+
+section .i1{
+    border-bottom: 1px solid gray;
+    padding-bottom: 15px;
 }
 
 .date {
