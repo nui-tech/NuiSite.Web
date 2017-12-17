@@ -103,8 +103,8 @@
 </head>
 
 <body>
-  
-   <app-root>
+
+  <app-root>
     <div class="spinner">
       <div class="rect1"></div>
       <div class="rect2"></div>
@@ -113,9 +113,24 @@
       <div class="rect5"></div>
     </div>
 
-  </app-root> 
+  </app-root>
 
-  <script src="https://nuiblog.disqus.com/embed.js"></script> 
+  <script src="https://nuiblog.disqus.com/embed.js"></script>
   <script id="dsq-count-scr" src="https://nuiblog.disqus.com/count.js" async></script>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-110995324-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-110995324-1');
+
+  </script>
+
 
 </html>
